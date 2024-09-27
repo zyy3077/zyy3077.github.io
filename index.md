@@ -9,10 +9,11 @@ title: Welcome to my blog
 - 最近忙于ics和练球。
 
 ## Education
-### 北京大学
-- 计算机科学与技术
+### Peking University
+- Computer Science
 - September 2023 - Present
-### 华东师范大学第二附属中学
+  
+### No.2 High School of ECNU
 - 2302
 - September 2020 - June 2023
 
