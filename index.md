@@ -17,12 +17,4 @@ title: Welcome to my blog
 - 2302
 - September 2020 - June 2023
 
-<!-- Posts Section -->
-## Posts
-<ul>
-{% for post in site.posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
-  </li>
-{% endfor %}
-</ul>
+
