@@ -1,1 +1,18 @@
-theme: cayman
+# Setup
+title:        WELCOME
+tagline:      hello
+baseurl:      ""
+paginate:     1
+locale:       "en"
+
+# About/contact
+author:
+  name:       赵媛媛
+  url:        http://zyy3077.github.io 
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
