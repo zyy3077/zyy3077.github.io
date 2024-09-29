@@ -16,6 +16,7 @@ title: Welcome to my blog
 ### No.2 High School of ECNU
 - 2302
 - September 2020 - June 2023
+  
 ## Weekday Schedule
 
 |         | 周一       | 周二                     | 周三                 | 周四               | 周五               |
