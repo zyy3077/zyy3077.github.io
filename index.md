@@ -2,6 +2,7 @@
 title: Welcome to my blog
 ---
 
+
 ## About
 - 你好，我叫赵圆圆，是一个喜欢猫和打球的学生。
 - 目前就读于北京大学信息科学技术学院，计算机科学与技术专业。
@@ -15,6 +16,10 @@ title: Welcome to my blog
 ### No.2 High School of ECNU
 - 2302
 - September 2020 - June 2023
+
+## Weekday Schedule
+![My Weekday Schedule](assets/images/schedule.jpg)
+*欢迎约课*
 
 <!-- Posts Section -->
 ## Posts
