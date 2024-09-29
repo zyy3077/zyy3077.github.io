@@ -17,7 +17,10 @@ title: Welcome to my blog
 - 2302
 - September 2020 - June 2023
 
-## Schedule
+## Weekday Schedule
+![My Weekday Schedule](assets/images/schedule.jpg)
+*欢迎约课*
+
 <!-- Posts Section -->
 ## Posts
 <ul>
