@@ -17,6 +17,7 @@ title: Welcome to my blog
 - 2302
 - September 2020 - June 2023
 
+## Schedule
 <!-- Posts Section -->
 ## Posts
 <ul>
