@@ -11,4 +11,5 @@ url: https://zyy3077.github.io
 author: 赵圆圆
 email: zhaoyuanyuan@stu.pku.edu.cn
 
-
+markdown: kramdown
+highlighter: rouge
