@@ -11,8 +11,4 @@ url: https://zyy3077.github.io
 author: 赵圆圆
 email: zhaoyuanyuan@stu.pku.edu.cn
 
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
-  math_engine_opts:
-    preview: false
+
