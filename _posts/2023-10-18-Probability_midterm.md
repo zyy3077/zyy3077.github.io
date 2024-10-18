@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024fall-信概统-期中复习"
+title: "2024fall-信息学中的概率统计-期中复习"
 date: 2024-10-18
 categories: [Probability_for_Computing, 2024fall]
 tags: [academic, blog]
