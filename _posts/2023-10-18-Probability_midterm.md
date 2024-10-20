@@ -46,6 +46,13 @@ tags: [academic, blog]
     border-radius: 5px; /* Rounded corners for aesthetics */
   }
 </style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -85,7 +92,7 @@ $P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})$
 
 提示： $x < \frac{1}{2}$ 时，有 $\ln(1-x) \geq -x-x^2$
 
-证明思路：因为提示中出现1/2，且待证式子中出现常数8，想到分$m \leq 2n$ 和 $m > 2n$两种情况；
+证明思路：因为提示中出现1/2，且待证式子中出现常数8，想到分 $m \leq 2n$ 和 $m > 2n$两种情况；
 第一种， $LHS \geq 0 \geq RHS$ ；第二种，带入提示中不等式和平方求和公式
 $\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$进行方所即可。
 
@@ -105,7 +112,7 @@ $P(A) = \frac{m(A)}{m(S)}$ ，其中 $S$ 为样本空间， $m$ 为度量
   $P(\bigcup_{i}^{+\infty}A_i) = \sum_{i=1}^{+\infty}P(A_i)$
 
 **一般加法公式**
-$$P(\bigcup_{i=1}^{n}A_i) = \sum_{i=1}^{n}P(A_i) - \sum_{1 \leq i < j \leq n>}P(A_i A_j)+\sum_{1 \leq i < j < k \leq n}P(A_i A_j A_k) + ... +(-1)^{n-1}P(A_1 A_2...A_n)$$
+$$P(\bigcup_{i=1}^{n}A_i) = \sum_{i=1}^{n}P(A_i) - \sum_{1 \leq i < j \leq n}P(A_i A_j)+\sum_{1 \leq i < j < k \leq n}P(A_i A_j A_k) + ... +(-1)^{n-1}P(A_1 A_2...A_n)$$
 例题：错排问题<br>
 有 $n$ 个有编号的球，将他们随机打乱，使得每种排列均等概率出现。求随机打乱后，至少有一个球位置没有改变的概率。<br>
 解：先求1个球位置没有改变的概率；再求2个球位置没有改变的概率...求 $n$ 个球位置没有改变的概率；最后使用一般加法公式即可。
