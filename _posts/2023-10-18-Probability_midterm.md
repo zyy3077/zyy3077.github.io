@@ -64,8 +64,10 @@ tags: [academic, blog]
 
 放法： $m(m-1)⋯(m-n+1)$
 
-$$ P_{n,m} = (1- \frac{1}{m})(1-\frac{2}{m})...(1-\frac{n-1}{m})
+$$ 
+    P_{n,m} = (1- \frac{1}{m})(1-\frac{2}{m})...(1-\frac{n-1}{m})
 $$
+
 $$
     \ln(P_{n,m}) = \ln(1-\frac{1}{m}) + \ln(1-\frac{2}{m})+...+\ln(1-\frac{n-1}{m})
 $$
