@@ -47,6 +47,15 @@ tags: [academic, blog]
   }
 </style>
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      processEscapes: true
+    }
+  });
+</script>
 <script type="text/javascript" async 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -127,3 +136,9 @@ $$P(\bigcup_{i=1}^{n}A_i) \leq \sum_{i=1}^{n}P(A_i)$$<br>
 有限可加性 \\(\nRightarrow\\) 可列可加性
 
 - 反例： \\(S=[0, \infty), P(A) = \lim_{k \to \infty}\frac{1}{k} \lambda(A \cap (0,k)), A_i = [i-1, i)\\) ，其中 \\(\lambda(A)\\) 为 \\(A\\) 的长度。满足有限可加性，不满足可列可加性。
+
+### 5. 条件概率
+$$P(A|B) = \frac{P(AB)}{P(B)}$$
+**乘法公式**<br>
+$$P(A_1 A_2...A_n) = P(A_1)P(A_2 |A_1)...P(A_n |A_1 A_2...A_{n-1})$$
+**全概率公式**
