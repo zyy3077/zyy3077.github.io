@@ -16,7 +16,7 @@ highlighter: rouge
 # Link to the custom CSS
 include:
   - assets/css/custom.css
-  
+
 # markdown: kramdown
 # kramdown:
 #   input: GFM
@@ -24,3 +24,4 @@ include:
 #   syntax_highlighter_opts:
 #     block:
 #       line_numbers: true
+
