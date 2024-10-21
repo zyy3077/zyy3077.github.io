@@ -46,14 +46,7 @@ tags: [academic, blog]
     border-radius: 5px; /* Rounded corners for aesthetics */
   }
 </style>
-<!-- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$', '$']],
-      processEscapes: true
-    }
-  });
-</script> -->
+
 <script type="text/javascript" async 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -91,7 +84,7 @@ $$
 作业一第三题<br>证明：
 $$P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})$$
 
-提示： $$x < \frac{1}{2}$ 时，有 $\ln(1-x) \geq -x-x^2$$
+提示： \\(x < \frac{1}{2}\\) 时，有 \\(\ln(1-x) \geq -x-x^2\\)
 
 证明思路：因为提示中出现1/2，且待证式子中出现常数8，想到分 \\(m \leq 2n\\) 和 \\(m > 2n\\)两种情况。
 - 第一种， \\(LHS \geq 0 \geq RHS\\) 
