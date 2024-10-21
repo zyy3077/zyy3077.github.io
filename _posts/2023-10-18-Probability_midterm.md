@@ -91,7 +91,9 @@ $$
 
 **作业一第三题**<br>
 证明：
-$$P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})$$
+$$
+    P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})
+$$
 
 - 提示： \\(x < \frac{1}{2}\\) 时，有 \\(\ln(1-x) \geq -x-x^2\\)
 
@@ -116,13 +118,17 @@ $$P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})$$
   \\(P(\bigcup_{i}^{+\infty}A_i) = \sum_{i=1}^{+\infty}P(A_i)\\)
 
 **一般加法公式**
-$$P(\bigcup_{i=1}^{n}A_i) = \sum_{i=1}^{n}P(A_i) - \sum_{1 \leq i < j \leq n}P(A_i A_j)+\sum_{1 \leq i < j < k \leq n}P(A_i A_j A_k) + ... +(-1)^{n-1}P(A_1 A_2...A_n)$$
+$$
+    P(\bigcup_{i=1}^{n}A_i) = \sum_{i=1}^{n}P(A_i) - \sum_{1 \leq i < j \leq n}P(A_i A_j)+\sum_{1 \leq i < j < k \leq n}P(A_i A_j A_k) + ... +(-1)^{n-1}P(A_1 A_2...A_n)
+$$
 **例题：错排问题**<br>
 有 \\(n\\) 个有编号的球，将他们随机打乱，使得每种排列均等概率出现。求随机打乱后，至少有一个球位置没有改变的概率。<br>
 解：先求1个球位置没有改变的概率；再求2个球位置没有改变的概率...求 \\(n\\) 个球位置没有改变的概率；最后使用一般加法公式即可。
 
 **Union Bound**<br>
-$$P(\bigcup_{i=1}^{n}A_i) \leq \sum_{i=1}^{n}P(A_i)$$<br>
+$$
+    P(\bigcup_{i=1}^{n}A_i) \leq \sum_{i=1}^{n}P(A_i)
+$$
 **例题：球与桶模型**<br>
 有 \\(n\\) 个球，每个球都等可能被放到 \\(m\\) 个桶中的任一个。求每个桶中至多有一个球的概率。<br>
 解：指定两个球被放入一个桶中的概率 \\(P = \frac{1}{m}\\) <br>
@@ -138,7 +144,11 @@ $$P(\bigcup_{i=1}^{n}A_i) \leq \sum_{i=1}^{n}P(A_i)$$<br>
 - 反例： \\(S=[0, \infty), P(A) = \lim_{k \to \infty}\frac{1}{k} \lambda(A \cap (0,k)), A_i = [i-1, i)\\) ，其中 \\(\lambda(A)\\) 为 \\(A\\) 的长度。满足有限可加性，不满足可列可加性。
 
 ### 5. 条件概率
-$$P(A|B) = \frac{P(AB)}{P(B)}$$
+$$
+    P(A|B) = \frac{P(AB)}{P(B)}
+$$
 **乘法公式**<br>
-$$P(A_1 A_2...A_n) = P(A_1)P(A_2 |A_1)...P(A_n |A_1 A_2...A_{n-1})$$
+$$
+    P(A_1 A_2...A_n) = P(A_1)P(A_2 |A_1)...P(A_n |A_1 A_2...A_{n-1})
+$$
 **全概率公式**
