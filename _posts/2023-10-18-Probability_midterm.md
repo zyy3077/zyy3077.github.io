@@ -46,14 +46,14 @@ tags: [academic, blog]
     border-radius: 5px; /* Rounded corners for aesthetics */
   }
 </style>
-<script type="text/x-mathjax-config">
+<!-- <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [['$', '$']],
       processEscapes: true
     }
   });
-</script>
+</script> -->
 <script type="text/javascript" async 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -68,7 +68,7 @@ tags: [academic, blog]
 作业证明题题解：
 
 ### 2. 古典概率模型
-球与桶模型：有 $n$ 个球，每个球都等可能被放到 $m$ 个桶中的任一个。求每个桶中至多有一个球的概率。
+球与桶模型：有 $n$ 个球，每个球都等可能被放到 \\(m\\) 个桶中的任一个。求每个桶中至多有一个球的概率。
 
 样本点数量： $m^n$
 
