@@ -4,7 +4,7 @@ body {
     color: dimgray;             /* 字体颜色 */
     font-family: 'Cayman', sans-serif; /* 字体样式 */
     margin: 0;                /* 页边距 */
-    margin-top: 50px;
+    margin-top: 0;
 }
 @media (min-width: 1200px) {
     body {
