@@ -6,44 +6,9 @@ categories: [DIscrete_Maths, 2024fall]
 tags: [academic, blog]
 ---
 
-<style>
-    /* 在这里定义你的样式 */
-    body {
-        background-color: #f0f0f0;  /* 背景颜色 */
-        color: dimgray;             /* 字体颜色 */
-        font-family: 'Cayman', sans-serif; /* 字体样式 */
-        margin: 0;                /* 页边距 */
-    }
-    @media (min-width: 1200px) {
-        body {
-            margin: 20%; /* 大屏幕 */
-        }
-    }
-    @media (max-width: 1199px) {
-        body {
-            margin: 10%; /* 中屏幕 */
-        }
-    }
-    h1 {
-        font-size: 2em;            /* 标题字体大小 */
-    }
-    p {
-        font-size: 1.2em;            /* 段落字体大小 */
-    }
-
-    code, pre { 
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 14px;
-    line-height: 2; /* Adjust line height to avoid overlapping */
-    white-space: pre-wrap; /* Wrap lines to avoid horizontal scrolling */
-    word-wrap: break-word; /* Break long words to fit within the container */
-    max-height: 600px;         /* 设置最大高度 */
-    
-    overflow: auto; /* Add scrollbars when needed */
-    padding: 10px; /* Add padding for better readability */
-    background-color: #f5f5f5; /* Light background color for contrast */
-    
-    border-radius: 5px; /* Rounded corners for aesthetics */
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+<script type="text/javascript" async 
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
