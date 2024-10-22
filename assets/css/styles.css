@@ -4,15 +4,18 @@ body {
     color: dimgray;             /* 字体颜色 */
     font-family: 'Cayman', sans-serif; /* 字体样式 */
     margin: 0;                /* 页边距 */
+    margin-top: 50px;
 }
 @media (min-width: 1200px) {
     body {
         margin: 20%; /* 大屏幕 */
+        margin-top: 50px;
     }
 }
 @media (max-width: 1199px) {
     body {
         margin: 10%; /* 中屏幕 */
+        margin-top: 50px;
     }
 }
 h1 {
