@@ -49,7 +49,7 @@ $$
 
 - 提示： \\(x < \frac{1}{2}\\) 时，有 \\(\ln(1-x) \geq -x-x^2\\)
 
-证明思路：因为提示中出现1/2，且待证式子中出现常数8，想到分 \\(m \leq 2n\\) 和 \\(m > 2n\\)两种情况。
+证明思路：因为提示中出现\\(\frac{1}{2}\\)，且待证式子中出现常数\\(8\\)，想到分 \\(m \leq 2n\\) 和 \\(m > 2n\\)两种情况。
 - 第一种， \\(LHS \geq 0 \geq RHS\\) 
 - 第二种，带入提示中不等式和平方求和公式
 \\(\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}\\)进行方所即可。
@@ -158,9 +158,9 @@ $$
 - 随机变量\\(X: S \rightarrow \mathbb{R}\\)为定义在样本空间\\(S\\)上的实值函数，提供了样本空间\\(S\\)的一个划分
 - 概率分布列\\(P(X = k)\\)
   
-### 1. 数学期望
+### 1. 离散随机变量的数学期望
 - 对于离散随机变量\\(X\\)，若\\( \sum_{i} \vert  x_i p_i\vert   < \infty \\)，即绝对收敛，则\\(X\\)的数学期望\\(E(X) = \sum_{i}x_i p_i\\)
-- 如果不满足绝对收敛，那么将“由于更改求和次序从而收敛到任何实数”，数学期望不存在
+  - 如果不满足绝对收敛，那么将“由于更改求和次序从而收敛到任何实数”，数学期望不存在
 - \\(E(g(X)) = \sum_{i}p_i g(x_i)\\)
 - \\(P(X \geq E(X)) > 0\\)
 - \\(P(X \leq E(X)) > 0\\) 
@@ -202,7 +202,7 @@ $$
 
 **作业二第六题**
 
-### 2. 方差
+### 2. 离散随机变量的方差
 - 给定随机变量\\(X\\)，若\\(E[(X-E(X))^2]\\)存在，定义\\(Var(X) = E[(X-E(X))^2]\\)为\\(X\\)的方差
 - 定义\\(\sigma (X) = \sqrt{Var(X)}\\)
 
@@ -234,7 +234,6 @@ $$
 - 特殊考虑\\(\sigma (X) = 0\\)的情况
 
 
-      
     
 ### 3. 常用离散分布
 
@@ -263,7 +262,8 @@ $$
 \begin{align*}
     P(X_i = k) &= \binom{n}{k} \cdot (\frac{1}{m})^k \cdot (1-\frac{1}{m})^{n-k}\\ 
     &= \frac{n(n-1)...(n-k+1)}{k!}\cdot (\frac{1}{m})^k\cdot (1-\frac{1}{m})^{n-k}\\ 
-    &= \frac{1}{k!} \cdot \frac{n}{m} \cdot \frac{n-1}{m} \cdot ... \cdot \frac{n-k+1}{m} \cdot (1-\frac{1}{m})^{n-k}
+    &= \frac{1}{k!} \cdot \frac{n}{m} \cdot \frac{n-1}{m} \cdot ... \cdot \frac{n-k+1}{m} \cdot (1-\frac{1}{m})^{n-k}\\ 
+    \text{最后一项化为}\\(e^{-\lambda})\text{可得：}
     &\approx \frac{1}{k!} \cdot \lambda ^k \cdot e^{-\lambda}
 \end{align*}
 $$
@@ -285,7 +285,8 @@ $$
     E(X^2) - E(X) &= \lambda^2\\ 
     E(X^2) &= \lambda^2 + \lambda \\
     Var(X) &= E(X^2) - (E(X))^2 \\
-    &= \lambda^2 + \lambda - \lambda^2 = \lambda  \ \ \text{即趋于无穷时的二项分布方差}
+    &= \lambda^2 + \lambda - \lambda^2 \\
+    &= \lambda  \ \ \text{即趋于无穷时的二项分布方差}
 \end{align*}
 $$
 
@@ -299,8 +300,8 @@ $$
 $$
 \begin{align*}
     E(X) &= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\
-    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) = -p\cdot f'(p)\\ 
-    \text{而}f(p) = \frac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
+    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) = -p\cdot f'(p)
+    \text{，而}f(p) = \frac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
     E(X^2) &=  \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\
     \text{拆项：}k^2 &= k(k-1) + k \\
     E(X^2) - E(X) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
@@ -313,3 +314,129 @@ $$
 - 伯努利试验中结果\\(A\\)发生\\(r\\)次时的重复次数
 - \\(k\geq r, P(X=k) = \binom{k-1}{r-1}p^r (1-p)^{k-r}\\)
 - \\(r=1\\)时为几何分布
+- 验证分布列和为\\(1\\)时，将\\(p^-r\\)二项式展开为\\(1-(1-p)\\)的形式
+- 若\\(X \sim NB(r,p)\\)，则\\(X\\)可表示成\\(r\\)个服从\\(G(p)\\)的随机变量之和，即第一次出现时的重复次数、第二次出现时的重复次数（从第一次出现之后算起）...
+
+## 三、连续随机变量
+### 1. 分布函数
+- 给定随机变量\\(X\\)和实数\\(x\\)，随机变量\\(X\\)的分布函数定义为\\(F(x) = P(X \leq x)\\)
+- 有界性：\\(0 \leq F(x) \leq 1, \lim_{x \to -\infty}F(x) = 0, lim_{x\to +\infty}F(x) = 1\\)
+- 单调性：单调不减
+- 右连续：\\(\forall x_0, F(x_0 + 0) = F(x_0)\\)，即从右侧接近任何点均不间断
+    - 考虑单点分布\\(P(X=0) = 1\\)的分布函数，右连续却不左连续
+    - \\(P(X=a) = F(a)-F(a-0)\\)
+    - \\(P(a < X \leq b) = F(b) - F(a)\\)
+    - \\(P(a \leq X \leq b) = F(b) - F(a-0)\\)
+    - \\(P(X\geq a) = 1-F(a-0)\\)
+
+### 2. 概率密度函数
+- 对于随机变量\\(X\\)，若存在\\(f(x)\\)使得\\(F(x) = \int_{-\infty}^{x} f(t)dt \\)，则\\(X\\)为连续随机变量，\\(f(x)\\)为概率密度函数
+- 非负性：\\(f(x)\geq 0\\)，由分布函数的单调性得出
+- 正则性：\\(\int_{-\infty}^{+\infty}f(t)dt = 1\\)，由分布函数右极限得出
+- 在\\(F(x)\\)导数存在的点，有\\(F'(x)=f(x)\\)
+- 连续随机变量的分布函数\\(F(X)\\)一定是连续函数，\\(X\\)取任一点的概率均为\\(0\\)
+  - \\(P(a < X \leq b) = P(a \leq X \leq b) = P(a < X < b) = P(a \leq X < b) = \int_{a}^{b}f(t)dt\\) 
+- \\(f(x)\\)和\\(F(x)\\)不一一对应，改变\\(f(x)\\)中有限个点不影响积分结果\\(F(x)\\)
+
+### 3. 连续随机变量的数学期望
+- 对于连续随机变量\\(X\\)，若\\(\int_{-\infty}^{+\infty}f(x)\vert x \vert dx < +\infty\\)，则数学期望为\\(\int_{-\infty}^{+\infty}f(x)\cdot x\cdot dx)
+  - 如果不满足绝对可积，则以不同速率逼近正负无穷，得到的数学期望不同
+  - 例题：\\(f(x) = \frac{1}{\pi}\cdot \frac{1}{1+x^2}\\)，求数学期望
+- \\(E(g(x)) = \int_{-\infty}^{+\infty}f(x)\cdot g(x)\cdot dx\\)
+- 与离散随机变量对比，对于连续随机变量\\(X\\)，\\(P(X\leq E(X))>0\\)是否依旧成立？
+  - 成立，尽管\\(P(X< E(X)) = P(X \leq E(X))\\)，但连续随机变量不能取单点分布\\(P(X=E(X)) = 1\\)
+
+**马尔可夫不等式**
+若\\(X\\)为非负随机变量，对于\\(a > 0\\)，有
+
+$$
+    P(X\geq a\cdot E(X)) \leq \frac{1}{a}
+$$
+
+- 连续随机变量的证明与离散的情形类似，只需把求和号换成积分号即可，略
+- 条件依旧是\\(X \geq 0,E(X) > 0\\)
+
+### 4. 连续随机变量的方差
+- 方差和标准差的定义与离散的情形相同
+
+**切比雪夫不等式**
+若\\(\sigma(X) > 0 \\)，对于任意\\(c > 0\\)，
+
+$$
+    P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}
+$$
+
+- 与离散的情形相同
+
+### 5. 常用连续分布
+
+**均匀分布\\(U(a,b)\\)**
+- 令随机变量\\(X\\)的取值范围为\\((a,b)\\)，且当\\(x \in (a, b)\\,f(x) = \frac{1}{b-a}\\)
+  
+$$
+\begin{align*}
+    E(X) &= \int_{a}^{b}t\cdot \frac{1}{b-a}dt\\
+    &= \frac{b-a}{2}\\
+    E(X^2) &= \int_{b}^{a}t^2\cdot \frac{1}{b-a}dt\\
+    &=\frac{b^3-a^3}{2(b-a)}\\
+    Var(X) &= E(X^2) - (E(X))^2\\
+    &= \frac{(b-a)^2}{12}
+\end{align*}
+$$
+
+**正态分布\\(N(\mu , sigma)\\)**
+- \\(\mu > 0, \sigma > 0\\)
+- \\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\)
+  - 对称性：关于\\(x=\mu\\)对称
+  - 最大值：\\(f(\mu)\\)
+  - 正则性：\\(y = \frac{x-\mu}{\sigma}, \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{-\frac{y^2}{2}}\cdot dy = 1\\)
+- 一般正态分布与标准正态（高斯）分布的联系
+  - 若\\(X \sim N(\mu, \sigma)\\)，则\\(X\\)的标准化随机变量\\(U = \frac{X-\mu}{\sigma} \sim N(0,1)\\)
+  - 数学期望和方差可由此导出：\\(E(X) = \mu, Var(X) = \sigma^2\\)
+- 标准化随机变量：对于任意分布，随机变量\\(X\\)的标准化随机变量为\\(Y=\frac{X-\mu}{\sigma}\\)
+  - 例题：\\(X\\)服从参数为\\(\frac{1}{2}\\)的伯努利分布，求标准化随机变量
+ 
+$$
+\begin{align*}
+    \text{对于标准正态分布：}\\
+    E(X) &= \int_{-\infty}^{+\infty}f(t)\cdot t\cdot dt = 0\\
+    Var(X) &= E(X^2) \\
+    &= \int_{-\infty}^{+\infty}f(t)\cdot t^2\cdot dt \\
+    \text{分部积分：}&= 1
+\end{align*}
+$$
+
+**指数分布\\(Exp(\lambda)\\)**
+- 对于\\(\lambda > 0\\)
+- \\(x>0, f(x)=\lambda e^{-\lambda x}\\)
+- \\(x\leq 0, f(x)=0\\)
+- \\(x \geq 0, F(x) = 1 - e^{-\lambda x}\\)
+- \\(x < 0, F(x) = 0\\)
+- 类似几何分布，无记忆性：\\(P(X > s+t \mid X > s) = P(X > t)\\)
+- 用\\(N(t)\\)表示\\(t\\)时间内设备故障次数，假设\\(N(t)\\)服从参数为\\(\lambda t\\)的泊松分布，即\\(P(N(t)=k)=\frac{(\lambda t)^k}{k!}e^{-\lambda t}\\)，则第一次发生故障的时间\\(X\\)有：
+  - \\(P(X\leq t) = 1 - P(X > t) = 1 - P(N(t) = 0) = 1 - e^{-\lambda t}\\)
+  - 即为指数分布
+  
+$$
+\begin{align*}
+    E(X) &= \int_{0}^{\infty}f(t)\cdot t\cdot dt\\
+    &= \frac{1}{\lambda}\\
+    E(X^2) &= \int_{0}^{\infty}f(t)\cdot t^2\cdot dt\\
+    &=\frac{2}{\lambda^2}\\
+    Var(X) &= E(X^2) - (E(X))^2\\
+    &= \frac{1}{\lambda^2}
+\end{align*}
+$$
+
+- 用\\(N(t)\\)表示\\(t\\)时间内设备故障次数，假设\\(N(t)\\)服从参数为\\(\lambda t\\)的泊松分布，即\\(P(N(t)=k)=\frac{(\lambda t)^k}{k!}e^{-\lambda t}\\)，则第\\(n\\)次发生故障的时间\\(X\\)服从何种分布？
+- \\(P(X \leq t) = 1 - P(X > t) = 1 - P(N(t) < n) = 1 - \sum_{k=0}^{n-1}\frac{e^{-\lambda t}(\lambda t)^k}{k!}\\)
+- \\(F(X) = 1 - \sum_{k=0}^{n-1}\frac{e^{-\lambda t}(\lambda t)^k}{k!}\\)
+- \\(f(x) = \frac{x^{n-1}\lambda^n e^{-\lambda x}}{(n-1)!}\\)
+
+**伽玛分布\\(\Gamma (\alpha, \lambda)\\)**
+- 对于\\(\alpha > 0\\)，伽玛函数\\(\Gamma(\alpha) = \int_{0}^{+\infty} x^{\alpha - 1}e^{-x}dx\\)
+  - \\(\Gamma(1)=1, \Gamma(\frac{1}{2}) = \sqrt{\pi}, \Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)\\) 
+  - \\(n \in \mathbb{N} , \Gamma{n+1} = n!, \Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n \cdot n!}\cdot \sqrt{\pi}\\)
+- 对于\\(\alpha, \lambda >0\\)，由上述第\\(n\\)次发生故障的时间\\(X\\)的概率密度函数定义伽玛分布\\(\Gamma(\alpha, \lambda)\\)
+  - \\(x \geq 0, f(x) = \frac{\lambda^{\alpha}}{\Gamma{\alpha}}x^{\alpha - 1}e^{-\lambda x}\\)
+  - \\(x < 0, f(x) = 0\\)
