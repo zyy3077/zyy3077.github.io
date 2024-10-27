@@ -377,12 +377,9 @@ $$
   
 $$
 \begin{align*}
-    E(X) &= \int_{a}^{b}t\cdot \frac{1}{b-a}dt\\
-    &= \frac{b-a}{2}\\
-    E(X^2) &= \int_{b}^{a}t^2\cdot \frac{1}{b-a}dt\\
-    &=\frac{b^3-a^3}{2(b-a)}\\
-    Var(X) &= E(X^2) - (E(X))^2\\
-    &= \frac{(b-a)^2}{12}
+    E(X) &= \int_{a}^{b}t\cdot \frac{1}{b-a}dt = \frac{b-a}{2}\\
+    E(X^2) &= \int_{b}^{a}t^2\cdot \frac{1}{b-a}dt = \frac{b^3-a^3}{2(b-a)}\\
+    Var(X) &= E(X^2) - (E(X))^2 = \frac{(b-a)^2}{12}
 \end{align*}
 $$
 
