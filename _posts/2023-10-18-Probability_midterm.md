@@ -17,11 +17,11 @@ tags: [academic, blog]
 - 作业题题解
 
 
-### 1. 概率论的基本概念
-作业证明题题解：
+## 一、概率论的基本概念与模型
 
-### 2. 古典概率模型
-**球与桶模型**<br>
+### 1. 古典概率模型
+**球与桶模型**
+
 有 \\(n\\) 个球，每个球都等可能被放到 \\(m\\) 个桶中的任一个。求每个桶中至多有一个球的概率。
 - 样本点数量： \\(m^n\\)
 - 放法： \\(m(m-1)⋯(m-n+1)\\)
@@ -40,7 +40,8 @@ $$
     P_{n,m} \leq e^{-\frac{(n-1)n}{2m}}
 $$
 
-**作业一第三题**<br>
+**作业一第三题**
+
 证明：
 $$
     P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})
@@ -53,16 +54,16 @@ $$
 - 第二种，带入提示中不等式和平方求和公式
 \\(\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}\\)进行方所即可。
 
-### 3. 几何概率模型
+### 2. 几何概率模型
 \\(P(A) = \frac{m(A)}{m(S)}\\) ，其中 \\(S\\) 为样本空间， \\(m\\) 为度量
 
-### 4. 概率的性质
+### 3. 概率的性质
 - 非负性： \\(P(A) \in [0, 1]\\)
 - 规范性： \\(P(S) = 1\\)
 - 有限可加性：对互不相容事件\\(A_i\\)有
   \\(P(\bigcup_{i} A_i) = \sum_{i} P(A_i)\\)
 
-### 5. 概率的公理化
+### 4. 概率的公理化
 - 非负性：\\(\forall A \in F, P(A) \geq 0\\)
 - 规范性：\\(P(S) = 1\\)
 - 可列可加性：对互不相容事件 \\(A_1, A_2, A_3, ...\\) 有
@@ -113,7 +114,7 @@ $$
 
 - 反例： \\(S=[0, \infty), P(A) = \lim_{k \to \infty}\frac{1}{k} \lambda(A \cap (0,k)), A_i = [i-1, i)\\) ，其中 \\(\lambda(A)\\) 为 \\(A\\) 的长度。满足有限可加性，不满足可列可加性。
 
-### 6. 条件概率
+### 5. 条件概率
 
 $$
     P(A\mid B) = \frac{P(AB)}{P(B)}
@@ -139,10 +140,11 @@ $$
     P(A\mid B) = P(B\mid A) \cdot \frac{P(A)}{P(B)}
 $$
 
-### 7. 事件的独立性
+### 6. 事件的独立性
 - 事件\\(A\\)与\\(B \text{相互独立} \Leftrightarrow P(AB) = P(A)P(B)\\)，即当\\(P(B) > 0 \\)时，\\( P(A\mid B) = P(A)\\)
 - 对于\\(n\\)个事件\\(A_1, A_2, ..., A_n\\)，如果对于\\({1, 2, ..., n}\\)的任意子集\\(I\\)，都有\\(P(\bigcap_{i \in I}) = \prod_{i \in I} P(A_i)\\)，则称\\(A_1, A_2, ..., A_n\\)相互独立
 - \\(n\\)重伯努利试验：独立进行\\(n\\)次某个只有两个可能结果的随机试验
+- 两两独立/相互独立
 
 **例题：两两认识**
 
@@ -152,48 +154,158 @@ $$
 - 即图中\\(a, b, c\\)和\\(d, e, f\\)生成子图（均为完全图\\(K_3\\)）中边数和为6
 - 即这六个点有至少五个不重复的点，即至多两个点相同
   
-### 8. 离散随机变量
+## 二、离散随机变量
 - 随机变量\\(X: S \rightarrow \mathbb{R}\\)为定义在样本空间\\(S\\)上的实值函数，提供了样本空间\\(S\\)的一个划分
 - 概率分布列\\(P(X = k)\\)
-- 数学期望：对于离散随机变量\\(X\\)，若\\( \sum_{i} \vert  x_i p_i\vert   < \infty \\)，即绝对收敛，则\\(X\\)的数学期望\\(E(X) = \sum_{i}x_i p_i\\)；如果不满足绝对收敛，那么将“由于更改求和次序从而收敛到任何实数”，数学期望不存在
-  - \\(E(g(X)) = \sum_{i}p_i g(x_i)\\)
-  - \\(P(X \geq E(X)) > 0\\)
-  - \\(P(X \leq E(X)) > 0\\) 
-    - 例题：有\\(n\\)个人，其中有\\(m\\)对人认识，证明：总可以将\\(n\\)个人分为两组，且有至少\\(\frac{m}{2}\\)对属于不同组的人认识。
-      - 将每个人等概率地加入第一组和第二组， 用随机变量\\(X\\)表示属于不同组且认识的人的对数。
-      - \\(E(X) = \sum_{e \in S} \frac{X(e)}{2^n}\\)
-      - 对于每一对认识的人，有多少个样本点（分组方式）满足两个人属于不同组：\\(2^{n-1}\\)
-      - \\(\sum_{e \in S} X(e) = m \cdot 2^{n-1}\\)
-      - \\(E(X) = \frac{m}{2}\\)
-      - \\(P(X \geq \frac{m}{2}) > 0 \\)，即存在分组方式满足题意
+  
+### 1. 数学期望
+- 对于离散随机变量\\(X\\)，若\\( \sum_{i} \vert  x_i p_i\vert   < \infty \\)，即绝对收敛，则\\(X\\)的数学期望\\(E(X) = \sum_{i}x_i p_i\\)
+- 如果不满足绝对收敛，那么将“由于更改求和次序从而收敛到任何实数”，数学期望不存在
+- \\(E(g(X)) = \sum_{i}p_i g(x_i)\\)
+- \\(P(X \geq E(X)) > 0\\)
+- \\(P(X \leq E(X)) > 0\\) 
+
+**例题**
+
+有\\(n\\)个人，其中有\\(m\\)对人认识，证明：总可以将\\(n\\)个人分为两组，且有至少\\(\frac{m}{2}\\)对属于不同组的人认识。
+- 将每个人等概率地加入第一组和第二组， 用随机变量\\(X\\)表示属于不同组且认识的人的对数。
+- \\(E(X) = \sum_{e \in S} \frac{X(e)}{2^n}\\)
+- 对于每一对认识的人，有多少个样本点（分组方式）满足两个人属于不同组：\\(2^{n-1}\\)
+- \\(\sum_{e \in S} X(e) = m \cdot 2^{n-1}\\)
+- \\(E(X) = \frac{m}{2}\\)
+- \\(P(X \geq \frac{m}{2}) > 0 \\)，即存在分组方式满足题意
+
+**马尔可夫不等式**
+若\\(X\\)为非负随机变量，对于\\(a > 0\\)，有
+
+$$
+    P(X\geq a\cdot E(X)) \leq \frac{1}{a}
+$$
+
+- 证明：
+$$
+\begin{align*}
+    E(X) &= \sum_{i} x_i \cdot p_i \\ 
+    &\geq \sum_{x_i \geq a \cdot E(X)} x_i \cdot p_i  \\ 
+    &\geq \sum_{x_i \geq a \cdot E(X)} a\cdot E(X)\cdot p_i  \\ 
+    &= a\cdot E(X) \cdot P(X \geq a \cdot E(X))
+\end{align*}
+$$
+- 在\\(E(X) > 0 \\)时，原不等式成立
+
+
+
+**作业二第一题**
+- 构造出取等条件，说明不存在更强的不等式
+
+### 2. 方差
+- 给定随机变量\\(X\\)，若\\(E[(X-E(X))^2]\\)存在，定义\\(Var(X) = E[(X-E(X))^2]\\)为\\(X\\)的方差
+- 定义\\(\sigma (X) = \sqrt{Var(X)}\\)
+
+$$
+    Var(X) = E(X^2) - (E(X))^2
+$$
+
+**切比雪夫不等式**
+若\\(\sigma(X) > 0 \\)，对于任意\\(c > 0\\)，
+
+$$
+    P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}
+$$
+
+- 证明：对于随机变量\\(Y=(X-E(X))^2\\)使用马尔可夫不等式即可得证
+
+**例题：优秀率**
+
+随机变量\\(X\\)表示一名随机的学生的成绩，\\(E(X) = 70, \sigma(X) = 5\\)，90分及以上为优秀，利用马尔可夫不等式和切比雪夫不等式给出优秀率的上界。
+- 马尔可夫不等式：\\(P(X \geq 90) = P(X \geq \frac{9}{7} \cdot E(X)) \leq \frac{7}{9} \\)
+- 切比雪夫不等式：\\(P(X \geq 90) \leq P(\vert X - E(X) \vert \geq 4 \cdot \sigma(X)) \leq \frac{1}{16}\\)
+- 上式中第一个等号是因为绝对值导致不仅有90分及以上，还有50分及以下，后者的概率非负
+
+**作业二第五题**
+
+给定离散随机变量\\(X\\)，假设其期望\\(E(X)\\)和标准差\\( \sigma (X)\\)均存在。对于任意实数\\(m\\)，若满足\\(P(X\geq m)\geq \frac{1}{2}\\)
+且\\(P(X \leq m)\geq \frac{1}{2}\\)，证明\\(\vert E(X)- m \vert \leq \sqrt{2} \sigma\\)。
+- 结合切比雪夫不等式反证
+- 特殊考虑\\(\sigma (X) = 0\\)的情况
+
+
       
     
-**\\(n\\)重伯努利实验**
+### 3. 常用离散分布
+
+**二项分布\\(B(n,p)\\)**
+- \\(n\\)重伯努利试验中\\(A\\)发生的次数，取非负整数
+- \\(P(X=k) = \binom{n}{k} \cdot p^k\\)
 
 $$
-    E(X) = \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k
+\begin{align*}
+    E(X) &= \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k \\
+    \text{由组合数性质：}\binom{n}{k} k &= \binom{n-1}{k-1} n \\
+    E(X) &= np \\
+    E(X^2) &= \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k^2 \\
+    \text{拆项：}k^2 &= k(k-1) + k \\
+    \text{由组合数性质：}\binom{n}{k} k(k-1) &= \binom{n-2}{k-2} n(n-1) \\
+    E(X^2) &= n(n-1)p^2 + np \\
+    Var(X) &= E(X^2) - (E(X))^2 = np(1-p) \\ 
+    \sigma (X) &= \sqrt{np(1-p)}
+\end{align*}
 $$
 
+- 球与桶模型中特定桶中球的数量，即球被放入这个桶这一事件发生的次数\\(X_i ~ B(n, \frac{1}{m})\\)
+- 考虑\\(n=\lambda m\\)，\\(lambda\\)为常数，且\\(m \to \infty\\)的情况
+  
 $$
-    \binom{n}{k} k = \binom{n-1}{k-1} n
-$$
-
-$$
-    E(X) = np
-$$
-
-$$
-    E(X^2) = \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k^2
-$$
-
-$$
-    k^2 = k(k-1) + k
+\begin{align*}
+    P(X_i = k) &= \binom{n}{k} \cdot (\frac{1}{m})^k \cdot (1-\frac{1}{m})^{n-k}\\ 
+    &= \frac{n(n-1)...(n-k+1)}{k!}\cdot (\frac{1}{m})^k\cdot (1-\frac{1}{m})^{n-k}\\ 
+    &= \frac{1}{k!} \cdot \frac{n}{m} \cdot \frac{n-1}{m} \cdot ... \cdot \frac{n-k+1}{m} \cdot (1-\frac{1}{m})^{n-k}
+    &\approx \frac{1}{k!} \cdot \lambda ^k \cdot e^{-lambda}
+\end{align*}
 $$
 
-$$
-    \binom{n}{k} k(k-1) = \binom{n-2}{k-2} n(n-1)
-$$
+**泊松分布\\(\pi(\lambda)\\)**
+- 二项分布的极限
+- 随机变量\\(X\\)取非负整数
+- \\(P(X=k) = \frac{1}{k!} \cdot \lambda ^k \cdot e^{-lambda}\\)，其中\\(\lambda > 0\\)
+- 即当\\(n \to \infty\\)时\\(E(X) = np_n = \frac{n}{m}\\)为常数\\(\lambda\\)且的二项分布
 
 $$
-    E(X^2) = n(n-1)p^2 + np
+\begin{align*}
+    E(X) &= \sum_{k\geq 0} \frac{1}{k!}\cdot e^{-\lambda}\cdot k\\ 
+    &= e^{-\lambda} \cdot \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k}\\ 
+    &= e^{-\lambda} \cdot \lambda \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k-1}\\ 
+    &= \lambda \ \ \text{与泊松分布的条件一致}
+    E(X^2) &= \sum_{k \geq 0} \frac{1}{k!}\cdot \lambda^k \cdot e^{-\lambda}\cdot k^2 \\ 
+    \text{拆项：}k^2 &= k(k-1) + k \\
+    \sum_{k\geq 0}\frac{1}{k!}\cdot \lambda^k \cdot e^{-\lambda}\cdot k(k-1) &= \lambda^2\\ 
+    E(X^2) &= \lambda^2 + \lambda
+    Var(X) &= E(X^2) - (E(X))^2 \\
+    &= \lambda^2 + \lambda - \lambda^2 = \lambda  \ \ \text{即趋于无穷时的二项分布方差}
+\end{align*}
 $$
+
+**几何分布\\(G(p)\\)**
+- 伯努利试验中首次发生结果\\(A\\)时的重复次数
+- \\(k\geq 1, P(X=k) = p(1-p)^{k-1}\\)
+- 无记忆性：\\(P(X > m+n \mid X > m) = P(X > n)\\)
+- 构造函数\\(f\\)，通过求导求期望，求二阶导求方差
+    - 作业二第二题
+
+$$
+\begin{align*}
+    E(X) &= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\
+    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) = -p\cdot f'(p)\\ 
+    \text{而}f(p) = \fac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
+    E(X^2) &=  \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\
+    \text{拆项：}k^2 &= k(k-1) + k \\
+    \sum_{k\geq 1} p(1-p)^{k-1}\cdot k(k-1) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
+    \text{则}E(X^2) &= p(1-p)f''(p) + \frac{1}{p} = \frac{2(1-p)}{p^2} + \frac{1}{p}\\
+    Var(X) &= E(X^2) - (E(X))^2 = \frac{1-p}{p^2}  
+\end{align*}
+$$
+
+**负二项分布\\(NB(r,p)\\)**
+- 伯努利试验中结果\\(A\\)发生\\(r\\)次时的重复次数
+- \\(k\geq r, P(X=k) = \binom{k-1}{r-1}p^r (1-p)^{k-r}\\)
+- \\(r=1\\)时为几何分布
