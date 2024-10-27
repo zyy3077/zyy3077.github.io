@@ -183,6 +183,7 @@ $$
 $$
 
 - 证明：
+
 $$
 \begin{align*}
     E(X) &= \sum_{i} x_i \cdot p_i \\ 
@@ -191,7 +192,8 @@ $$
     &= a\cdot E(X) \cdot P(X \geq a \cdot E(X))
 \end{align*}
 $$
-- 在\\(E(X) > 0 \\)时，原不等式成立
+
+- 不等式成立条件：\\(E(X) > 0 \\)
 
 
 
@@ -300,8 +302,8 @@ $$
 $$
 \begin{align*}
     E(X) &= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\
-    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) &= -p\cdot f'(p)\\
-    \text{，而}f(p) = \frac{1}{p}\text{，故}E(X) &= \frac{1}{p}\\ 
+    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) &= -p\cdot f'(p) \\ 
+    \text{而}f(p) = \frac{1}{p}\text{，故}E(X) &= \frac{1}{p}\\ 
     E(X^2) &=  \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\
     \text{拆项：}k^2 &= k(k-1) + k \\
     E(X^2) - E(X) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
@@ -419,12 +421,9 @@ $$
   
 $$
 \begin{align*}
-    E(X) &= \int_{0}^{\infty}f(t)\cdot t\cdot dt\\
-    &= \frac{1}{\lambda}\\
-    E(X^2) &= \int_{0}^{\infty}f(t)\cdot t^2\cdot dt\\
-    &=\frac{2}{\lambda^2}\\
-    Var(X) &= E(X^2) - (E(X))^2\\
-    &= \frac{1}{\lambda^2}
+    E(X) &= \int_{0}^{\infty}f(t)\cdot t\cdot dt = \frac{1}{\lambda}\\
+    E(X^2) &= \int_{0}^{\infty}f(t)\cdot t^2\cdot dt = \frac{2}{\lambda^2}\\
+    Var(X) &= E(X^2) - (E(X))^2 = \frac{1}{\lambda^2}
 \end{align*}
 $$
 
