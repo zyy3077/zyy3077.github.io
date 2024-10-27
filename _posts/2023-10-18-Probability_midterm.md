@@ -300,8 +300,8 @@ $$
 $$
 \begin{align*}
     E(X) &= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\
-    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) = -p\cdot f'(p)
-    \text{，而}f(p) = \frac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
+    \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) &= -p\cdot f'(p)\\
+    \text{，而}f(p) = \frac{1}{p}\text{，故}E(X) &= \frac{1}{p}\\ 
     E(X^2) &=  \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\
     \text{拆项：}k^2 &= k(k-1) + k \\
     E(X^2) - E(X) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
@@ -339,7 +339,7 @@ $$
 - \\(f(x)\\)和\\(F(x)\\)不一一对应，改变\\(f(x)\\)中有限个点不影响积分结果\\(F(x)\\)
 
 ### 3. 连续随机变量的数学期望
-- 对于连续随机变量\\(X\\)，若\\(\int_{-\infty}^{+\infty}f(x)\vert x \vert dx < +\infty\\)，则数学期望为\\(\int_{-\infty}^{+\infty}f(x)\cdot x\cdot dx)
+- 对于连续随机变量\\(X\\)，若\\(\int_{-\infty}^{+\infty}f(x)\vert x \vert dx < +\infty\\)，则数学期望为\\(\int_{-\infty}^{+\infty}f(x)\cdot x\cdot dx\\)
   - 如果不满足绝对可积，则以不同速率逼近正负无穷，得到的数学期望不同
   - 例题：\\(f(x) = \frac{1}{\pi}\cdot \frac{1}{1+x^2}\\)，求数学期望
 - \\(E(g(x)) = \int_{-\infty}^{+\infty}f(x)\cdot g(x)\cdot dx\\)
@@ -384,7 +384,7 @@ $$
 \end{align*}
 $$
 
-**正态分布\\(N(\mu , sigma)\\)**
+**正态分布\\(N(\mu , \sigma)\\)**
 - \\(\mu > 0, \sigma > 0\\)
 - \\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\)
   - 对称性：关于\\(x=\mu\\)对称
@@ -436,7 +436,8 @@ $$
 **伽玛分布\\(\Gamma (\alpha, \lambda)\\)**
 - 对于\\(\alpha > 0\\)，伽玛函数\\(\Gamma(\alpha) = \int_{0}^{+\infty} x^{\alpha - 1}e^{-x}dx\\)
   - \\(\Gamma(1)=1, \Gamma(\frac{1}{2}) = \sqrt{\pi}, \Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)\\) 
-  - \\(n \in \mathbb{N} , \Gamma{n+1} = n!, \Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n \cdot n!}\cdot \sqrt{\pi}\\)
+  - \\(n \in \mathbb{N} ,\Gamma{n+1} = n! \\)
+  - \\(\Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n \cdot n!}\cdot \sqrt{\pi}\\)
 - 对于\\(\alpha, \lambda >0\\)，由上述第\\(n\\)次发生故障的时间\\(X\\)的概率密度函数定义伽玛分布\\(\Gamma(\alpha, \lambda)\\)
-  - \\(x \geq 0, f(x) = \frac{\lambda^{\alpha}}{\Gamma{\alpha}}x^{\alpha - 1}e^{-\lambda x}\\)
+  - \\(x \geq 0, f(x) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x}\\)
   - \\(x < 0, f(x) = 0\\)
