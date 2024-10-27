@@ -198,6 +198,10 @@ $$
 **作业二第一题**
 - 构造出取等条件，说明不存在更强的不等式
 
+**作业二第五题**
+
+**作业二第六题**
+
 ### 2. 方差
 - 给定随机变量\\(X\\)，若\\(E[(X-E(X))^2]\\)存在，定义\\(Var(X) = E[(X-E(X))^2]\\)为\\(X\\)的方差
 - 定义\\(\sigma (X) = \sqrt{Var(X)}\\)
@@ -252,22 +256,22 @@ $$
 \end{align*}
 $$
 
-- 球与桶模型中特定桶中球的数量，即球被放入这个桶这一事件发生的次数\\(X_i ~ B(n, \frac{1}{m})\\)
-- 考虑\\(n=\lambda m\\)，\\(lambda\\)为常数，且\\(m \to \infty\\)的情况
+- 球与桶模型中特定桶中球的数量，即球被放入这个桶这一事件发生的次数\\(X_i \sim  B(n, \frac{1}{m})\\)
+- 考虑\\(n=\lambda m\\)，\\(\lambda\\)为常数，且\\(m \to \infty\\)的情况
   
 $$
 \begin{align*}
     P(X_i = k) &= \binom{n}{k} \cdot (\frac{1}{m})^k \cdot (1-\frac{1}{m})^{n-k}\\ 
     &= \frac{n(n-1)...(n-k+1)}{k!}\cdot (\frac{1}{m})^k\cdot (1-\frac{1}{m})^{n-k}\\ 
     &= \frac{1}{k!} \cdot \frac{n}{m} \cdot \frac{n-1}{m} \cdot ... \cdot \frac{n-k+1}{m} \cdot (1-\frac{1}{m})^{n-k}
-    &\approx \frac{1}{k!} \cdot \lambda ^k \cdot e^{-lambda}
+    &\approx \frac{1}{k!} \cdot \lambda ^k \cdot e^{-\lambda}
 \end{align*}
 $$
 
 **泊松分布\\(\pi(\lambda)\\)**
 - 二项分布的极限
 - 随机变量\\(X\\)取非负整数
-- \\(P(X=k) = \frac{1}{k!} \cdot \lambda ^k \cdot e^{-lambda}\\)，其中\\(\lambda > 0\\)
+- \\(P(X=k) = \frac{1}{k!} \cdot \lambda ^k \cdot e^{-\lambda}\\)，其中\\(\lambda > 0\\)
 - 即当\\(n \to \infty\\)时\\(E(X) = np_n = \frac{n}{m}\\)为常数\\(\lambda\\)且的二项分布
 
 $$
@@ -275,11 +279,11 @@ $$
     E(X) &= \sum_{k\geq 0} \frac{1}{k!}\cdot e^{-\lambda}\cdot k\\ 
     &= e^{-\lambda} \cdot \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k}\\ 
     &= e^{-\lambda} \cdot \lambda \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k-1}\\ 
-    &= \lambda \ \ \text{与泊松分布的条件一致}
+    &= \lambda \ \ \text{与泊松分布的条件一致}\\ 
     E(X^2) &= \sum_{k \geq 0} \frac{1}{k!}\cdot \lambda^k \cdot e^{-\lambda}\cdot k^2 \\ 
     \text{拆项：}k^2 &= k(k-1) + k \\
-    \sum_{k\geq 0}\frac{1}{k!}\cdot \lambda^k \cdot e^{-\lambda}\cdot k(k-1) &= \lambda^2\\ 
-    E(X^2) &= \lambda^2 + \lambda
+    E(X^2) - E(X) &= \lambda^2\\ 
+    E(X^2) &= \lambda^2 + \lambda \\
     Var(X) &= E(X^2) - (E(X))^2 \\
     &= \lambda^2 + \lambda - \lambda^2 = \lambda  \ \ \text{即趋于无穷时的二项分布方差}
 \end{align*}
@@ -296,10 +300,10 @@ $$
 \begin{align*}
     E(X) &= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\
     \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) = -p\cdot f'(p)\\ 
-    \text{而}f(p) = \fac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
+    \text{而}f(p) = \frac{1}{p}\text{，故}E(X) = \frac{1}{p}\\ 
     E(X^2) &=  \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\
     \text{拆项：}k^2 &= k(k-1) + k \\
-    \sum_{k\geq 1} p(1-p)^{k-1}\cdot k(k-1) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
+    E(X^2) - E(X) &= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\
     \text{则}E(X^2) &= p(1-p)f''(p) + \frac{1}{p} = \frac{2(1-p)}{p^2} + \frac{1}{p}\\
     Var(X) &= E(X^2) - (E(X))^2 = \frac{1-p}{p^2}  
 \end{align*}
