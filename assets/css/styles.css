@@ -24,6 +24,9 @@ h1 {
 p {
     font-size: 1.2em;            /* 段落字体大小 */
 }
+img {
+    width: "50%"            /* 自动左右边距实现居中 */
+}
 
 code, pre { 
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
