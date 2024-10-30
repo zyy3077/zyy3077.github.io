@@ -25,11 +25,11 @@ tags: [academic, blog]
   - **\\(A \oplus B = (A-B)\cup (B-A)\\)**
 - 广义并\\(\bigcup \mathcal{A} \\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的元素组成的集合称为\\(\mathcal{A} \\)的广义并**
-  - \\(\mathcal{A} = {x \mid \exists A in \mathcal{A} s.t. x in A}\\)
+  - \\(\mathcal{A} = \{ x \mid \exists A \in \mathcal{A} s.t. x in A\} \\)
   - \\(\bigcup \varnothing  = \varnothing \\)
 - 广义交\\(\bigcap \mathcal{A}\\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的公共元素组成的集合称为\\(\mathcal{A} \\)的广义交**
-  - \\(\bigcap \mathcal{A} = \{x\mid \forall A in \mathcal{A}, x\in A\}\\)
+  - \\(\bigcap \mathcal{A} = \{x\mid \forall A \in \mathcal{A}, x\in A\}\\)
   - \\(\bigcap \varnothing  = E\\)
 
 ### 2. 运算性质
