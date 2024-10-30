@@ -47,19 +47,19 @@ $$
 
 ## 第二章 二元关系
 ### 1. 基本概念
-- 有序对\\(<x,y>\\)
-  - **\\(<x,y> \neq <y,x>\\)**
+- 有序对\\(\langle x,y\rangle \\)
+  - **\\(\langle x,y\rangle  \neq \langle y,x\rangle \\)**
 - 笛卡尔积\\(A \times B\\)
-  - **\\(A \times B = \{<x,y>\mid x \in A \wedge y \in B\}\\)**
+  - **\\(A \times B = \{\langle x,y\rangle \mid x \in A \wedge y \in B\}\\)**
   - 不满足交换律与结合律；对并与交满足分配律
 - 二元关系
   - 如果一个集合满足以下条件之一，称为二元关系
     - 集合非空，元素都是有序对
     - 集合为空
-  - 若\\(<x,y> in R\\)，记作\\(xRy\\)，其中\\(R\\)为从\\(A\\)到\\(B\\)的二元关系；若\\(A=B\\)，称为\\(A\\)上的二元关系
+  - 若\\(\langle x,y\rangle  in R\\)，记作\\(xRy\\)，其中\\(R\\)为从\\(A\\)到\\(B\\)的二元关系；若\\(A=B\\)，称为\\(A\\)上的二元关系
   - 特殊的二元关系
     - 全域关系\\(E_A = A\times A\\)
-    - 恒等关系\\(I_A = \{<x,x>\mid x \in A\}\\)
+    - 恒等关系\\(I_A = \{\langle x,x\rangle \mid x \in A\}\\)
     - 包含关系、小于等于关系、整除关系...
   - 关系矩阵\\(\mathbf{M}_R\\)
     - \\(r_{ij} = 1\\)，若\\(x_i R y_j\\)
@@ -74,11 +74,11 @@ $$
 - 域\\(fldR\\)
   - **\\(fldR = domR \cup ranR\\)**
 - 逆关系\\(R^{-1}\\)
-  - **\\(R^{-1} = \{<x,y>\mid <y,x>\in R\}\\)**
+  - **\\(R^{-1} = \{\langle x,y\rangle \mid <y,x>\in R\}\\)**
   - \\((F^{-1})^{-1} = F\\)
   - \\(domF^{-1} = ranF, ranF^{-1} = domF\\)
 - \\(F\\)和\\(G\\)的复合\\(F\circ G \\)
-  - **\\(F\circ G = \{<x,z>\mid \exists y s.t. <x,y>\in F, <y,z>\in G\})**
+  - **\\(F\circ G = \{<x,z>\mid \exists y s.t. \langle x,y\rangle \in F, \langle y,z\rangle \in G\})**
   - \\((F\circ G)\circ H = F\circ (G\circ H)\\)
   - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
@@ -86,7 +86,7 @@ $$
   - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) 试想\\(G\cap H\\)为空集的情形
   - \\((G\cap H) \circ F \subseteq G\circ F \cap H\circ F\\)
 - \\(R\\)在\\(A\\)上的限制\\(R\upharpoonright A\\)
-  - **\\(R\upharpoonright A = \{<x,y>\mid <x,y>\in R, x \in A\}\\)**
+  - **\\(R\upharpoonright A = \{\langle x,y\rangle \mid \langle x,y\rangle \in R, x \in A\}\\)**
   - \\(F\upharpoonright (A\cup B) = F\upharpoonright A \cup F\upharpoonright B\\)
   - \\(F\upharpoonright (A\cap B) = F\upharpoonright A \cap F\upharpoonright B\\)
 - \\(A\\)在\\(R\\)上的像\\(R[A]\\)
