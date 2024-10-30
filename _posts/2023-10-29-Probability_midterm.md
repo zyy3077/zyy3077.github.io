@@ -12,6 +12,8 @@ tags: [academic, blog]
 </script>
 
 # 期中复习
+*前八周内容*
+
 ## Contents
 - 课堂内容总结
 - 作业题题解
