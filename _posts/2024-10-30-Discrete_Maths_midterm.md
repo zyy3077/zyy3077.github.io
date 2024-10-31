@@ -301,13 +301,13 @@ $$
     B=\lbrace x \mid x \in A, x \notin g(x)\rbrace
   $$
   
-  则\\(B \in P(A)\\)，但
+  - 则\\(B \in P(A)\\)，但
   
   $$
     \forall x \in A, x \in B \Leftrightarrow x \notin g(x)
   $$
   
-  从而\\(\forall x \in A, B \neq g(x)\\)，即\\(B\notin ran g\\)
+  - 从而\\(\forall x \in A, B \neq g(x)\\)，即\\(B\notin ran g\\)
   - \\(\mathbb{N} \not\approx P(\mathbb{N}),\mathbb{N} \not\approx \lbrace 0, 1 \rbrace^\mathbb{N}\\)
 - **优势：如果存在从集合\\(A\\)到集合\\(B\\)的单射函数，则称\\(B\\)优势于\\(A\\)，记作\\(A\leqslant \cdot  B\\)**
   - 真优势：若\\(A\leqslant \cdot  B\\)且\\(A\neq B\\)，则\\(A <\cdot B\\)
@@ -373,10 +373,77 @@ $$
 - 素数测试
   - 合数\\(a\\)一定有小于等于\\(\sqrt{a}\\)的素因子
   - 厄拉多塞筛法：删去小素数的倍数
+  
 ### 2. 最大公因数与最小公倍数
-- 若\\(a \vert m, b \vert m\\)，则\\(lcm(a,b) \vert m\\)
-- 若\\(d \vert a, d \vert b\\)，则\\(d \vert gcd(a,b)\\)
+- 若\\(a \vert m, b \vert m\\)，则\\(\lcm (a,b) \vert m\\)
+- 若\\(d \vert a, d \vert b\\)，则\\(d \vert \gcd (a,b)\\)
 - **利用素因子分解求最大公因数和最小公倍数**
   - 最大公因数的幂次取最小值
   - 最小公倍数的幂次取最大值
 - **辗转相除法求最大公因数**
+  - 设\\(a=qb+r\\)，则\\(\gcd (a,b) = \gcd (b,r)\\)
+  - 存在整数\\(x,y\\)使得\\(\gcd (a,b) = xa+yb\\)
+    - 从后向前逐个代回辗转相除法中的步骤式
+- **\\(a,b\\)互素的充要条件为存在\\(x,y\\)使得\\(xa+yb=1\\)**
+
+### 3. 同余
+- 同余是等价关系，即有自反性、对称性、传递性
+- 同余性质暂略
+- 同余关系下的模\\(m\\)等价类\\([a]_m\\)
+  - \\([a] \oplus [b] = [a+b]\\)
+  - \\([a] \otimes [b] = [ab]\\)
+
+### 4. 一次同余方程
+- 设\\(m>0\\)，下列方程称作一次同余方程
+
+$$
+  ax\equiv c \pmod{m}
+$$
+
+- **方程有解的充要条件是\\(\gcd (a,m)\vert c\\)**
+  - 充分性：只要证\\(ax \equiv \gcd (a,m) \pmod{m}\\)有解即可，对应系数同时乘以倍数即得到原命题
+    - \\(a_1 = \frac{a}{\gcd (a,m)}, m_1 = \frac{m}{\gcd (a,m)}\\)二者互素
+    - **素数性质：**\\(a_1 x_1 + m_1 y_1 = 1\\) 
+    - 两边乘以\\(\gcd (a,m)\\)，得\\(ax_1 + my_1 = \gcd (a,m)\\)
+    - 取\\(x = x_1 \cdot \frac{c}{\gcd (a,m)}, y = y_1 \cdot \frac{c}{\gcd (a,m)}\\)
+  - 必要性移项即可得，略
+- 方程的解可以写成\\(x \equiv x_0\pmod{m}\\)的形式，只需**验证对模\\(m\\)的每个等价类的一个代表即可找出方程所有的解**
+- 如果\\(ab \equiv 1\pmod{m}\\)，则称\\(b\\)为\\(a\\)的模\\(m\\)逆，记作\\(a^{-1}\pmod{m},a^{-1}\\)
+  - 即为方程\\(ax \equiv 1 \pmod{m}\\)的解
+  - \\(a\\)的模\\(m\\)逆存在的充要条件是\\(a,m\\)互素
+  - \\(a\\)的模\\(m\\)逆若存在则唯一（在模\\(m\\)意义下）
+
+### 5. 欧拉定理和费马小定理
+- 欧拉函数\\(\phi \\)：\\(\phi(n)\\)表示\\(\lbrace 1, 2, ..., n\rbrace\\)中与\\(n\\)互素的元素个数
+  - 当\\(n\\)为素数时，\\(\phi(n) = n-1\\)
+  - 当\\(n\\)为合数时，\\(\phi(n) < n-1\\)
+- 给定素因子分解\\(n = p_1^{r_1}p_2^{r_2}...p_k^{r_k}\\)，根据包含排斥原理（考虑为\\(p_i\\)倍数的事件），有：
+
+$$
+\begin{align*}
+  \phi(n) &= n - (\frac{n}{p_1} + \frac{n}{p_2}+...+\frac{n}{p_k}) + (\frac{n}{p_1 p_2}+\frac{n}{p_2 p_3}+...+\frac{n}{p_{k-1} p_k})-...+(-1)^k\frac{n}{p_1 p_2...p_k}\\
+  &= n(1-\frac{1}{p_1})(1-\frac{1}{p_2})...(1-\frac{1}{p_k})
+\end{align*}
+$$
+
+- **欧拉定理：**设\\(a,n\\)互素，则
+
+$$
+  a^{\phi(n)}\equiv 1 \pmod{n}
+$$
+
+- **费马小定理：**设\\(p\\)是素数，则对任意整数\\(a\\)，
+
+$$
+  a^p \equiv a \pmod{p}
+$$
+
+- **提供了一种不用分解因子就能确认一个数是合数的方法**
+
+## 第五章 图的基本概念
+### 1. 定义及运算
+- 无序积\\(A&B = \lbrace \lbracea,b\rbrace \mid a \in A, b \in B\rbrace\\)
+  - 其中的无序对\\((a,b)\\)
+- 无向图和有向图\\(G = \langle V,E\rangle\\)
+  - 区别为边集\\(E\\)的元素为无序对/有序对
+  - 具体定义略
