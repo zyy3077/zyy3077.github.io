@@ -292,3 +292,59 @@ $$
   - \\(\mathbb{N} \approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{N}\times \mathbb{N}\\)
   - \\(\mathbb{R} \approx [0,1] \approx (0,1)\\)
 - **康托定理**
+  - **\\(\mathbb{N} \not\approx \mathbb{R}\\)**
+    - \\([0,1]\\)间的小数不可用自然数数出，总能构造出新的小数
+  - **\\(\forall A, A \not\approx P(A)\\)**
+    - 设\\(g:A\rightarrow P(A)\\)
+  
+  $$
+    B=\lbrace x \mid x \in A, x \notin g(x)\rbrace
+  $$
+  
+  则\\(B \in P(A)\\)，但
+  
+  $$
+    \forall x \in A, x \in B \Leftrightarrow x \notin g(x)
+  $$
+  
+  从而\\(\forall x \in A, B \neq g(x)\\)，即\\(B\notin ran g\\)
+  - \\(\mathbb{N} \not\approx P(\mathbb{N}),\mathbb{N} \not\approx \lbrace 0, 1 \rbrace^\mathbb{N}\\)
+- **优势：如果存在从集合\\(A\\)到集合\\(B\\)的单射函数，则称\\(B\\)优势于\\(A\\)，记作\\(A\leqslant \cdot  B\\)**
+  - 真优势：若\\(A\leqslant \cdot  B\\)且\\(A\neq B\\)，则\\(A <\cdot B\\)
+  - \\(\mathbb{N} \leqslant \cdot \mathbb{N}\\)
+  - \\(\mathbb{N} <\cdot \mathbb{R}\\)
+  - \\(A <\cdot P(A)\\)
+  - 自反性、反对称性（在等势作等价关系的意义下）、传递性
+    - 其中反对称性给出一种证明等势的简单方法：分别构造两个方向的单射
+    - 可用该方法结合二进制与十进制小数证明\\(\lbrace 0, 1 \rbrace^\mathbb{N} \approx [0,1)\\)
+    - 故根据传递性，总结等势关系如下：
+  
+$$
+  \mathbb{N} \approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{Z} \times \mathbb{Z} \\
+  \mathbb{R} \approx [a,b] \approx (c,d) \approx \lbrace 0, 1 \rbrace^\mathbb{N} \approx P(\mathbb{N}) \\
+  \lbrace 0, 1 \rbrace^A \approx P(A)\\
+  \mathbb{N} <\cdot \mathbb{R}\\
+  A <\cdot P(A)
+$$
+
+- 有穷集：空集或与某个\\(\mathbb{N}_k = \lbrace 0, 1, ..., k-1 \rbrace\\)等势
+- 无穷集：不是有穷的集合
+- **基数\\(cardA, \vert A \vert\\)**
+  - 有穷基数
+    - \\(cardA = 0, A = \varnothing\\)
+    - \\(cardA = k, A \approx \mathbb{N}_k\\)
+  - 无穷基数
+    - **\\(card \mathbb{N} = \aleph _0\\)**
+    - **\\(card \mathbb{R} = \aleph \\)**
+  - 集合的基数就是集合的势
+  
+$$
+  card \mathbb{N} =card \mathbb{Z} = card \mathbb{Q} = card \mathbb{Z} \times \mathbb{Z} = \aleph _0\\
+  card \mathbb{R} = card [a,b] = card (c,d) = card \lbrace 0, 1 \rbrace^\mathbb{N} = card P(\mathbb{N}) = \aleph\\
+  \aleph _0 < \aleph 
+$$
+
+- 可数集（可列集）：\\(cardA \leq \aleph _0\\)
+
+## 第四章 初等数论基础及其应用
+### 1. 素数
