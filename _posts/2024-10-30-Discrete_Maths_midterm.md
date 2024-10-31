@@ -320,11 +320,13 @@ $$
     - 故根据传递性，总结等势关系如下：
   
 $$
+\begin{align*}
   \mathbb{N} \approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{Z} \times \mathbb{Z} \\
   \mathbb{R} \approx [a,b] \approx (c,d) \approx \lbrace 0, 1 \rbrace^\mathbb{N} \approx P(\mathbb{N}) \\
   \lbrace 0, 1 \rbrace^A \approx P(A)\\
   \mathbb{N} <\cdot \mathbb{R}\\
-  A <\cdot P(A)
+  A &<\cdot P(A)
+\end{align*}
 $$
 
 - 有穷集：空集或与某个\\(\mathbb{N}_k = \lbrace 0, 1, ..., k-1 \rbrace\\)等势
@@ -339,9 +341,11 @@ $$
   - 集合的基数就是集合的势
   
 $$
+\begin{align*}
   card \mathbb{N} =card \mathbb{Z} = card \mathbb{Q} = card \mathbb{Z} \times \mathbb{Z} = \aleph _0\\
   card \mathbb{R} = card [a,b] = card (c,d) = card \lbrace 0, 1 \rbrace^\mathbb{N} = card P(\mathbb{N}) = \aleph\\
   \aleph _0 < \aleph 
+\end{align*}
 $$
 
 - 可数集（可列集）：\\(cardA \leq \aleph _0\\)
