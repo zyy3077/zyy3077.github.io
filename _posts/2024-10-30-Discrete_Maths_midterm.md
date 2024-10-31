@@ -19,7 +19,7 @@ tags: [academic, blog]
 ### 1. 基本概念
 - 幂集\\(P(A), 2^A\\)
   - **设\\(A\\)为集合，称\\(A\\)的全体子集构成的集合为\\(A\\)的幂集**
-  - \\(P(A)=\lbrace X \mid X \\subseteq A\right\rbrace \\)
+  - \\(P(A)=\lbrace X \mid X \\subseteq A \rbrace \\)
   - 如果\\(A\\)是\\(n\\)元集，\\(P(A)\\)有\\(2^n\\)个元素
 - 对称差\\(A \oplus B\\)
   - **\\(A \oplus B = (A-B)\cup (B-A)\\)**
@@ -99,8 +99,8 @@ $$
   - 设\\(A\\)为\\(n\\)元集，\\(R\\)是\\(A\\)上的关系，则存在不相等的自然数\\(s,t\ s.t.\ R^s = R^t\\)
     - 证明：\\(A\\)上关系的总数\\(\vert P(A\times A)\vert = 2^{n^2}\\)是有限的，由抽屉原理存在相等
     - \\(R^s = R^t\\)，则：
-      - \\(\forall k in \mathbb{N} , R^{s+k} = R^{t+k}\\)
-      - \\(\forall k,i in \mathbb{N} , R^{s+kp+i} = R^{s+i},p = t -s\\)
+      - \\(\forall k \in \mathbb{N} , R^{s+k} = R^{t+k}\\)
+      - \\(\forall k,i \in \mathbb{N} , R^{s+kp+i} = R^{s+i},p = t -s\\)
       - 令\\(S=\lbrace R^0,R^1,...,R^{t-1}\rbrace\\)，则\\(\forall q \in \mathbb{N}, R^q \in S\\)
   - \\(R^m\circ R^n = R^{m+n}\\)
     - 对\\(n\\)归纳证明
@@ -185,7 +185,7 @@ $$
 - **偏序关系：自反、反对称、传递的关系**
 - 设\\(\leqslant\\)为偏序关系，若\\(\langle x,y\rangle \in \leqslant\\)，则记作\\(x \leqslant y\\)，读作\\(x\\)小于等于\\(y\\)，这里的小于是指在偏序中\\(x\\)在\\(y\\)的前面
 - 在偏序关系\\(\leqslant\\)的集合\\(A\\)中任取两个元素\\(x,y\\)，有下列情况：
-  - \\(x < y or y < x\\)
+  - \\(x < y \Vert y < x\\)
   - \\(x = y\\)
   - \\(x\\)与\\(y\\)不可比
 - \\(A\\)和\\(A\\)上的偏序关系\\(\leqslant\\)一起称作偏序集\\(\langle A,\leqslant\rangle\\)
@@ -207,8 +207,8 @@ $$
     - *\\(y \in A\\)不一定\\(y \in B\\)，这与最大最小元不同*
     - 若\\(\forall x \in B, x \leqslant y\\)，则称\\(y\\)是\\(B\\)的上界
     - 若\\(\forall x \in B, y \leqslant x\\)，则称\\(y\\)是\\(B\\)的下界
-    - 令\\(C = \lbrace y \mid y\text{为}B\text{的上界}\\)，则称\\(C\\)中最小元为\\(B\\)的最小上界
-    - 令\\(C = \lbrace y \mid y\text{为}B\text{的下界}\\)，则称\\(C\\)中最大元为\\(B\\)的最大下界
+    - 令\\(C = \lbrace y \mid y\text{为}B\text{的上界}\rbrace\\)，则称\\(C\\)中最小元为\\(B\\)的最小上界
+    - 令\\(C = \lbrace y \mid y\text{为}B\text{的下界}\rbrace\\)，则称\\(C\\)中最大元为\\(B\\)的最大下界
   - \\(B\\)的上界、下界、最小上界、最大下界都可能不存在；如果存在，最小上界和最大下界是唯一的
 
 ## 第三章 函数
