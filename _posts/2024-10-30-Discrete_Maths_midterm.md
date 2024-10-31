@@ -19,18 +19,18 @@ tags: [academic, blog]
 ### 1. 基本概念
 - 幂集\\(P(A), 2^A\\)
   - **设\\(A\\)为集合，称\\(A\\)的全体子集构成的集合为\\(A\\)的幂集**
-  - \\(P(A)=\left\{ X \mid X \\subseteq A\right\} \\)
+  - \\(P(A)=\lbrace X \mid X \\subseteq A\right\rbrace \\)
   - 如果\\(A\\)是\\(n\\)元集，\\(P(A)\\)有\\(2^n\\)个元素
 - 对称差\\(A \oplus B\\)
   - **\\(A \oplus B = (A-B)\cup (B-A)\\)**
-- 广义并\\(\bigcup \mathcal{A} \\)
+- 广义并\\(\cup \mathcal{A} \\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的元素组成的集合称为\\(\mathcal{A} \\)的广义并**
-  - \\(\mathcal{A} = \left\{ x \mid \exists A \in \mathcal{A}\ s.t.\ x \in A \right\} \\)
-  - \\(\bigcup \varnothing  = \varnothing \\)
-- 广义交\\(\bigcap \mathcal{A}\\)
+  - \\(\mathcal{A} = \lbrace x \mid \exists A \in \mathcal{A}\ s.t.\ x \in A \rbrace \\)
+  - \\(\cup \varnothing  = \varnothing \\)
+- 广义交\\(\cap \mathcal{A}\\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的公共元素组成的集合称为\\(\mathcal{A} \\)的广义交**
-  - \\(\bigcap \mathcal{A} = \left\{ x\mid \forall A \in \mathcal{A}, x\in A\right\}\\)
-  - \\(\bigcap \varnothing  = E\\)
+  - \\(\cap \mathcal{A} = \lbrace x\mid \forall A \in \mathcal{A}, x\in A\rbrace\\)
+  - \\(\cap \varnothing  = E\\)
 
 ### 2. 运算性质
 - *一般都可以画图得出，略*
@@ -50,7 +50,7 @@ $$
 - 有序对\\(\langle x,y\rangle \\)
   - **\\(\langle x,y\rangle  \neq \langle y,x\rangle \\)**
 - 笛卡尔积\\(A \times B\\)
-  - **\\(A \times B = \left\{\langle x,y\rangle \mid x \in A \wedge y \in B \right\}\\)**
+  - **\\(A \times B = \lbrace \langle x,y\rangle \mid x \in A \wedge y \in B \rbrace\\)**
   - 不满足交换律与结合律；对并与交满足分配律
 - 二元关系\\(R\\)
   - 如果一个集合满足以下条件之一，称为二元关系
@@ -59,7 +59,7 @@ $$
   - 若\\(\langle x,y\rangle  \in R\\)，记作\\(xRy\\)，其中\\(R\\)为从\\(A\\)到\\(B\\)的二元关系；若\\(A=B\\)，称为\\(A\\)上的二元关系
   - 特殊的二元关系
     - 全域关系\\(E_A = A\times A\\)
-    - 恒等关系\\(I_A = \left\{\langle x,x\rangle \mid x \in A\right\}\\)
+    - 恒等关系\\(I_A = \lbrace \langle x,x\rangle \mid x \in A\rbrace\\)
     - 包含关系、小于等于关系、整除关系...
   - 关系矩阵\\(\mathbf{M}_R\\)
     - \\(r_{ij} = 1\\)，若\\(x_i R y_j\\)
@@ -74,11 +74,11 @@ $$
 - 域\\(fldR\\)
   - **\\(fldR = domR \cup ranR\\)**
 - 逆关系\\(R^{-1}\\)
-  - **\\(R^{-1} = \left\{\langle x,y\rangle \mid <y,x>\in R \right\}\\)**
+  - **\\(R^{-1} = \lbrace \langle x,y\rangle \mid <y,x>\in R \rbrace\\)**
   - \\((F^{-1})^{-1} = F\\)
   - \\(domF^{-1} = ranF, ranF^{-1} = domF\\)
 - \\(F\\)和\\(G\\)的复合\\(F\circ G \\)
-  - **\\(F\circ G = \left\{<x,z>\mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\right\} \\)**
+  - **\\(F\circ G = \lbrace <x,z>\mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\rbrace \\)**
   - \\((F\circ G)\circ H = F\circ (G\circ H)\\)
   - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
@@ -86,7 +86,7 @@ $$
   - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) 试想\\(G\cap H\\)为空集的情形
   - \\((G\cap H) \circ F \subseteq G\circ F \cap H\circ F\\)
 - \\(R\\)在\\(A\\)上的限制\\(R\upharpoonright A\\)
-  - **\\(R\upharpoonright A = \left\{\langle x,y\rangle \mid \langle x,y\rangle \in R, x \in A \right\}\\)**
+  - **\\(R\upharpoonright A = \lbrace \langle x,y\rangle \mid \langle x,y\rangle \in R, x \in A \rbrace\\)**
   - \\(F\upharpoonright (A\cup B) = F\upharpoonright A \cup F\upharpoonright B\\)
   - \\(F\upharpoonright (A\cap B) = F\upharpoonright A \cap F\upharpoonright B\\)
 - \\(A\\)在\\(R\\)上的像\\(R[A]\\)
@@ -101,7 +101,7 @@ $$
     - \\(R^s = R^t\\)，则：
       - \\(\forall k in \mathbb{N} , R^{s+k} = R^{t+k}\\)
       - \\(\forall k,i in \mathbb{N} , R^{s+kp+i} = R^{s+i},p = t -s\\)
-      - 令\\(S=\left\{R^0,R^1,...,R^{t-1}\right\}\\)，则\\(\forall q \in \mathbb{N}, R^q \in S\\)
+      - 令\\(S=\lbrace R^0,R^1,...,R^{t-1}\rbrace\\)，则\\(\forall q \in \mathbb{N}, R^q \in S\\)
   - \\(R^m\circ R^n = R^{m+n}\\)
     - 对\\(n\\)归纳证明
   - \\((R^m)^n = R^{mn}\\)
@@ -163,5 +163,52 @@ $$
   - 设\\(R\\)为\\(A\\)上的等价关系，\\(\forall x \in A\\)，令
 
 $$
-    [x]_R = \left\{ \right\}
+    [x]_R = \lbrace y \mid y \in A, \langle x,y\rangle \in R \rbrace
 $$
+  - 即所有与\\(x\\)等价的元素构成的集合
+- 商集\\(A/R\\)
+  - **以\\(R\\)的所有等价类作为元素的集合称为\\(A\\)对\\(R\\)的商集**
+
+$$
+    A/R = \lbrace [x]_R \mid x \in A \rbrace
+$$
+
+- 划分\\(\pi \\)
+  - 设\\(A\\)为非空集合，若\\(A\\)的子集族\\(\pi \subseteq P(A)\\)满足以下条件，则称为\\(A\\)的一个划分
+    - \\(\varnothing \notin \pi\\)
+    - \\(\forall X,Y \in \pi, X \neq Y \rightarrow X\cap Y = \varnothing\\)
+    - \\(\cup \pi = A\\)
+  - 即元素集合无公共元素且包含所有元素的子集族
+  - 商集就是\\(A\\)的一个划分，等价关系与商集一一对应，故等价关系与划分一一对应
+
+### 6. 偏序关系
+- **偏序关系：自反、反对称、传递的关系**
+- 设\\(\leqslant\\)为偏序关系，若\\(\langle x,y\rangle \in \leqslant\\)，则记作\\(x \leqslant y\\)，读作\\(x\\)小于等于\\(y\\)，这里的小于是指在偏序中\\(x\\)在\\(y\\)的前面
+- 在偏序关系\\(\leqslant\\)的集合\\(A\\)中任取两个元素\\(x,y\\)，有下列情况：
+  - \\(x < y or y < x\\)
+  - \\(x = y\\)
+  - \\(x\\)与\\(y\\)不可比
+- \\(A\\)和\\(A\\)上的偏序关系\\(\leqslant\\)一起称作偏序集\\(\langle A,\leqslant\rangle\\)
+- \\(y\\)覆盖\\(x\\)：\\(x < y\\)且不存在\\(z\\)使得\\(x < z < y\\)
+- 哈斯图：若\\(x< y \\)，将\\(x\\)画在\\(y\\)下方；若\\(y\\)覆盖\\(x\\)，连接\\(x,y\\)
+- 最小元、最大元、极小元、极大元
+  - 设\\(\langle A,\leqslant\rangle\\)为偏序集，\\(B\subseteq A, y \in B\\)
+    - 若\\(\forall x \in B, y \leqslant x\\)，则称\\(y\\)是\\(B\\)的最小元
+    - 若\\(\forall x \in B, x \leqslant y\\)，则称\\(y\\)是\\(B\\)的最大元
+    - 若\\(\forall x \in B, x \leqslant y \rightarrow x = y\\)，则称\\(y\\)是\\(B\\)的极大元
+    - 若\\(\forall x \in B, y \leqslant x \rightarrow x = y\\)，则称\\(y\\)是\\(B\\)的极小元
+  - 最小元与其他元素都可比；而极小元与其他元素不一定可比，只要没有比它小的元素，就是极小元
+  - 极小元一定存在；最小元不一定存在
+  - 极小元可能有多个；最小元若存在则唯一
+  - 如果极小元唯一，则为最小元
+  - 哈斯图中的孤立点既是极小元也是极大元
+- 上界、下界、最小上界、最大下界
+  - 设\\(\langle A,\leqslant\rangle\\)为偏序集，\\(B\subseteq A, y \in A\\)
+    - *\\(y \in A\\)不一定\\(y \in B\\)，这与最大最小元不同*
+    - 若\\(\forall x \in B, x \leqslant y\\)，则称\\(y\\)是\\(B\\)的上界
+    - 若\\(\forall x \in B, y \leqslant x\\)，则称\\(y\\)是\\(B\\)的下界
+    - 令\\(C = \lbrace y \mid y\text{为}B\text{的上界}\\)，则称\\(C\\)中最小元为\\(B\\)的最小上界
+    - 令\\(C = \lbrace y \mid y\text{为}B\text{的下界}\\)，则称\\(C\\)中最大元为\\(B\\)的最大下界
+  - \\(B\\)的上界、下界、最小上界、最大下界都可能不存在；如果存在，最小上界和最大下界是唯一的
+
+## 第三章 函数
