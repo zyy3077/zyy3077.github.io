@@ -83,7 +83,7 @@ $$
   - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
   - \\((G\cup H) \circ F = G\circ F \cup H\circ F\\)
-  - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) 试想\\(G\cap H\\)为空集的情形
+  - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) *试想\\(G\cap H\\)为空集的情形*
   - \\((G\cap H) \circ F \subseteq G\circ F \cap H\circ F\\)
 - \\(R\\)在\\(A\\)上的限制\\(R\upharpoonright A\\)
   - **\\(R\upharpoonright A = \lbrace \langle x,y\rangle \mid \langle x,y\rangle \in R, x \in A \rbrace\\)**
@@ -159,13 +159,13 @@ $$
   - \\(R\\)是一个等价关系，若\\(\langle x,y\rangle \in R\\)，则称\\(x\\)等价于\\(y\\)，记作\\(x\sim y\\)
   - 常见的等价关系：模运算
   - *以等价关系的视角看哈希算法，在做ics题的时候很方便*
-- 关于\\(R\\)的等价类\\([x]_R,[x],\overline{x} \\)
+- **关于\\(R\\)的等价类**\\([x]_R,[x],\overline{x} \\)
   - 设\\(R\\)为\\(A\\)上的等价关系，\\(\forall x \in A\\)，令
 
 $$
     [x]_R = \lbrace y \mid y \in A, \langle x,y\rangle \in R \rbrace
 $$
-  - 即所有与\\(x\\)等价的元素构成的集合
+
 - 商集\\(A/R\\)
   - **以\\(R\\)的所有等价类作为元素的集合称为\\(A\\)对\\(R\\)的商集**
 
@@ -179,7 +179,7 @@ $$
     - \\(\forall X,Y \in \pi, X \neq Y \rightarrow X\cap Y = \varnothing\\)
     - \\(\cup \pi = A\\)
   - 即元素集合无公共元素且包含所有元素的子集族
-  - 商集就是\\(A\\)的一个划分，等价关系与商集一一对应，故等价关系与划分一一对应
+  - **商集就是\\(A\\)的一个划分，等价关系与商集一一对应，故等价关系与划分一一对应**
 
 ### 6. 偏序关系
 - **偏序关系：自反、反对称、传递的关系**
@@ -212,3 +212,32 @@ $$
   - \\(B\\)的上界、下界、最小上界、最大下界都可能不存在；如果存在，最小上界和最大下界是唯一的
 
 ## 第三章 函数
+### 1. 函数的定义与性质
+- **函数是一种特殊的二元关系**
+  - 设\\(F\\)为二元关系，若\\(\forall x \in domF\\)都存在唯一的\\(y\in ranF\\)使\\(xFy\\)成立，则称\\(F\\)为函数，若有\\(xFy\\)，则记作\\(y=F(x)\\)
+    - *\\(\langle 1, 2\rangle \langle 1,3\rangle\\)不是函数，没有唯一性*
+  - 用集合相等来定义函数相等；若两个函数\\(F\\)和\\(G\\)相等，则满足
+    - \\(domF = domG\\)
+    - \\(\forall x \in domF = domG, F(x) = G(x)\\)
+- 所有从\\(A\\)到\\(B\\)的函数的集合记作\\(B^A\\)
+  - \\(\vert B^A \vert = \vert B \vert ^ {\vert A \vert}\\)
+  - \\(\varnothing ^\varnothing = \lbrace \varnothing \rbrace \\) *这里\\(\varnothing:\varnothing \rightarrow \varnothing\\)*
+  - \\(B ^\varnothing = \lbrace \varnothing \rbrace \\) *这里\\(\varnothing:\varnothing \rightarrow B\\)*
+  - \\(\varnothing ^A = \varnothing\\) *这里\\(\varnothing\\)表示不存在这样的函数*
+
+$$
+    B^A = \lbrace f \mid f:A /rightarrow B \rbrace
+$$
+
+- 设函数\\(f:A\rightarrow B,A_1\subseteq A, B_1 \subseteq B\\)
+  - \\(A_1\\)在\\(f\\)下的**像**\\(f(A_1) = \lbrace f(x)\mid x \in A_1\rbrace\\)
+  - \\(B_1\\)在\\(f\\)下的**原像**\\(f^{-1}(B_1) = \lbrace x \in A \mid f(x) \in B_1\rbrace\\)
+  - \\(A_1 \subseteq f^{-1}(f(A_1))\\) *可能有多个\\(x\\)对应一个\\(y\\)*
+- 设\\(f:A \rightarrow B\\)
+  - 若\\(ranf = B\\)，则称\\(f:A\rightarrow B\\)是**满射**
+  - 若\\(\forall y \in ranf \\)都存在唯一的\\(x \in A\\)使得\\(f(x) = y\\)，则称\\(f:A\rightarrow B\\)是**单射**
+  - 若\\(f:A\rightarrow B\\)既是满射又是单射，则称\\(f:A\rightarrow B\\)是**双射**
+    - \\(P(A)\\)和\\(\lbrace 0, 1\rbrace^A\\)存在双射，用\\(0,1\\)来表示是否选择该元素作为元素子集的元素
+    - \\(\mathbb{Z} \rightarrow \mathbb{N} \\)的双射：负数对应奇数，正数对应偶数，零对应零
+      - \\(f(x) = 2x, x \geq 0\\)
+      - \\(f(x) = -2x-1, x < 0\\)
