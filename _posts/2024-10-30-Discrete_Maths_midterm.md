@@ -321,10 +321,10 @@ $$
   
 $$
 \begin{align*}
-  \mathbb{N} \approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{Z} \times \mathbb{Z} \\
-  \mathbb{R} \approx [a,b] \approx (c,d) \approx \lbrace 0, 1 \rbrace^\mathbb{N} \approx P(\mathbb{N}) \\
-  \lbrace 0, 1 \rbrace^A \approx P(A)\\
-  \mathbb{N} <\cdot \mathbb{R}\\
+  \mathbb{N} &\approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{Z} \times \mathbb{Z} \\
+  \mathbb{R} &\approx [a,b] \approx (c,d) \approx \lbrace 0, 1 \rbrace^\mathbb{N} \approx P(\mathbb{N}) \\
+  \lbrace 0, 1 \rbrace^A &\approx P(A)\\
+  \mathbb{N} &<\cdot \mathbb{R}\\
   A &<\cdot P(A)
 \end{align*}
 $$
@@ -342,9 +342,9 @@ $$
   
 $$
 \begin{align*}
-  card \mathbb{N} =card \mathbb{Z} = card \mathbb{Q} = card \mathbb{Z} \times \mathbb{Z} = \aleph _0\\
-  card \mathbb{R} = card [a,b] = card (c,d) = card \lbrace 0, 1 \rbrace^\mathbb{N} = card P(\mathbb{N}) = \aleph\\
-  \aleph _0 < \aleph 
+  card \mathbb{N} &=card \mathbb{Z} = card \mathbb{Q} = card \mathbb{Z} \times \mathbb{Z} = \aleph _0\\
+  card \mathbb{R} &= card [a,b] = card (c,d) = card \lbrace 0, 1 \rbrace^\mathbb{N} = card P(\mathbb{N}) = \aleph\\
+  \aleph _0 &< \aleph 
 \end{align*}
 $$
 
