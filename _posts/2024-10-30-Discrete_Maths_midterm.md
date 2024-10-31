@@ -83,7 +83,7 @@ $$
   - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
   - \\((G\cup H) \circ F = G\circ F \cup H\circ F\\)
-  - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) *试想\\(G\cap H\\)为空集的情形*
+  - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) *（试想\\(G\cap H\\)为空集的情形）*
   - \\((G\cap H) \circ F \subseteq G\circ F \cap H\circ F\\)
 - \\(R\\)在\\(A\\)上的限制\\(R\upharpoonright A\\)
   - **\\(R\upharpoonright A = \lbrace \langle x,y\rangle \mid \langle x,y\rangle \in R, x \in A \rbrace\\)**
@@ -215,18 +215,18 @@ $$
 ### 1. 函数的定义与性质
 - **函数是一种特殊的二元关系**
   - 设\\(F\\)为二元关系，若\\(\forall x \in domF\\)都存在唯一的\\(y\in ranF\\)使\\(xFy\\)成立，则称\\(F\\)为函数，若有\\(xFy\\)，则记作\\(y=F(x)\\)
-    - *\\(\langle 1, 2\rangle \langle 1,3\rangle\\)不是函数，没有唯一性*
+    - *\\(\langle 1, 2\rangle \langle 1,3\rangle\\)不是函数，没有单值性*
   - 用集合相等来定义函数相等；若两个函数\\(F\\)和\\(G\\)相等，则满足
     - \\(domF = domG\\)
     - \\(\forall x \in domF = domG, F(x) = G(x)\\)
 - 所有从\\(A\\)到\\(B\\)的函数的集合记作\\(B^A\\)
   - \\(\vert B^A \vert = \vert B \vert ^ {\vert A \vert}\\)
-  - \\(\varnothing ^\varnothing = \lbrace \varnothing \rbrace \\) *这里\\(\varnothing:\varnothing \rightarrow \varnothing\\)*
-  - \\(B ^\varnothing = \lbrace \varnothing \rbrace \\) *这里\\(\varnothing:\varnothing \rightarrow B\\)*
-  - \\(\varnothing ^A = \varnothing\\) *这里\\(\varnothing\\)表示不存在这样的函数*
+  - \\(\varnothing ^\varnothing = \lbrace \varnothing \rbrace \\) *（这里\\(\varnothing:\varnothing \rightarrow \varnothing\\)）*
+  - \\(B ^\varnothing = \lbrace \varnothing \rbrace \\) *（这里\\(\varnothing:\varnothing \rightarrow B\\)）*
+  - \\(\varnothing ^A = \varnothing\\) *（这里\\(\varnothing\\)表示不存在这样的函数）*
 
 $$
-    B^A = \lbrace f \mid f:A /rightarrow B \rbrace
+    B^A = \lbrace f \mid f:A \rightarrow B \rbrace
 $$
 
 - 设函数\\(f:A\rightarrow B,A_1\subseteq A, B_1 \subseteq B\\)
@@ -241,3 +241,54 @@ $$
     - \\(\mathbb{Z} \rightarrow \mathbb{N} \\)的双射：负数对应奇数，正数对应偶数，零对应零
       - \\(f(x) = 2x, x \geq 0\\)
       - \\(f(x) = -2x-1, x < 0\\)
+- 常用函数
+  - 常函数、恒等函数、单调递增（减）函数（定义于一般的偏序集上）、特征函数\\(\chi_{A'}:A\rightarrow \lbrace 0,1\rbrace\\\)（用\\(0,1\\)表示\\(A\\)中元素是否在子集\\(A'\\)中）
+  - 自然映射\\(g:A\rightarrow A/R,g(a)=[a],\forall a \in A\\)
+    - 即映到等价类 
+  - 阶
+    - 暂略，见书p50
+
+### 2. 函数的复合与反函数
+- **函数的复合是关系的右复合**
+
+$$
+    F\circ G(x) = G(F(x))
+$$
+
+- 两个函数都为满射/单射/双射时，复合保持满射/单射/双射；逆命题不为真
+  - 考虑单射\\(f:A\rightarrow B\\)和单射\\(f\circ g:A \rightarrow C\\)，\\(g:B \rightarrow C\\)不为单射
+  
+$$ 
+\begin{align*}
+  f &= \lbrace \langle a_1,b_1\rangle,\langle a_2,b_2\rangle,\langle a_3,b_3\rangle\rbrace \\
+  g &= \lbrace \langle b_1,c_1\rangle,\langle b_2,c_2\rangle,\langle b_3,c_3\rangle,\langle b_4,c_3\rangle\rbrace \\
+  f \circ g &= \lbrace \langle a_1,c_1\rangle,\langle a_2,c_2\rangle,\langle a_3,c_3\rangle\rbrace
+\end{align*}
+$$
+
+- 设\\(f:A\rightarrow B\\)是双射，则\\(f^{-1}:B\rightarrow A\\)也是双射，称其为\\(f\\)的反函数
+  - \\(f^{-1}\circ f = I_B, f\circ f^{-1} = I_A\\)
+
+### 3. 双射函数与集合的基数
+- **集合的势：度量集合所含元素多少的量**
+- **等势：如果存在从集合\\(A\\)到集合\\(B\\)的双射函数，则称\\(A\\)和\\(B\\)是等势的，记作\\(A\approx B\\)**
+  - \\(\mathbb{Z} \approx \mathbb{N}\\)
+  - \\(\mathbb{N}\times \mathbb{N} \approx \mathbb{N}\\)
+    - 找到能“数遍”第一象限整数坐标点的方法
+    - \\(f(\langle m,n\rangle) = \frac{(m+n+1)(m+n)}{2} + m\\)
+    - *\\(x+y = m+n\\)斜线下方点的个数\\(+\\)横坐标\\(m\\)*
+  - \\(\mathbb{N} \approx \mathbb{Q}\\)
+    - “数遍”有理数表的方法
+  - \\((0,1) \approx \mathbb{R}\\)
+    - \\(f:(0,1)\rightarrow \mathbb{R}, f(x) = tan\frac{2x-1}{2}\pi\\)
+  - \\([0,1] \approx (0,1)\\)
+    - 解决端点\\(0,1\\)的对应问题
+    - 选择一个无限序列向后平移\\(2\\)个单位，最前两个元素空出来对应\\(0,1\\)，其余对应自身
+    - \\(\frac{1}{2^n}\\)
+  - \\(\forall a, b \in \mathbb{R}, a < b, [0,1] \approx [a,b]\\)
+    - 一次函数即可
+  - \\(P(A) \approx \lbrace 0, 1\rbrace ^A\\)
+- 一般来说，等势具有自反性、对称性、传递性
+  - \\(\mathbb{N} \approx \mathbb{Z} \approx \mathbb{Q} \approx \mathbb{N}\times \mathbb{N}\\)
+  - \\(\mathbb{R} \approx [0,1] \approx (0,1)\\)
+- **康托定理**
