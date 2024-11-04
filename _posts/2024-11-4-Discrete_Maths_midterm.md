@@ -660,7 +660,7 @@ $$
   - 暂无判断哈密顿图的充要条件，下给出必要条件和充分条件
 
 **必要条件**
-- 设无向图\\(G = \langle V, E \rangle\\)是哈密顿图，则对于任意\\(V_1\subset V\\)且\\(V_1 \neq \vernothing\\)，均有
+- 设无向图\\(G = \langle V, E \rangle\\)是哈密顿图，则对于任意\\(V_1\subset V\\)且\\(V_1 \neq \varnothing\\)，均有
 
 $$
   p(G-V_1) \leq \vert V_1 \vert
@@ -673,7 +673,7 @@ $$
 - 可以推出：二部图若是哈密顿图，则\\(\vert V_2 \vert = \vert V_1 \vert\\)
   - 思考：半哈密顿图的二部图有何种性质？
   - 一种确定二部图不是哈密顿/半哈密顿图的简单方法
-- 设无向图\\(G = \langle V, E \rangle\\)是半哈密顿图，则对于任意\\(V_1\subset V\\)且\\(V_1 \neq \vernothing\\)，均有
+- 设无向图\\(G = \langle V, E \rangle\\)是半哈密顿图，则对于任意\\(V_1\subset V\\)且\\(V_1 \neq \varnothing\\)，均有
 
 $$
   p(G-V_1) \leq \vert V_1 \vert + 1
