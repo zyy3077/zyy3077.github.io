@@ -5,10 +5,8 @@ title: Welcome to my blog
 ## About
 - 你好，我叫赵圆圆，是一个喜欢猫和打球的学生。
 - 目前就读于北京大学信息科学技术学院，计算机科学与技术专业。
-- 最近忙着期中复习。。。为什么要选这么多课。。
-- 新生杯竟然赢了元培，这是真实的吗？
-
-
+- 最近忙着太多事。。这周快过去。。让我好好练球好好学
+  
 ## Education
 ### Peking University
 - Computer Science
