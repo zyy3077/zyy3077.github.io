@@ -74,11 +74,11 @@ $$
 - 域\\(fldR\\)
   - **\\(fldR = domR \cup ranR\\)**
 - 逆关系\\(R^{-1}\\)
-  - **\\(R^{-1} = \lbrace \langle x,y\rangle \mid <y,x>\in R \rbrace\\)**
+  - **\\(R^{-1} = \lbrace \langle x,y\rangle \mid \lbrace y,x\rbrace \in R \rbrace\\)**
   - \\((F^{-1})^{-1} = F\\)
   - \\(domF^{-1} = ranF, ranF^{-1} = domF\\)
 - \\(F\\)和\\(G\\)的复合\\(F\circ G \\)
-  - **\\(F\circ G = \lbrace <x,z>\mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\rbrace \\)**
+  - **\\(F\circ G = \lbrace \lbrace x,z\rbrace \mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\rbrace \\)**
   - \\((F\circ G)\circ H = F\circ (G\circ H)\\)
   - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
@@ -438,7 +438,15 @@ $$
   a^p \equiv a \pmod{p}
 $$
 
-- **提供了一种不用分解因子就能确认一个数是合数的方法**
+- 等价命题：设\\(p\\)是素数，\\(a,p\\)互素，则
+
+$$
+  a^{p-1} \equiv 1 \pmod{p}
+$$
+
+- 应用：
+  - 提供了一种不用分解因子就能确认一个数是合数的方法
+  - 用于计算指数很大时的余数
 
 ## 第五章 图的基本概念
 *概念实在是太多。。*
@@ -467,9 +475,9 @@ $$
 - 有向图的先驱元素\\(\Gamma_D^{-}(v) = \lbrace u \mid u \in V , \langle u,v\rangle \in E, u \neq v\rbrace\\)
 - **有向图的领域**\\(N_G(v)=\Gamma_D^{+}(v) \cup \Gamma_D^{-}(v)\\)
 - 闭邻域\\(\overline{N}_G(v)=N_G(v) \cup \lbrace v \rbrace \\)
-- 平行边（有向图中方向相同）
+- 平行边（**有向图中方向相同**）
 - **多重图：**含平行边的图
-- **简单图：**既不含平行便也不含环的图
+- **简单图：**既不含平行边也不含环的图
 - 母图/子图：边集与点集都包含/被包含
   - 真子图：边集与点集都被真包含
   - **生成图：**点集相等，边集被包含
@@ -498,7 +506,7 @@ $$
 - 度数列\\(d = (d_1, d_2, ...,d_n)\\)
   - 可图化：存在无向图满足该度数列
   - 可简单图化：必要条件\\(\Delta(G)\leq n-1\\)
-- **非负整数列\\(d = (d_1, d_2, ...,d_n)\\)是可图化的当且仅当\\(sum_{i=1}^{n}d_i\\)为偶数**
+- **非负整数列\\(d = (d_1, d_2, ...,d_n)\\)是可图化的当且仅当\\(\sum_{i=1}^{n}d_i\\)为偶数**
   - 构造：偶数个奇度顶点两两一组相连，剩余的偶数度数成环
 - 设\\(G\\)为任意\\(n\\)阶无向简单图，则\\(\Delta(G)\leq n-1\\)
 - 同构\\(\simeq \\)：存在点集之间的双射，具体定义略，可理解为同一个图的顶点平移至不同位置，有向图要考虑方向
@@ -533,11 +541,11 @@ $$
   - 非负性：\\(d(u,v)\geq 0\\)等号成立当且仅当\\(u=v\\)
   - 对称性：\\(d(u,v) = d(v,u)\\)
   - 满足三角不等式：\\(d(u,v)+d(v,w)\geq d(u,w)\\)
-- **点割集**：设无向图\\(G=\langle V, E \rangle \\)，若存在\\(V' \subset V\\)使得\\(p(G-V')>p(G)\\)，且对于任意的\\(V''\subset V'\\)，均有\\(p(G-V'')=p(G)\\)，则称\\(V'\\)是\\(G\\)的点割集，若\\(V'=\lbrace v \rbrace\\)，则称\\(v\\)为割点
+- **点割集**：设无向图\\(G=\langle V, E \rangle \\)，若存在\\(V' \subset V\\)使得\\(p(G-V')>p(G)\\)，且对于任意的\\(V'' \subset V'\\)，均有\\(p(G-V'')=p(G)\\)，则称\\(V'\\)是\\(G\\)的点割集，若\\(V'=\lbrace v \rbrace\\)，则称\\(v\\)为割点
   - 即最小的（任何它的子集都不行）、删去能使连通分支数增大的点集
 
 **无向图的连通性**
-- **边割集（割集）**：设无向图\\(G=\langle V, E \rangle \\)，若存在\\(E' \subset E\\)使得\\(p(G-E')>p(G)\\)，且对于任意的\\(E''\subset E'\\)，均有\\(p(G-E'')=p(G)\\)，则称\\(E'\\)是\\(G\\)的点割集，若\\(E'=\lbrace e \rbrace\\)，则称\\(e\\)为**桥**（割边）
+- **边割集（割集）**：设无向图\\(G=\langle V, E \rangle \\)，若存在\\(E' \subset E\\)使得\\(p(G-E')>p(G)\\)，且对于任意的\\(E'' \subset E'\\)，均有\\(p(G-E'')=p(G)\\)，则称\\(E'\\)是\\(G\\)的点割集，若\\(E'=\lbrace e \rbrace\\)，则称\\(e\\)为**桥**（割边）
   - 即最小的（任何它的子集都不行）、删去能使连通分支数增大的边集
 - **点连通度（连通度）\\(\kappa\\)**：**无向连通图且非完全图**时（完全图不存在点割集），
 
