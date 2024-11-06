@@ -25,7 +25,7 @@ tags: [academic, blog]
   - **\\(A \oplus B = (A-B)\cup (B-A)\\)**
 - 广义并\\(\cup \mathcal{A} \\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的元素组成的集合称为\\(\mathcal{A} \\)的广义并**
-  - \\(\mathcal{A} = \lbrace x \mid \exists A \in \mathcal{A}\ s.t.\ x \in A \rbrace \\)
+  - \\(\cup \mathcal{A} = \lbrace x \mid \exists A \in \mathcal{A}\ s.t.\ x \in A \rbrace \\)
   - \\(\cup \varnothing  = \varnothing \\)
 - 广义交\\(\cap \mathcal{A}\\)
   - **设\\(\mathcal{A} \\)为一个集族，\\(\mathcal{A} \\)中全体元素的公共元素组成的集合称为\\(\mathcal{A} \\)的广义交**
@@ -78,9 +78,9 @@ $$
   - \\((F^{-1})^{-1} = F\\)
   - \\(domF^{-1} = ranF, ranF^{-1} = domF\\)
 - \\(F\\)和\\(G\\)的复合\\(F\circ G \\)
-  - **\\(F\circ G = \lbrace \lbrace x,z\rbrace \mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\rbrace \\)**
+  - **\\(F\circ G = \lbrace \langle x,z\rangle \mid \exists y\ s.t.\ \langle x,y\rangle \in F, \langle y,z\rangle \in G\rbrace \\)**
   - \\((F\circ G)\circ H = F\circ (G\circ H)\\)
-  - \\((F\circ G)^{-1} = G^{-1} \circ H^{-1}\\)
+  - \\((F\circ G)^{-1} = G^{-1} \circ F^{-1}\\)
   - \\(F\circ (G\cup H) = F\circ G \cup F\circ H\\)
   - \\((G\cup H) \circ F = G\circ F \cup H\circ F\\)
   - \\(F\circ (G\cap H) \subseteq F\circ G \cap F\circ H\\) *（试想\\(G\cap H\\)为空集的情形）*
@@ -198,7 +198,7 @@ $$
     - 若\\(\forall x \in B, x \leqslant y \rightarrow x = y\\)，则称\\(y\\)是\\(B\\)的极大元
     - 若\\(\forall x \in B, y \leqslant x \rightarrow x = y\\)，则称\\(y\\)是\\(B\\)的极小元
   - 最小元与其他元素都可比；而极小元与其他元素不一定可比，只要没有比它小的元素，就是极小元
-  - 极小元一定存在；最小元不一定存在
+  - **有穷集**中极小元一定存在；最小元不一定存在
   - 极小元可能有多个；最小元若存在则唯一
   - 如果极小元唯一，则为最小元
   - 哈斯图中的孤立点既是极小元也是极大元
@@ -466,11 +466,11 @@ $$
   - 若\\(e_k\\)是\\(v_i\\)上的环，关联次数为\\(2\\)
   - \\(v_i\\)不与\\(e_k\\)关联，关联次数为\\(0\\)
   - 没有边关联的点为孤立点
-  - 关联集\\(I_G(v) = \lbrace e \mid e \in E, e \text{与} v \text{相关联}\\)
+  - 关联集\\(I_G(v) = \lbrace e \mid e \in E, e \text{与} v \text{相关联} \rbrace\\)
 - 相邻
   - 两条边有一个公共顶点（有向图一边起点为另一边终点）
   - 两个顶点之间有一条边（有向图为有向边）
-- **无向图的邻域**\\(N_G(v)=\lbrace u \mid u \in V,(u,v)\in E,u \neq v\\)
+- **无向图的邻域**\\(N_G(v)=\lbrace u \mid u \in V,(u,v)\in E,u \neq v \rbrace\\)
 - 有向图的后继元素\\(\Gamma_D^{+}(v) = \lbrace u \mid u \in V , \langle v,u\rangle \in E, u \neq v\rbrace\\)
 - 有向图的先驱元素\\(\Gamma_D^{-}(v) = \lbrace u \mid u \in V , \langle u,v\rangle \in E, u \neq v\rbrace\\)
 - **有向图的领域**\\(N_G(v)=\Gamma_D^{+}(v) \cup \Gamma_D^{-}(v)\\)
@@ -631,7 +631,7 @@ $$
   - 所有元素之和\\(=\\)出度和\\(=\\)入度和\\(=\\)边数
   - \\(\mathbf{A}^l\\)中元素表示顶点\\(v_i\\)邻接到顶点\\(v_j\\)的长度为\\(l\\)的通路数
     - 元素和为\\(D\\)中长度为\\(l\\)的通路数总数
-  - \\(\mathbf{B_l} = \mathbf{A} + \mathbf{A}^2 +...+\mathbf{A}^l\\)中元素和为\\(D\\)中长度\\(\leq l\\)的通路数
+  - \\(\mathbf{B}_l = \mathbf{A} + \mathbf{A}^2 +...+\mathbf{A}^l\\)中元素和为\\(D\\)中长度\\(\leq l\\)的通路数
   
 **有向图的可达矩阵\\(\mathbf{P}(D)\\)**：
 - \\(p_{ij} = 1,v_i \text{可达}v_j\\)
