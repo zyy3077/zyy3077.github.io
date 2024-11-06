@@ -579,7 +579,7 @@ $$
     E(Y^2) &= E((X_1 + X_2 + ... + X_r)^2) = \sum_i \sum_j E(X_i X_j)\\
     i=j, E((X_i)^2) &= \frac{2-p}{p^2}\text{见之前几何分布中的推导（构造求导）}\\
     i \neq j, E(X_i X_j) &= E(X_i)E(X_j) = \frac{1}{p^2}\\
-    E(Y^2) &= r \cdot \frac{2-p}{p^2} + r(r-1) \cdot \frac{1}{p^2} 
+    E(Y^2) &= r \cdot \frac{2-p}{p^2} + r(r-1) \cdot \frac{1}{p^2} \\
     &= \frac{r^2 + r - pr}{p^2}\\
     Var(Y) &= \frac{r(1-p)}{p^2}
 \end{align*}    
