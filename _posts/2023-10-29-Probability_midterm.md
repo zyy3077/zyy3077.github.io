@@ -144,7 +144,7 @@ $$
 
 ### 6. 事件的独立性
 - 事件\\(A\\)与\\(B \text{相互独立} \Leftrightarrow P(AB) = P(A)P(B)\\)，即当\\(P(B) > 0 \\)时，\\( P(A\mid B) = P(A)\\)
-- 对于\\(n\\)个事件\\(A_1, A_2, ..., A_n\\)，如果对于\\({1, 2, ..., n}\\)的任意子集\\(I\\)，都有\\(P(\bigcap_{i \in I}) = \prod_{i \in I} P(A_i)\\)，则称\\(A_1, A_2, ..., A_n\\)相互独立
+- 对于\\(n\\)个事件\\(A_1, A_2, ..., A_n\\)，如果对于\\({1, 2, ..., n}\\)的任意子集\\(I\\)，都有\\(P(\bigcap_{i \in I A_i}) = \prod_{i \in I} P(A_i)\\)，则称\\(A_1, A_2, ..., A_n\\)相互独立
 - \\(n\\)重伯努利试验：独立进行\\(n\\)次某个只有两个可能结果的随机试验
 - 两两独立/相互独立
 
@@ -178,6 +178,7 @@ $$
 - \\(P(X \geq \frac{m}{2}) > 0 \\)，即存在分组方式满足题意
 
 **马尔可夫不等式**
+
 若\\(X\\)为非负随机变量，对于\\(a > 0\\)，有
 
 $$
@@ -215,6 +216,7 @@ $$
 $$
 
 **切比雪夫不等式**
+
 若\\(\sigma(X) > 0 \\)，对于任意\\(c > 0\\)，
 
 $$
@@ -393,14 +395,14 @@ $$
 \end{align*}
 $$
 
-**正态分布\\(N(\mu , \sigma)\\)**
+**正态分布\\(N(\mu , \sigma^2)\\)**
 - \\(\mu > 0, \sigma > 0\\)
 - \\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\)
   - 对称性：关于\\(x=\mu\\)对称
   - 最大值：\\(f(\mu)\\)
   - 正则性：\\(y = \frac{x-\mu}{\sigma}, \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{-\frac{y^2}{2}}\cdot dy = 1\\)
 - 一般正态分布与标准正态（高斯）分布的联系
-  - 若\\(X \sim N(\mu, \sigma)\\)，则\\(X\\)的标准化随机变量\\(U = \frac{X-\mu}{\sigma} \sim N(0,1)\\)
+  - 若\\(X \sim N(\mu, \sigma^2)\\)，则\\(X\\)的标准化随机变量\\(U = \frac{X-\mu}{\sigma} \sim N(0,1)\\)
   - 数学期望和方差可由此导出：\\(E(X) = \mu, Var(X) = \sigma^2\\)
 - 标准化随机变量：对于任意分布，随机变量\\(X\\)的标准化随机变量为\\(Y=\frac{X-\mu}{\sigma}\\)
   - 例题：\\(X\\)服从参数为\\(\frac{1}{2}\\)的伯努利分布，求标准化随机变量
@@ -442,7 +444,7 @@ $$
 **伽玛分布\\(\Gamma (\alpha, \lambda)\\)**
 - 对于\\(\alpha > 0\\)，伽玛函数\\(\Gamma(\alpha) = \int_{0}^{+\infty} x^{\alpha - 1}e^{-x}dx\\)
   - \\(\Gamma(1)=1, \Gamma(\frac{1}{2}) = \sqrt{\pi}, \Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)\\) 
-  - \\(n \in \mathbb{N} ,\Gamma{n+1} = n! \\)
+  - \\(n \in \mathbb{N} ,\Gamma (n+1) = n! \\)
   - \\(\Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n \cdot n!}\cdot \sqrt{\pi}\\)
 - 对于\\(\alpha, \lambda >0\\)，由上述第\\(n\\)次发生故障的时间\\(X\\)的概率密度函数定义伽玛分布\\(\Gamma(\alpha, \lambda)\\)
 
@@ -464,7 +466,7 @@ $$
   &= \frac{\Gamma (\alpha + 1)}{\Gamma(\alpha) \cdot \lambda} \\
   &= \frac{\alpha}{\lambda}\\
   \text{同理换元可得：}E(X^2) &= \frac{\alpha (\alpha + 1)}{\lambda^2}\\
-  Var(X) &= frac{\alpha (\alpha + 1)}{\lambda^2} - (\frac{\alpha}{\lambda})^2\\
+  Var(X) &= \frac{\alpha (\alpha + 1)}{\lambda^2} - (\frac{\alpha}{\lambda})^2\\
   &= \frac{\alpha}{\lambda^2}
 \end{align*}
 $$
