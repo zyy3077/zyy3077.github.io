@@ -3,10 +3,11 @@ title: Welcome to my blog
 ---
 
 ## About
-- 你好，我叫赵圆圆，是一个喜欢猫和打球的学生。
+- 你好，我叫赵圆圆，是一个喜欢猫、看书和特定的人的学生。
 - 目前就读于北京大学信息科学技术学院，计算机科学与技术专业。
-- 最近忙着补期中复习落下的课。。
-  
+- 圣诞快乐。
+- 最近在等待寒假。
+
 ## Education
 ### Peking University
 - Computer Science
