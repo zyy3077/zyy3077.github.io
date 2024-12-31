@@ -161,3 +161,26 @@ $$
   - 直接放缩，利用分布函数
   - 计算偶阶中心距（对矩生成函数求导），使用马尔可夫不等式
   - 对矩生成函数使用马尔可夫不等式，即Chernoff Bound；对矩生成函数求期望时可以结合Hoeffding引理，最后对\\(t\\)求导代回
+
+### 2. 大数定律
+- **一般形式**：对于随机变量\\({X_n}\\)，\\(\forall \epsilon > 0\\) 
+$$
+  \lim_{n\to \infty}P(\vert \frac{1}{n}\sum_{i=1}^{n}X_i - \frac{1}{n}\sum_{i=1}^{n}E(X_i)\vert < \epsilon ) = 1
+$$
+- **伯努利大数定律**：在\\(n\\)重伯努利试验中，\\(n_A\\)为事件\\(A\\)发生的次数，\\(P(A) = p\\)，\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{n_A}{n} - p\vert < \epsilon) = 1\\)
+- **马尔可夫大数定律**：若\\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)，则\\({X_i}\\)服从大数定律（一般形式）
+  - 证明：对\\(\frac{1}{n}\sum_{i=1}{n}X_i\\)使用切比雪夫不等式
+  
+**例题：利用相关系数**
+\\({X_n}\\)为一列同分布且标准差\\(\sigma = \sigma(X_i)\\)存在的随机变量。\\(X_i\\)仅与\\(X_{i-1},X_{i+1}\\)相关，证明\\({X_n}\\)服从大数定律。
+- \\(Corr(X_i,X_{i+1})\leq 1 \Rightarrow Cov(X_i,X_{i+1})\leq \sigma^2\\)
+- \\(Var(\sum_{i=1}{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cot \sigma^2 + 2(n-1)\sigma^2\\)
+- *\\(2(n-1)\\)为每个\\(X_i\\)的前驱后继，头尾只有一个于是\\(-2\\)*
+- \\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)
+
+- **辛钦大数定律**：\\({X_n}\\)独立同分布，且数学期望\\(\mu = E(X_i)\\)存在，则\\({X_n}\\)服从大数定律（一般形式）
+  - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}X_i - \mu\vert < \epsilon) = 1\\)
+  - 对比马尔可夫大数定律，需要独立同分布的假设，不需要对方差进行假设
+
+- 随机变量序列的收敛性
+  - **依概率收敛\\(Y_n \overset{P}{\rightarrow} Y\\)**：令\\({Y_n}\\)为一列随机变量，\\(Y\\)为随机变量。若\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert Y_n - Y\vert < \epsilon)=1\\)，则称\\({Y_n}\\)依概率收敛于\\(Y\\)
