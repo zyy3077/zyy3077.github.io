@@ -97,3 +97,29 @@ $$
 - 可求出\\(U\\)的分布函数后求导验证
 
 ### 5. 多维高斯分布
+- 随机向量\\(X=(X_1, X_2,...,X_n)\\)
+- 数学期望向量\\(E(X) = (E(X_1), E(X_2), ... , E(X_n))\\)
+- 协方差矩阵
+  - \\(\alpha^T Cov(X) \alpha = E((\alpha^T(X-E(X)))^2) \geq 0\\)
+  
+$$
+Cov(X) = \begin{vmatrix}
+Var(X_1) & Cov(X_1,X_2) & ... & Cov(X_1, X_n) \\
+Cov(X_2,X_1) & Var(X_2) & ... & Cov(X_2, X_n)\\
+... & ... & ... & ...\\
+Cov(X_n, X_1) & Cov(X_n, X_2) & ... & Var(X_n) \\
+\end{vmatrix}
+$$
+
+- \\(n\\)维高斯分布即\\(X\sim N(\mu, B), x,\mu \in \mathbb{R}^n, B\in \mathbb{R}^{n\times n}\\)的联合密度函数为
+
+$$
+    f(x) = \frac{1}{(2\pi)^{\frac{n}{2}}\cdot (det(B))^{\frac{1}{2}}}e^{-\frac{1}{2}\cdot (x-\mu)^T B^{-1} (x-\mu)}
+$$
+
+- 性质：
+  - 边际分布\\(X_i \sim N(\mu_i, B_{i,i})\\)
+  - \\(X_i\text{相互独立}\Leftrightarrow X_i\text{两两不相关}\Leftrightarrow B \text{为对角矩阵}\\)
+  - \\(X\sim N(\mu, B) \Rightarrow AX+b \sim N(A\mu + b, ABA^T)\\)*（这一条的证明将\\(Y=AX+b\\)代入概率密度函数，结合雅各比矩阵计算，Lecture5 Page53，后两条性质由此条导出）*
+  - \\(X\sim N(0, I_n), U\\)为正交矩阵，则\\(UX \sim N(0, I_n)\\)
+  - \\(X\sim N(\mu, B) \Rightarrow B^{-\frac{1}{2}}(X-\mu)\sim N(0, I_n)\\)
