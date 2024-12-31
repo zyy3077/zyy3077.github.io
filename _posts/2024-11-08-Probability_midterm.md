@@ -610,7 +610,7 @@ $$
 $$
 
 - 推论：**若离散随机变量\\(X,Y\\)相互独立，则有\\(Var(X \pm Y) = Var(X)+Var(Y)\\)**
-  - 推广：若离散随机变量\\(X_1,X_2,...,X_n\\)相互独立，则有\\(Var(X \pm X_2 \pm ... \pm X_n) = Var(X_1)+Var(X_2) + ...+Var(X_n)\\)
+  - 推广：若离散随机变量\\(X_1,X_2,...,X_n\\)相互独立，则有\\(Var(X_1 \pm X_2 \pm ... \pm X_n) = Var(X_1)+Var(X_2) + ...+Var(X_n)\\)
   - 例题1：\\(Y \sim B(n,p)\\)，求\\(Var(Y)\\)
     - \\(Y = X_1 + X_2 + ... + X_n, X_i \sim B(1,p)\\)
     - \\(Var(x) = p(1-p) \Rightarrow Var(Y) = np(1-p)\\)
