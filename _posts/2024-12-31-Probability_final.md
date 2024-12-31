@@ -123,3 +123,41 @@ $$
   - \\(X\sim N(\mu, B) \Rightarrow AX+b \sim N(A\mu + b, ABA^T)\\)*（这一条的证明将\\(Y=AX+b\\)代入概率密度函数，结合雅各比矩阵计算，Lecture5 Page53，后两条性质由此条导出）*
   - \\(X\sim N(0, I_n), U\\)为正交矩阵，则\\(UX \sim N(0, I_n)\\)
   - \\(X\sim N(\mu, B) \Rightarrow B^{-\frac{1}{2}}(X-\mu)\sim N(0, I_n)\\)
+
+## 二、尾不等式、大数定律与中心极限定理（暂略）
+- **尾不等式/集中不等式**：给出频率偏离特定值/数学期望的概率上界
+  - 马尔可夫不等式：\\(P(X\geq a \cdot E(X))\leq \frac{1}{a}\\)
+  - 切比雪夫不等式 ：\\(P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}\\)
+- **大数定律**：试验次数趋于无穷时，频率与数学期望的差值小于任意正数的概率趋于1
+
+### 1. 尾不等式
+马尔可夫不等式用一阶矩\\(E(X)\\)，切比雪夫不等式用中心二阶矩\\(Var(X)\\)，在计算过程中只用到了各个试验之间两两独立的信息，而实际上它们相互独立。为了给出更好的上界，应该利用相互独立的性质，于是考虑更高阶的偶阶矩（奇阶不能维持绝对值），再将关于\\(X\\)的概率转化为关于\\(X\\)的高阶矩的概率。
+- **矩生成函数**：\\(M_{X}(t) = E(e^{tX})\\)
+  - (作业二第二题)\\(M_{X}(t) = \sum_{i=0}^{+\infty}\frac{t^i}{i!}E(X^i)\\)
+  - \\(E(X^k) = \frac{d^k M_{X}(t)}{dt^k}\vert_{t=0}\\)，即\\(k\\)阶矩为矩生成函数\\(k\\)阶导数在\\(t=0\\)处的取值
+  - 要完全利用相互独立的条件，便要计算更高阶矩，计算量很大，于是有下述Chernoff Bound方法
+- **Chernoff Bound**：对\\(e^{tX}\\)使用马尔可夫不等式，\\(M_{X}(t) = E(e^{tX})\\)
+  - \\(\forall t > 0, P(X\geq k) = P(e^{tX}\geq e^{tk}) \leq P(e^{tX}\geq \frac{e^{tk}}{E(e^{tX})}\cdot E(e^{tX}))\leq M_{X}(t)\cdot e^{-tk}\\)
+  - 同理，\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk})
+  - 不等式中\\(t\\)可以取任意值，使用时选取使得上界最小的最优\\(t\\)
+
+**例题：泊松分布**
+\\(X\sim \pi(\lambda)\\)，给出\\(P(X\geq x)\\)的上界。
+- \\(M_{X}(t) = E(e^{tX}) = e^{\lambda(e^t-1)}\\)
+- \\(\text{对于}t > 0, P(X\geq x) = P(e^{tX}\geq e^{tk}) \leq e^{\lambda(e^t-1)-tx}\\)
+- 最小化\\(e^{\lambda(e^t-1)-tx}\\)，求导得到\\(t = \ln{\frac{x}{\lambda}}\\)
+- \\(t > 0 \Rightarrow x > \lambda \text{时}, P(X\geq x) \leq \frac{e^{-\lambda}(e\lambda)^x}{x^x}\\)
+
+- **Hoeffding引理**：若实数随机变量\\(a\leq X \leq b\\)，则\\(E(e^{t(X-E(X))})\leq e^{\frac{t^2(b-a)^2}{8}}\\)
+- **Chernoff-Hoeffding不等式**：若\\(X=\sum_{i=1}^{n}X_i\\)，\\(X_i\\)相互独立且\\(a\leq X_i \leq b\\)
+  - \\(P(X\geq E(X)+k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
+  - \\(P(X\leq E(X)-k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
+  - 证明：对\\(X-E(X)\\)使用Chernoff Bound，再结合Hoeffding引理后对\\(t\\)求导代入可得
+  - 若\\(X\simB(n,p)\\)，则有
+    - \\(P(X\geq n(p+\epsilon))\leq e^{-2n\epsilon^2}\\)
+    - \\(P(X\leq n(p-\epsilon))\leq e^{-2n\epsilon^2}\\)
+    - \\(P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
+- **总结：尾不等式的三种证明**
+  - 直接放缩，利用分布函数
+  - 计算偶阶中心距（对矩生成函数求导），使用马尔可夫不等式
+  - 对矩生成函数使用马尔可夫不等式，即Chernoff Bound；对矩生成函数求期望时可以结合Hoeffding引理，最后对\\(t\\)求导代回
