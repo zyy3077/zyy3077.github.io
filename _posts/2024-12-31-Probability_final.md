@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2024fall-信息学中的概率统计-期末复习"
-date: 2024-11-8
+date: 2024-12-31
 categories: [Probability_for_Computing, 2024fall]
 tags: [academic, blog]
 ---
