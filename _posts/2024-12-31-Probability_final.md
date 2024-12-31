@@ -15,7 +15,7 @@ tags: [academic, blog]
 
 *全部内容，后半学期内容（从多维连续随变量开始）为主。不包含：特征函数、中心极限定理、交叉熵损失函数、多元线性回归及其扩展。由中心极限定理给出的“近似”结果，包括wald测试（大样本假设检验）和二项分布的近似置信区间，都不考。由chernoff bound给出的二项分布的置信区间在考试范围内。*
 
-*拖到这么晚才开始复习，希望这两天能复习完！不管期末怎样，我认为这是一门难得的逻辑清楚内容连贯的很好的课。*
+*拖到这么晚才开始复习，希望这两天能复习完。不管期末怎样，我认为这是一门难得的逻辑清楚内容连贯的很好的课。*
 
 ## Contents
 - 课堂内容总结
@@ -52,7 +52,7 @@ $$
   - \\(E(X_1 + X_2 + ...+ X_n) = E(X_1) + E(X_2) + ... +E(X_n)\\)
 - **若连续随机变量\\(X,Y\\)相互独立，则有\\(E(XY) = E(X) \cdot E(Y)\\)**
   - 推广：若连续随机变量\\(X_1,X_2,...,X_n\\)相互独立，则有\\(E(X_1 X_2 ... X_n) = E(X_1)\cdot E(X_2)... E(X_n)\\)
-  - 推论：若离散随机变量\\(X_1,X_2,...,X_n\\)相互独立，则有\\(Var(X \pm X_2 \pm ... \pm X_n) = Var(X_1)+Var(X_2) + ...+Var(X_n)\\)
+  - 推论：若离散随机变量\\(X_1,X_2,...,X_n\\)相互独立，则有\\(Var(X_1 \pm X_2 \pm ... \pm X_n) = Var(X_1)+Var(X_2) + ...+Var(X_n)\\)
 
 **Lecture5 Page27 & 作业五第三题**
 
@@ -72,6 +72,28 @@ $$
 - **卷积公式**：若\\(X,Y\\)相互独立，\\(Z=X+Y\\)，则\\(f_{Z}(z) = \int_{-\infty}^{+\infty} f_{X}(z-y)f_{Y}(y)dy\\)
   - 由此可计算得出：
   - (1)正态分布的可加性
-    - 若\\(X\sim N(0,\sigma_1^2),Y\sim N(0,\sigma_2^2)\\)，则\\(Z=X+Y\sim  N(0,\sigma_1^2 + \sigma_2^2)\\)
+    - 若\\(X\sim N(0,\sigma_1^2),Y\sim N(0,\sigma_2^2)\\)，则\\(Z=X \pm Y\sim  N(0,\sigma_1^2 + \sigma_2^2)\\)
     - 推广：\\(X_i \sim N(\mu_i, \sigma_i^2), \sum_{i=1}^{n}a_i X_i \sim N(\sum_{i=1}^{n}a_i \mu_i, \sum_{i=1}^{n}a_i^2 \sigma_i^2)\\)，即服从正态分布的变量的和依旧服从正态分布，期望为原期望的和，方差为原标准差的平方和
   - (2)指数分布与Gamma分布和Gamma分布的可加性
+- 若\\(X,Y\\)的联合密度函数为\\(f(x,y)\\)，函数\\(u=u(x,y),v=v(x,y)\\)有连续偏导数和唯一反函数\\(x=x(u,v),y=y(u,v)\\)，则\\(U=u(X,Y),V=v(X,Y)\\)的联合密度函数为
+
+$$
+\begin{align*}
+    f_{U,V}(u,v) &= f(x(u,v),y(u,v))\cdot \vert J\vert \\
+    \text{其中}J &= \vert \frac{\partial (x,y)}{\partial (u,v)}\vert
+    = \begin{vmatrix}
+    \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+    \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\
+    \end{vmatrix}
+\end{align*}
+$$
+
+**例题：构造另一个变量**
+若连续随机变量\\(X,Y\\)相互独立，计算\\(U=XY\\)的概率密度函数。
+- \\(u = xy, v = y \Rightarrow x = \frac{u}{v}, y = v\\)
+- \\(J = vert \frac{\partial (x,y)}{\partial (u,v)}\vert = \frac{1}{v}\\)
+- \\(f_{U,V} (u,v) = f_{X,Y}(x(u,v), y(u,v)) \cdot \vert J \vert = f_{X}(\frac{u}{v})\cdot f_{Y}(v) \cdot \frac{1}{\vert v} \\)
+- \\(U\\)的边际密度函数为\\(f_{U}(u) = \int_{-\infty}^{+\infty} f_{U,V}(u,v)dv = \int_{-\infty}^{+\infty} f_{X}(\frac{u}{v})\cdot f_{Y}(v)\cdot dv\\)
+- 可求出\\(U\\)的分布函数后求导验证
+
+### 5. 多维高斯分布
