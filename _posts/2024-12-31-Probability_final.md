@@ -216,15 +216,15 @@ $$
 *开始统计学了，我们要根据已有的数据样本去估计一个分布中的未知参数，并且由一系列的metric去评判估计的好坏*
 *每一个简单随机样本和总体服从相同的分布，即下述\\(X_i\\)和\\(X\\)的分布相同*
 ### 1. 点估计
-给定参数\\(\theta\\)的估计量\\(\hat{\thata}(X_1,X_2,...,X_n)\\)
+给定参数\\(\theta\\)的估计量\\(\hat{\theta}(X_1,X_2,...,X_n)\\)
 - **偏差\\(Bias(\hat{\theta})\\)**：\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
   - **无偏**：\\(Bias(\hat{\theta}) = 0\\)
   - **渐近无偏**：\\(\lim_{n\to \infty}Bias(\hat{\theta}) = 0\\)
 - **均方误差\\(MSE(\hat{\theta})\\)**：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)
-  - 若\\(\hat{\thata}\\)无偏，则\\(Bias(\hat{\theta}) = Var(\hat{\theta})\\)
+  - 若\\(\hat{\theta}\\)无偏，则\\(Bias(\hat{\theta}) = Var(\hat{\theta})\\)
 - **一致估计量**：若有\\(\hat{\theta} \overset{P}{\rightarrow} \theta\\)，即\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert\hat{\theta}  - \theta\vert \geq \epsilon)=0\\)，则称\\(\hat{\theta}\\)为一致估计量
-- 若\\(\lim_{n\to \infy} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\thata}\\)为一致估计量
-  - 证明：对\\((\hat{\thata} - \theta)^2\\)使用马尔可夫不等式
+- 若\\(\lim_{n\to \infy} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\theta}\\)为一致估计量
+  - 证明：对\\((\hat{\theta} - \theta)^2\\)使用马尔可夫不等式
 - **总结**
   - 判断无偏/渐近无偏：计算\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
   - 计算均方误差：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)，无偏时直接计算方差\\(Var(\hat{\theta})\\)
@@ -281,7 +281,7 @@ $$
 - 在分类问题中，最大似然估计等价于最小化交叉熵损失函数（暂略）
 
 ### 2. 区间估计
-设计统计量**置信上限**\\(\hat{\thata}_L(X_1,X_2,...,X_n)\\)和**置信下限**\\(\hat{\thata}_U(X_1,X_2,...,X_n)\\)，使得\\(\theta\in [\hat{\theta}_L, \hat{\theta}_U]\\)的概率尽量大，满足\\(P(\theta\in [\hat{\theta}_L, \hat{\theta}_U]) \geq 1-\alpha\\)，则\\([\hat{\theta}_L, \hat{\theta}_U]\\)为\\(\theta\\)的**置信水平**为\\(1-\alpha\\)的**置信区间**
+设计统计量**置信上限**\\(\hat{\theta}_L(X_1,X_2,...,X_n)\\)和**置信下限**\\(\hat{\theta}_U(X_1,X_2,...,X_n)\\)，使得\\(\theta\in [\hat{\theta}_L, \hat{\theta}_U]\\)的概率尽量大，满足\\(P(\theta\in [\hat{\theta}_L, \hat{\theta}_U]) \geq 1-\alpha\\)，则\\([\hat{\theta}_L, \hat{\theta}_U]\\)为\\(\theta\\)的**置信水平**为\\(1-\alpha\\)的**置信区间**
 
 **枢轴量法**
 - 设计枢轴量\\(G = G(x_1,x_2,...,x_n)\\)，使得\\(G\\)的分布与未知参数\\(\theta\\)无关
@@ -310,4 +310,4 @@ $$
 - 不使用中心极限定理，可以用Chernoff Bound给出枢轴量\\(\bar{X}-p\\)位于给定区间的概率上界
   - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
   - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
-  - P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}} \geq 1- \alpha\\)
+  - \\(P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}}) \geq 1- \alpha\\)
