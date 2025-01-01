@@ -20,6 +20,7 @@ tags: [academic, blog]
 ## Contents
 - 课堂内容总结
 - 作业题题解
+- 期末复习习题课内容
 - 期中考题题解
 
 ## 一、多维连续随机变量
@@ -275,7 +276,7 @@ $$
   - 计算\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
     - 要注意随机变量的取值范围，比如\\(x<0\\)时\\(f(x)=0\\)，此时用示性函数表示
     - 例题：总体\\(X\sim U(0,\theta)\\)，给定简单随机样本\\(x_1,x_2,...,x_n\\)，求未知参数\\(\theta\\)的最大似然估计。
-      - \\(L(\theta) = \prod_{i=1}^{n} \frac{1_{x_i \leq \theta}}{\theta} = \frac{1_{x_1 \leq \theta,x_2 \leq \theta,...,x_n\leq \theta}} {\theta ^n} \\)
+      - \\(L(\theta) = \prod_{i=1}^{n} \frac{1 _{x_i \leq \theta}}{\theta} = \frac{1 _{x_1 \leq \theta,x_2 \leq \theta,...,x_n\leq \theta}} {\theta ^n} \\)
   - 求导或观察选择\\(\theta\\)最大化\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
     
 - 最大似然估计的不变性：对于双射equivirant
@@ -312,3 +313,83 @@ $$
   - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
   - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
   - \\(P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}}) \geq 1- \alpha\\)
+
+**例题：游戏机**
+
+有\\(n\\)台游戏机，第\\(i\\)台游戏机的中奖概率为未知参数\\(p_i\\)，每轮可从\\(n\\)台游戏机中选择一台进行游戏。用最少的轮数，找到中奖概率最高的游戏机。
+- 第\\(t\\)轮选择第\\(i\\)台游戏机，观测结果\\(X_t\sim B(1,p_i)\\)
+- 均匀采样：对每一台游戏机采样\\(N\\)次，返回样本均值最大的游戏机
+- 第\\(i\\)台游戏机中奖的样本均值\\(\bar{X} = \frac{\sum_{i=1}^{n}X_i}{N}, X_i\sim B(1,p_i)\\)，**由上述Chernoff Bound给出的二项分布的置信区间可知**：令\\(\epsilon = \sqrt{\frac{\ln{2/\alpha}}{2N}} \Rightarrow N = O(\frac{\ln{1/\alpha}}{\epsilon^2})\\)，有\\(P(\vert p_i - \bar{X_i}\vert \leq \epsilon)\geq 1-\alpha\\)
+  - 即试验\\(N\\)次后，每台游戏机中奖的样本均值与其概率的误差超过\\(\epsilon\\)的概率不超过\\(\alpha\\)
+- 至于\\(\alpha\\)怎么取，要看题目里要求的出错范围
+  - 当要求\\(P(p_o\geq \max_{i}p_i -2\epsilon)\geq \frac{2}{3}\\)时，取\\(\alpha = \frac{1}{3} \cdot \frac{1}{n}\\)
+    - 因为只要每一台出错的概率不超过\\(\frac{1}{3n}\\)，存在一台出错的概率由Union Bound不超过\\(\frac{1}{3}\\)
+    - 至于为什么是\\(p_o\geq \max_{i}p_i -2\epsilon\\)，因为允许每一台存在\\(\epsilon\\)的误差，即我们对出错的定义是误差超过\\(\epsilon\\)，此时若将最大概率的游戏机估计偏小了\\(\epsilon\\)而将第二大的估计偏大了\\(\epsilon\\)，使得恰好选择了第二大的游戏机，那么选择的概率会比最大概率小\\(2\epsilon\\)
+  - **当要求\\(P(p_o\geq \max_{i}p_i -2\epsilon)\geq 1-\delta\\)时，同理，取\\(\alpha = \frac{\delta}{n}\\)**
+- 再由\\(N = O(\frac{\ln{1/\alpha}}{\epsilon^2}) \Rightarrow N = O(\frac{\ln{n/\delta}}{\epsilon^2})\\)
+
+## 四、回归分析
+*点估计和区间估计利用样本数据对分布中所含有的未知参数进行了估计，而回归分析利用样本数据对变量之间的关系进行估计，显然回归分析的样本数据中含有多个变量，考虑两个变量的情况*
+
+给定数据\\((x_1,y_1),(x_2,y_2),...,(x_n,y_n)\\)，估计\\(y\\)与\\(x\\)的关系
+
+### 1. 线性相关关系
+- \\(y=\alpha +\beta x  + \epsilon\\)
+- \\(\alpha ,\beta\\)为需要估计的未知参数
+- \\(\epsilon\\)为误差，\\(E(\epsilon) = 0, Var(\epsilon) = \sigma^2\\)，\\(\sigma^2\\)为未知参数
+- \\(x\\)可以精确测量或严格控制
+- 目标：利用数据\\((x_1,y_1),(x_2,y_2),...,(x_n,y_n)\\)给出\\(\hat{\alpha},\hat{\beta}\\)
+- 假设：\\(y_i=\alpha +\beta x_i + \epsilon_i,E(\epsilon_i) = 0,  Var(\epsilon_i) = \sigma^2\\)且\\(\epsilon_i\\)相互独立
+
+### 2. 最小二乘估计
+- 最小化\\(Q(\alpha, \beta) = \sum_{i=i}^{n}(y_i-\beta x_i -\alpha)^2\\)的\\(\hat{\alpha} , \hat{\beta}\\)为**最小二乘估计**
+- 如何根据数据计算最小二乘估计？有哪些性质？如何预测？
+- 计算：
+
+$$
+\begin{align*}
+  \frac{\partial Q}{\partial \beta} &= -2\sum x_i\cdot (y_i - \beta x_i - \alpha) = 0\\
+  \frac{\partial Q}{\partial \alpha} &= -2\sum (y_i - \beta x_i - \alpha) = 0\\
+  \Rightarrow \hat{\beta} &= \frac{s_{xy}}{s_{xx}}\\
+   \hat{\alpha} &= \bar{y} - \hat{\beta}\cdot \bar{x}\\
+   \text{其中}\bar{x} &= \frac{1}{n} \sum x_i, \bar{y} = \frac{1}{n} \sum y_i\\
+    s_{xx} &= \sum(x_i-\bar{x})(x_i-\bar{x}) = \sum x_i^2 - n\cdot (\bar{x})^2\\
+    s_{xy} &= \sum(x_i-\bar{x})(y_i-\bar{y}) = \sum x_i y_i - n\cdot \bar{x} \cdot \bar{y}\\
+    \text{由}\sum (x_i-\bar{x})=0\\
+    \hat{\beta} &= \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_xx}\\ 
+    \hat{\alpha} &= \alpha + \sum \epsilon_i \cdot (\frac{1}{n}-\frac{x_i - \bar{x}}{s_{xx}}\cdot \bar{x})
+\end{align*}
+$$
+
+- 可见\\(\hat{\alpha},\hat{\beta}\\)实际上都是正态分布，可以接着计算它们的\\(MSE,Cov\\)等
+
+
+---
+
+## 习题课
+- 多元随机变量min max连乘
+- chernoff-hoeffding不等式 有界[a,b] 尾不等式比较重要
+- 大数定律 马尔可夫大数定律（方差） 辛钦大数定律（独立同分布 数学期望）应用 不考证明 
+
+重要性采样
+求数学期望
+证明依概率收敛
+$$
+Y_i ~ g \\
+\frac{1}{n}\sum \frac{f(Y_i)}{g(Y_i)} h(Y_i)\rightarrow(P) E_f(h(X))
+$$
+
+- chernoff bound证明 第六次作业第五题
+- 最大似然估计 矩估计 计算 反gamma分布
+- 无偏 渐近无偏 一致估计 定义
+- 假设检验 框架 求c(\alpha) 似然比
+- 线性回归 变化更多
+  - 期望方差/正态分布
+  - LASSO: Q加上一个正则项 \lambda |\beta|
+  - x_i = n_i + \delta_i, y_i = \alpha + \beta n_i + \epsilon_i
+    - \delta, \epsilon ~ N(0,\sigma_i^2) 引入\lambda为方差比值
+    - x_i, y_i也是正态分布
+    - 最小化似然函数L(\alpha, \beta, \sigma_1^2, \sigma_2^2)
+    - 观察到的只有x_i,y_i 要算出n_i应该是多少 求partial
+  - MSE Cov 把\hat{\beta}的分布写成\beta \epsilon \delta的多项式
+- 点估计+假设检验 c(\alpha) 均匀分布 矩估计和最大似然估计的区别
