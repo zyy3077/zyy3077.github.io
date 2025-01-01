@@ -89,6 +89,7 @@ $$
 $$
 
 **例题：构造另一个变量**
+
 若连续随机变量\\(X,Y\\)相互独立，计算\\(U=XY\\)的概率密度函数。
 - \\(u = xy, v = y \Rightarrow x = \frac{u}{v}, y = v\\)
 - \\(J = vert \frac{\partial (x,y)}{\partial (u,v)}\vert = \frac{1}{v}\\)
@@ -103,12 +104,12 @@ $$
   - \\(\alpha^T Cov(X) \alpha = E((\alpha^T(X-E(X)))^2) \geq 0\\)
   
 $$
-Cov(X) = \begin{vmatrix}
+Cov(X) = \begin{pmatrix}
 Var(X_1) & Cov(X_1,X_2) & ... & Cov(X_1, X_n) \\
 Cov(X_2,X_1) & Var(X_2) & ... & Cov(X_2, X_n)\\
 ... & ... & ... & ...\\
 Cov(X_n, X_1) & Cov(X_n, X_2) & ... & Var(X_n) \\
-\end{vmatrix}
+\end{pmatrix}
 $$
 
 - \\(n\\)维高斯分布即\\(X\sim N(\mu, B), x,\mu \in \mathbb{R}^n, B\in \mathbb{R}^{n\times n}\\)的联合密度函数为
@@ -138,10 +139,11 @@ $$
   - 要完全利用相互独立的条件，便要计算更高阶矩，计算量很大，于是有下述Chernoff Bound方法
 - **Chernoff Bound**：对\\(e^{tX}\\)使用马尔可夫不等式，\\(M_{X}(t) = E(e^{tX})\\)
   - \\(\forall t > 0, P(X\geq k) = P(e^{tX}\geq e^{tk}) \leq P(e^{tX}\geq \frac{e^{tk}}{E(e^{tX})}\cdot E(e^{tX}))\leq M_{X}(t)\cdot e^{-tk}\\)
-  - 同理，\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk})
+  - 同理，\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk}\\)
   - 不等式中\\(t\\)可以取任意值，使用时选取使得上界最小的最优\\(t\\)
 
 **例题：泊松分布**
+
 \\(X\sim \pi(\lambda)\\)，给出\\(P(X\geq x)\\)的上界。
 - \\(M_{X}(t) = E(e^{tX}) = e^{\lambda(e^t-1)}\\)
 - \\(\text{对于}t > 0, P(X\geq x) = P(e^{tX}\geq e^{tk}) \leq e^{\lambda(e^t-1)-tx}\\)
@@ -178,9 +180,33 @@ $$
 - *\\(2(n-1)\\)为每个\\(X_i\\)的前驱后继，头尾只有一个于是\\(-2\\)*
 - \\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)
 
-- **辛钦大数定律**：\\({X_n}\\)独立同分布，且数学期望\\(\mu = E(X_i)\\)存在，则\\({X_n}\\)服从大数定律（一般形式）
+- **辛钦大数定律**：\\({X_n}\\)**独立同分布**，且**数学期望\\(\mu = E(X_i)\\)存在**，则\\({X_n}\\)服从大数定律
   - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}X_i - \mu\vert < \epsilon) = 1\\)
   - 对比马尔可夫大数定律，需要独立同分布的假设，不需要对方差进行假设
 
 - 随机变量序列的收敛性
   - **依概率收敛\\(Y_n \overset{P}{\rightarrow} Y\\)**：令\\({Y_n}\\)为一列随机变量，\\(Y\\)为随机变量。若\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert Y_n - Y\vert < \epsilon)=1\\)，则称\\({Y_n}\\)依概率收敛于\\(Y\\)
+    - 这是期望意义上的收敛，收敛值和集中不等式中期望的形式类似
+  - **依分布收敛\\(Y_n \overset{d}{\rightarrow} Y\\)**：\\(\forall F(x)\text{的连续点}x, F_n(x)\to F(x)\\)
+    - 即\\(n\\)无穷大时，\\(X_n\\)和\\(X\\)的分布函数在任意连续点相同
+  - \\(Y_n \overset{P}{\rightarrow} Y \Rightlefyarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - 反之不成立
+    - 考虑对称的分布\\(P(X=+1)=P(X=-1)=\frac{1}{2},Y=-X\\)
+  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightlefyarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  
+- **特征函数**\\(\Phi_X(t) = E(e^{itx}) = M_X(it)\\)
+  - *不考*
+  - *并不是每一个分布都存在矩生成函数，期望可能不存在，而利用复变函数可得：每个分布都存在一个一一对应的特征函数。当\\(M_X(t)\\)存在时，可以代入\\(it\\)算出\\(\Phi_X(t)\\)*
+  - \\(X\sim \pi(\lambda), M_X(t) = e^{\lambda(e^t-1)}\\)
+  - \\(X\sim N(\mu, \sigma^2), M_X(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}\\)
+  - \\(X\sim B(n,p), M_X(t) = (1-p+pe^t)^n\\)
+  - \\(X\\)服从柯西分布，即\\(f(x) = \frac{1}{\pi(x^2+1)},M_X(t) \text{不存在},\Phi_X(t) = e^{-\vert t\vert}\\)
+  - \\(\Phi_{aX+b}(t) = \Phi_X(at)\cdot e^{itb}\\)
+  - \\(X,Y\\)相互独立，\\(\Phi_{X+Y}(t) = \Phi_X(t)\cdot \Phi_Y(t)\\)
+  - 由特征函数计算可得：
+    - 正态分布的可加性（期望和方差分别相加）
+    - 柯西分布的可加性：\\(\sum_{i=1}^{n}a_i\cdot X_i \sim \vert a\vert_1 \cdot X\\)
+    - 证明依分布收敛：\\(n\to \infty\\)时特征函数相同
+    - 证明辛钦大数定律：计算\\(X_n\\)的特征函数
+  
+- **中心极限定理及其应用**（不考，暂略，Lecture6 Page34）
