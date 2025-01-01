@@ -269,3 +269,45 @@ $$
 - \\(\hat{a} = \bar{X} - \sqrt{3\cdot S^2}, \hat{b} = \bar{X} + \sqrt{3\cdot S^2}\\)
 
 **最大似然估计**：选择参数\\(\theta\\)使得样本点出现的概率最大
+
+- 求最大似然估计的过程
+  - 计算\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
+    - 要注意随机变量的取值范围，比如\\(x<0\\)时\\(f(x)=0\\)，此时用示性函数表示
+    - 例题：总体\\(X\sim U(0,\theta)\\)，给定简单随机样本\\(x_1,x_2,...,x_n\\)，求未知参数\\(\theta\\)的最大似然估计。
+      - \\(L(\theta) = \prod_{i=1}^{n}\frac{1_{x_i\leq \theta}}{\theta} = \frac{1_{x_1\leq \theta,x_2\leq \theta,...,x_n\leq \theta}}{\theta^n}\\)
+  - 求导或观察选择\\(\theta\\)最大化\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
+    
+- 最大似然估计的不变性：对于双射equivirant
+- 在分类问题中，最大似然估计等价于最小化交叉熵损失函数（暂略）
+
+### 2. 区间估计
+设计统计量**置信上限**\\(\hat{\thata}_L(X_1,X_2,...,X_n)\\)和**置信下限**\\(\hat{\thata}_U(X_1,X_2,...,X_n)\\)，使得\\(\theta\in [\hat{\theta}_L, \hat{\theta}_U]\\)的概率尽量大，满足\\(P(\theta\in [\hat{\theta}_L, \hat{\theta}_U]) \geq 1-\alpha\\)，则\\([\hat{\theta}_L, \hat{\theta}_U]\\)为\\(\theta\\)的**置信水平**为\\(1-\alpha\\)的**置信区间**
+
+**枢轴量法**
+- 设计枢轴量\\(G = G(x_1,x_2,...,x_n)\\)，使得\\(G\\)的分布与未知参数\\(\theta\\)无关
+  - 通常从\\(\theta\\)的点估计出发，比如减去数学期望，除以标准差等
+  - 主要目的是标准化，使得后续的区间与\\(\theta\\)无关
+- 选择\\(c,d\\)，使得\\(P(c\leq G \leq d) = 1-\alpha\\)
+    - 通常选择\\(P(G < c) = P(G > d) = \frac{\alpha}{2}\\)
+    - 结合Chernoff Bound可以简便地给出不等式
+- 变形为\\(P(\hat{theta}_L \leq \theta \leq \hat{\theta}_U) = 1-\alpha\\)
+
+**例题：正态分布**
+
+总体\\(X\sim N(\mu, \sigma^2)\\)\\(\mu,\sigma^2\\)均未知。设计\\(\mu\\)的置信水平为\\(1-\alpha\\)的置信区间。
+- 当\\(\sigma^2\\)已知时，我们会设计枢轴量\\(G = \frac{\bar{X-\mu}}{\sigma^2} \sim N(0,1)\\)
+- 而当\\(\sigma^2\\)未知时，考虑用\\(S^2\\)替换\\(\sigma^2\\)，从而\\(G = \frac{\bar{X-\mu}}{S^2}\\)服从什么分布？
+- recap:\\( \bar{X}\sim N(\mu, \frac{\sigma^2}{n}),\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)\\)
+- **\\(t\\)分布**：\\(T=\frac{X_1}{\sqrt{X_2/n}} \sim t(n)\\)，即自由度为\\(n\\)的\\(t\\)分布，其中\\(X_1,X_2\\)相互独立且\\(X_1\sim N(0,1), X_2\sim \chi^2(n)\\)
+  - \\(n=1, f(t)=\frac{1}{1+t^2}\cdot \frac{1}{\pi}\\)
+  - 当自由度\\(n\\)较大，近似为标准正态分布
+- \\(G = \frac{\bar{X-\mu}}{S^2} \sim t(n-1)\\)
+
+**例题：Chernoff Bound和二项分布**
+
+总体\\(X\sim B(1,p)\\)。设计\\(p\\)的置信水平为\\(1-\alpha\\)的置信区间。
+- 自然地想到设计枢轴量\\(\bar{X}-p\\)，由中心极限定理可知\\(\frac{\sum_{i=1}^{n}X_i-np}{\sqrt{np(1-p)}}\\)近似服从\\(N(0,1)\\)，接着按照标准正态分布设计区间
+- 不使用中心极限定理，可以用Chernoff Bound给出枢轴量\\(\bar{X}-p\\)位于给定区间的概率上界
+  - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
+  - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
+  - P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}} \geq 1- \alpha\\)
