@@ -189,10 +189,10 @@ $$
     - 这是期望意义上的收敛，收敛值和集中不等式中期望的形式类似
   - **依分布收敛\\(Y_n \overset{d}{\rightarrow} Y\\)**：\\(\forall F(x)\text{的连续点}x, F_n(x)\to F(x)\\)
     - 即\\(n\\)无穷大时，\\(X_n\\)和\\(X\\)的分布函数在任意连续点相同
-  - \\(Y_n \overset{P}{\rightarrow} Y \Rightleftarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(Y_n \overset{P}{\rightarrow} Y \Rightarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
   - 反之不成立
     - 考虑对称的分布\\(P(X=+1)=P(X=-1)=\frac{1}{2},Y=-X\\)
-  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightleftarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
   
 - **特征函数**\\(\Phi_X(t) = E(e^{itx}) = M_X(it)\\)
   - *不考*
