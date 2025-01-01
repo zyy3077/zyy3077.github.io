@@ -23,6 +23,8 @@ tags: [academic, blog]
 - 期末复习习题课内容
 - 期中考题题解
 
+---
+
 ## 一、多维连续随机变量
 ### 1. 分布函数和密度函数
 - 对于区域\\(G\\)，\\(P((X,Y) \in G) = \iint_{G}f(x,y) dxdy \\)
@@ -126,6 +128,8 @@ $$
   - \\(X\sim N(0, I_n), U\\)为正交矩阵，则\\(UX \sim N(0, I_n)\\)
   - \\(X\sim N(\mu, B) \Rightarrow B^{-\frac{1}{2}}(X-\mu)\sim N(0, I_n)\\)
 
+---
+
 ## 二、尾不等式、大数定律与中心极限定理（暂略）
 - **尾不等式/集中不等式**：给出频率偏离特定值/数学期望的概率上界
   - 马尔可夫不等式：\\(P(X\geq a \cdot E(X))\leq \frac{1}{a}\\)
@@ -139,8 +143,9 @@ $$
   - \\(E(X^k) = \frac{d^k M_{X}(t)}{dt^k}\vert_{t=0}\\)，即\\(k\\)阶矩为矩生成函数\\(k\\)阶导数在\\(t=0\\)处的取值
   - 要完全利用相互独立的条件，便要计算更高阶矩，计算量很大，于是有下述Chernoff Bound方法
 - **Chernoff Bound**：对\\(e^{tX}\\)使用马尔可夫不等式，\\(M_{X}(t) = E(e^{tX})\\)
+  - 用\\(e\\)指数避免了马尔可夫不等式对非负性的要求
   - \\(\forall t > 0, P(X\geq k) = P(e^{tX}\geq e^{tk}) \leq P(e^{tX}\geq \frac{e^{tk}}{E(e^{tX})}\cdot E(e^{tX}))\leq M_{X}(t)\cdot e^{-tk}\\)
-  - 同理，\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk}\\)
+  - 同理：\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk}\\)
   - 不等式中\\(t\\)可以取任意值，使用时选取使得上界最小的最优\\(t\\)
 
 **例题：泊松分布**
@@ -171,16 +176,16 @@ $$
   \lim_{n\to \infty}P(\vert \frac{1}{n}\sum_{i=1}^{n}X_i - \frac{1}{n}\sum_{i=1}^{n}E(X_i)\vert < \epsilon ) = 1
 $$
 - **伯努利大数定律**：在\\(n\\)重伯努利试验中，\\(n_A\\)为事件\\(A\\)发生的次数，\\(P(A) = p\\)，\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{n_A}{n} - p\vert < \epsilon) = 1\\)
-- **马尔可夫大数定律**：若\\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)，则\\({X_i}\\)服从大数定律（一般形式）
-  - 证明：对\\(\frac{1}{n}\sum_{i=1}{n}X_i\\)使用切比雪夫不等式
+- **马尔可夫大数定律**：若\\(\frac{1}{n^2}Var(\sum_{i=1}^{n}X_i) \to 0\\)，则\\({X_i}\\)服从大数定律（一般形式）
+  - 证明：对\\(\frac{1}{n}\sum_{i=1}^{n}X_i\\)使用切比雪夫不等式
   
 **例题：利用相关系数**
 
 \\({X_n}\\)为一列同分布且标准差\\(\sigma = \sigma(X_i)\\)存在的随机变量。\\(X_i\\)仅与\\(X_{i-1},X_{i+1}\\)相关，证明\\({X_n}\\)服从大数定律。
 - \\(Corr(X_i,X_{i+1})\leq 1 \Rightarrow Cov(X_i,X_{i+1})\leq \sigma^2\\)
-- \\(Var(\sum_{i=1}{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cdot \sigma^2 + 2(n-1)\sigma^2\\)
+- \\(Var(\sum_{i=1}^{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cdot \sigma^2 + 2(n-1)\sigma^2\\)
 - *\\(2(n-1)\\)为每个\\(X_i\\)的前驱后继，头尾只有一个于是\\(-2\\)*
-- \\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)
+- \\(\frac{1}{n^2}Var(\sum_{i=1}^{n}X_i) \to 0\\)
 
 - **辛钦大数定律**：\\({X_n}\\)**独立同分布**，且**数学期望\\(\mu = E(X_i)\\)存在**，则\\({X_n}\\)服从大数定律
   - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}\sum_{i=1}^{n}X_i - \mu\vert < \epsilon) = 1\\)
@@ -191,10 +196,10 @@ $$
     - 这是期望意义上的收敛，收敛值和集中不等式中期望的形式类似
   - **依分布收敛\\(Y_n \overset{d}{\rightarrow} Y\\)**：\\(\forall F(x)\text{的连续点}x, F_n(x)\to F(x)\\)
     - 即\\(n\\)无穷大时，\\(X_n\\)和\\(X\\)的分布函数在任意连续点相同
-  - \\(Y_n \overset{P}{\rightarrow} Y \Rightarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(Y_n \overset{P}{\rightarrow} Y \Rightarrow Y_n \overset{d}{\rightarrow} Y\\)
   - 反之不成立
     - 考虑对称的分布\\(P(X=+1)=P(X=-1)=\frac{1}{2},Y=-X\\)
-  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightarrow Y_n \overset{d}{\rightarrow} Y\\)
   
 - **特征函数**\\(\Phi_X(t) = E(e^{itx}) = M_X(it)\\)
   - *不考*
@@ -213,6 +218,8 @@ $$
     - 证明辛钦大数定律：计算\\(X_n\\)的特征函数
   
 - **中心极限定理及其应用**（不考，暂略，Lecture6 Page34）
+
+---
 
 ## 三、参数估计
 *开始统计学了，我们要根据已有的数据样本去估计一个分布中的未知参数，并且由一系列的metric去评判估计的好坏*
@@ -319,14 +326,16 @@ $$
 有\\(n\\)台游戏机，第\\(i\\)台游戏机的中奖概率为未知参数\\(p_i\\)，每轮可从\\(n\\)台游戏机中选择一台进行游戏。用最少的轮数，找到中奖概率最高的游戏机。
 - 第\\(t\\)轮选择第\\(i\\)台游戏机，观测结果\\(X_t\sim B(1,p_i)\\)
 - 均匀采样：对每一台游戏机采样\\(N\\)次，返回样本均值最大的游戏机
-- 第\\(i\\)台游戏机中奖的样本均值\\(\bar{X} = \frac{\sum_{i=1}^{n}X_i}{N}, X_i\sim B(1,p_i)\\)，**由上述Chernoff Bound给出的二项分布的置信区间可知**：令\\(\epsilon = \sqrt{\frac{\ln{2/\alpha}}{2N}} \Rightarrow N = O(\frac{\ln{1/\alpha}}{\epsilon^2})\\)，有\\(P(\vert p_i - \bar{X_i}\vert \leq \epsilon)\geq 1-\alpha\\)
+- 第\\(i\\)台游戏机中奖的样本均值\\(\bar{X} = \frac{\sum_{i=1}^{n}X_i}{N}, X_i\sim B(1,p_i)\\)，**由上述Chernoff Bound给出的二项分布的置信区间可知**：令\\(\epsilon = \sqrt{\frac{\ln(2/\alpha)}{2N}} \Rightarrow N = O(\frac{\ln(1/\alpha)}{\epsilon^2})\\)，有\\(P(\vert p_i - \bar{X_i}\vert \leq \epsilon)\geq 1-\alpha\\)
   - 即试验\\(N\\)次后，每台游戏机中奖的样本均值与其概率的误差超过\\(\epsilon\\)的概率不超过\\(\alpha\\)
 - 至于\\(\alpha\\)怎么取，要看题目里要求的出错范围
   - 当要求\\(P(p_o\geq \max_{i}p_i -2\epsilon)\geq \frac{2}{3}\\)时，取\\(\alpha = \frac{1}{3} \cdot \frac{1}{n}\\)
     - 因为只要每一台出错的概率不超过\\(\frac{1}{3n}\\)，存在一台出错的概率由Union Bound不超过\\(\frac{1}{3}\\)
     - 至于为什么是\\(p_o\geq \max_{i}p_i -2\epsilon\\)，因为允许每一台存在\\(\epsilon\\)的误差，即我们对出错的定义是误差超过\\(\epsilon\\)，此时若将最大概率的游戏机估计偏小了\\(\epsilon\\)而将第二大的估计偏大了\\(\epsilon\\)，使得恰好选择了第二大的游戏机，那么选择的概率会比最大概率小\\(2\epsilon\\)
-  - **当要求\\(P(p_o\geq \max_{i}p_i -2\epsilon)\geq 1-\delta\\)时，同理，取\\(\alpha = \frac{\delta}{n}\\)**
-- 再由\\(N = O(\frac{\ln{1/\alpha}}{\epsilon^2}) \Rightarrow N = O(\frac{\ln{n/\delta}}{\epsilon^2})\\)
+  - **当要求\\(P(p_o\geq \max_{i}p_i -2\epsilon)\geq 1-\delta\\)时，同理：取\\(\alpha = \frac{\delta}{n}\\)**
+- 再由\\(N = O(\frac{\ln(1/\alpha)}{\epsilon^2}) \Rightarrow N = O(\frac{\ln(n/\delta)}{\epsilon^2})\\)
+
+---
 
 ## 四、回归分析
 *点估计和区间估计利用样本数据对分布中所含有的未知参数进行了估计，而回归分析利用样本数据对变量之间的关系进行估计，显然回归分析的样本数据中含有多个变量，考虑两个变量的情况*
@@ -355,14 +364,91 @@ $$
    \text{其中}\bar{x} &= \frac{1}{n} \sum x_i, \bar{y} = \frac{1}{n} \sum y_i\\
     s_{xx} &= \sum(x_i-\bar{x})(x_i-\bar{x}) = \sum x_i^2 - n\cdot (\bar{x})^2\\
     s_{xy} &= \sum(x_i-\bar{x})(y_i-\bar{y}) = \sum x_i y_i - n\cdot \bar{x} \cdot \bar{y}\\
-    \text{由}\sum (x_i-\bar{x})=0\\
+    \text{由}\sum (x_i-\bar{x})=0, text{和一系列计算可得：}\\
     \hat{\beta} &= \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_xx}\\ 
     \hat{\alpha} &= \alpha + \sum \epsilon_i \cdot (\frac{1}{n}-\frac{x_i - \bar{x}}{s_{xx}}\cdot \bar{x})
 \end{align*}
 $$
 
-- 可见\\(\hat{\alpha},\hat{\beta}\\)实际上都是正态分布，可以接着计算它们的\\(MSE,Cov\\)等
+- 可见\\(\hat{\alpha},\hat{\beta}\\)实际上都是随机变量，可以接着计算它们的\\(E,MSE,Cov\\)等，计算时结合\\(\epsilon_i\\)的独立性和\\(s_{xx}\\)变形等，比较复杂，这里只给出结果
 
+$$
+\begin{align*}
+    E(\hat{\beta}) &= \beta , E(\hat{\alpha}) &= \alpha \\
+    MSE(\hat{\beta}) &= Var(\hat{\beta}) = \frac{\sigma^2}{s_{xx}}\\
+    MSE(\hat{\alpha}) &= Var(\hat{\alpha}) = \sigma^2(\frac{1}{n} + \frac{\bar{x}^2}{s_{xx}})\\
+    Cov(\hat{\beta}, \hat{\alpha}) &= -\sigma^2\cdot \frac{\bar{x}}{s_{xx}}
+\end{align*}
+$$
+
+- 预测值\\(\hat{y_i} = \hat{alpha} + \hat{\beta} x_i, \hat{y_i} - y_i\\)实际上也都是随机变量，也可以接着计算它的\\(E,Var\\)，因为\\(\hat{\alpha},\hat{\beta}\\)并不独立，计算方差时要结合上面求出的\\(Cov\\)，同样只给出结果
+
+$$
+\begin{align*}
+    E(\hat{y_i}) &= \alpha + \beta x = E(y_i) \Rightarrow E(\hat{y_i}-y_i) = 0\\
+    Var(\hat{y_i}) &= Var(\hat{\alpha}) + x_i^2\cdot Var(\hat{\beta}) + 2x_i\cdot Cov(\hat{\alpha}, \hat{\beta})\\
+    &= \sigma^2(\frac{1}{n}+\frac{(\bar{x}-x_i)^2}{s_{xx}})\\
+    Var(\hat{y_i}-y_i) &= Var(\hat{y_i}) + Var(y_i) -2Cov(\hat{y_i}, y_i)\\
+    &= \frac{n-1}{n}\sigma^2 - \frac{(\bar{x}-x_i)^2}{s_{xx}}\sigma^2
+    E(\sum (\hat{y_i}-y_i)^2) &= \sum Var(\hat{y_i}-y_i) = (n-2)\sigma^2\\
+    E(s^2) &= E(\frac{1}{n-2}\sum (\hat{y_i}-y_i)^2) = \sigma^2
+\end{align*}
+$$
+
+- 于是\\(s^2 = \frac{1}{n-2}\sum (\hat{y_i}-y_i)^2\\)是\\(\sigma^2\\)的**无偏估计量**
+  - 到现在，我们已经给出了\\(\alpha, \beta, \sigma^2\\)的无偏估计，通过解正规方程（最小化\\(Q\\)）和类似矩法的估计量
+
+- 更强的假设：\\(\epsilon_i \sim N(0, \sigma^2)\\)且相互独立
+  - 如此一来，可以发现上文推导的估计量全都服从正态分布，因为都是\\(\epsilon_i\\)线性组合出来的（除了\\(s^2\\)这种二次的）
+  - 试着给出\\(\alpha, \beta, \sigma^2\\)的最大似然估计
+
+$$
+    \ln{L(\alpha, \beta, \sigma^2)} = \sum_{i=1}^{n}-\frac{(y_i - \alpha - \beta x_i)^2}{2\sigma^2} - n\cdot \frac{\ln(2\pi)}{2} - n\cdot \frac{\ln{\sigma^2}}{2}
+$$
+
+- 发现对于固定的\\(\sigma^2\\)，最大化似然函数等价于最小二乘估计\\(\alpha ,\beta\\)
+- 至于\\(\sigma^2\\)的最大似然估计
+  - \\(\frac{\partial L}{\partial \sigma^2} = \frac{(y_i - \alpha - \beta x_i)^2}{2(\sigma^2)^2} - \frac{n}{2\sigma^2} = 0\\)
+  - \\(\hat{\sigma^2}_{MLE} = \frac{1}{n}\sum (\hat{y_i} - y_i)^2\\)为有偏估计
+
+- 由上述可知，\\(\hat{\alpha}, \hat{\beta}\\)服从二维高斯分布
+  - **作业八第三题**：把数据\\(y\\)看作一个\\(n\\)维高斯分布，利用上述分析多维高斯分布类似的方法（正交变换）得出\\(\frac{(n-2)s^2}{\sigma^2}\sim \chi^2(n-2)\\)，且\\(s^2\\)与\\(\hat{\alpha}, \hat{\beta}\\)独立
+    - 正交矩阵的第一行仍然是\\((\frac{1}{\sqrt{n}},\frac{1}{\sqrt{n}},...,\frac{1}{\sqrt{n}})\\)
+    - 第二行为\\((\frac{x_1-\bar{x}}{\sqrt{s_{xx}}}, \frac{x_2-\bar{x}}{\sqrt{s_{xx}}},...,\frac{x_n-\bar{x}}{\sqrt{s_{xx}}})\\)
+    - 这个方法感觉技巧性很高，主要是通过前两行将\\(y\\)各个分量线性组合成有关\(\hat{\alpha}, \hat{\beta}\\)的量，再用剩余的行表示出\\(s^2\\)
+- 对于新数据\\(x_0\\)，\\(E(\hat{\alpha}+\hat{\beta}x_0) = \alpha + \beta x_0\\)，即\\(\hat{\alpha}+\hat{\beta}x_0\\)是\\(E(y_0)\\)的无偏估计，它服从正态分布；更进一步求置信区间只需标准化即可（(点估计-真值)/标准差），\\(\sigma^2\\)未知时标准化为\\(t\\)分布；对于\\(y_0\\)的点估计和区间估计也类似，用\\(y_0\\)替换\\(E(y_0)\\)即可
+
+- **确定系数**：\\(r^2 = 1 - \frac{\sum (y_i - \hat{y_i})^2}{\sum (y_i - \bar{y})^2}\\)
+  - 总平方和：\\(SST = \sum (y_i - \bar{y})^2\\)
+  - 残差平方和：\\(SSE = \sum (y_i - \hat{y_i})^2\\)
+  - 回归平方和：\\(SSR = \sum (\hat{y_i} - \bar{y})^2\\)
+  - **作业八第二题**：\\(SST = SSE + SSR\\)
+  - \\(r^2\\)描述了总平方和中回归平方和所占的比例
+---
+
+## 五、假设检验
+*参数估计的目标是估计分布中的未知参数，而假设检验的目标是以一定的确定程度判断未知参数的取值情况*
+
+### 1. 建立假设
+- **原假设**\\(H_0\\)：不应轻易拒绝的假设，即比较容易发生的事
+- **备择假设**\\(H_1\\)：与原假设对立的假设
+
+### 2. 选择统计量，给出拒绝域形式
+- **拒绝域**\\(W\\)：若\\((x_1,x_2,...,x_n)\in W\\)，拒绝原假设\\(H_0\\)
+- **接受域**\\(\bar{W}\\)：若\\((x_1,x_2,...,x_n)\in \bar{W}\\)，接受原假设\\(H_0\\)
+- **第一类错误**：样本点位于拒绝域，原假设被拒绝，但其为真
+  - \\(\alpha\\)为犯第一类错误的概率，即原假设为真，样本在拒绝域的概率
+  - 计算\\(\alpha(\theta)\\)，实际上是在定义在\\(\theta \in \Theta_0\\)上的函数，取值为\\(P((x_1,x_2,...,x_n)\in W)\\)
+- **第二类错误**：样本点位于接受域，原假设被接受，但其为假
+  - \\(\beta\\)为犯第二类错误的概率
+
+### 3. 选择显著性水平\\(\alpha\\)，给出拒绝域
+- **显著性水平**：\\(\alpha = \max_{\theta \in \Theta_0} \alpha(\theta)\\)
+  - \\(\alpha\\)是一个错误拒绝原假设的概率最小上界，也即能达到的犯第一类错误的最大概率
+- 根据\\(\alpha\\)反解出拒绝域中参数
+- **\\(p\\)值**：给定样本取值，能够做出拒绝原假设的最小显著性水平称为检验的\\(p\\)值
+  - 如果\\(\alpha \geq p\\)，说明错误拒绝原假设的概率较高，即更容易拒绝原假设，于是拒绝原假设
+  - 反之如果\\(\alpha < p\\)，接受原假设
 
 ---
 
