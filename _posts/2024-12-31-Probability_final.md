@@ -101,7 +101,7 @@ $$
 - 随机向量\\(X=(X_1, X_2,...,X_n)\\)
 - 数学期望向量\\(E(X) = (E(X_1), E(X_2), ... , E(X_n))\\)
 - 协方差矩阵
-  - \\(\alpha^T Cov(X) \alpha = E((\alpha^T(X-E(X)))^2) \geq 0\\)
+  - 半正定性：\\(\alpha^T Cov(X) \alpha = E((\alpha^T(X-E(X)))^2) \geq 0\\)
   
 $$
 Cov(X) = \begin{pmatrix}
@@ -174,6 +174,7 @@ $$
   - 证明：对\\(\frac{1}{n}\sum_{i=1}{n}X_i\\)使用切比雪夫不等式
   
 **例题：利用相关系数**
+
 \\({X_n}\\)为一列同分布且标准差\\(\sigma = \sigma(X_i)\\)存在的随机变量。\\(X_i\\)仅与\\(X_{i-1},X_{i+1}\\)相关，证明\\({X_n}\\)服从大数定律。
 - \\(Corr(X_i,X_{i+1})\leq 1 \Rightarrow Cov(X_i,X_{i+1})\leq \sigma^2\\)
 - \\(Var(\sum_{i=1}{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cdot \sigma^2 + 2(n-1)\sigma^2\\)
@@ -223,7 +224,7 @@ $$
 - **均方误差\\(MSE(\hat{\theta})\\)**：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)
   - 若\\(\hat{\theta}\\)无偏，则\\(Bias(\hat{\theta}) = Var(\hat{\theta})\\)
 - **一致估计量**：若有\\(\hat{\theta} \overset{P}{\rightarrow} \theta\\)，即\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert\hat{\theta}  - \theta\vert \geq \epsilon)=0\\)，则称\\(\hat{\theta}\\)为一致估计量
-- 若\\(\lim_{n\to \infy} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\theta}\\)为一致估计量
+- 若\\(\lim_{n\to \infty} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\theta}\\)为一致估计量
   - 证明：对\\((\hat{\theta} - \theta)^2\\)使用马尔可夫不等式
 - **总结**
   - 判断无偏/渐近无偏：计算\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
@@ -274,7 +275,7 @@ $$
   - 计算\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
     - 要注意随机变量的取值范围，比如\\(x<0\\)时\\(f(x)=0\\)，此时用示性函数表示
     - 例题：总体\\(X\sim U(0,\theta)\\)，给定简单随机样本\\(x_1,x_2,...,x_n\\)，求未知参数\\(\theta\\)的最大似然估计。
-      - \\(L(\theta) = \prod_{i=1}^{n}\frac{1_{x_i\leq \theta}}{\theta} = \frac{1_{x_1\leq \theta,x_2\leq \theta,...,x_n\leq \theta}}{\theta^n}\\)
+      - \\(L(\theta) = \prod_{i=1}^{n} \frac{1_{x_i \leq \theta}}{\theta} = \frac{1_{x_1 \leq \theta,x_2 \leq \theta,...,x_n\leq \theta}} {\theta ^n} \\)
   - 求导或观察选择\\(\theta\\)最大化\\(P(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)或\\(f(X_1=x_1, X_2=x_2,...,X_n=x_n;\theta)\\)
     
 - 最大似然估计的不变性：对于双射equivirant
