@@ -155,7 +155,7 @@ $$
   - \\(P(X\geq E(X)+k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
   - \\(P(X\leq E(X)-k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
   - 证明：对\\(X-E(X)\\)使用Chernoff Bound，再结合Hoeffding引理后对\\(t\\)求导代入可得
-  - 若\\(X\simB(n,p)\\)，则有
+  - 若\\(X\sim B(n,p)\\)，则有
     - \\(P(X\geq n(p+\epsilon))\leq e^{-2n\epsilon^2}\\)
     - \\(P(X\leq n(p-\epsilon))\leq e^{-2n\epsilon^2}\\)
     - \\(P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
@@ -176,12 +176,12 @@ $$
 **例题：利用相关系数**
 \\({X_n}\\)为一列同分布且标准差\\(\sigma = \sigma(X_i)\\)存在的随机变量。\\(X_i\\)仅与\\(X_{i-1},X_{i+1}\\)相关，证明\\({X_n}\\)服从大数定律。
 - \\(Corr(X_i,X_{i+1})\leq 1 \Rightarrow Cov(X_i,X_{i+1})\leq \sigma^2\\)
-- \\(Var(\sum_{i=1}{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cot \sigma^2 + 2(n-1)\sigma^2\\)
+- \\(Var(\sum_{i=1}{n}X_i) = \sum_{i=1}^{n}\sum_{j=1}^{n}Cov(X_i,X_j)\leq n\cdot \sigma^2 + 2(n-1)\sigma^2\\)
 - *\\(2(n-1)\\)为每个\\(X_i\\)的前驱后继，头尾只有一个于是\\(-2\\)*
 - \\(\frac{1}{n^2}Var(\sum_{i=1}{n}X_i) \to 0\\)
 
 - **辛钦大数定律**：\\({X_n}\\)**独立同分布**，且**数学期望\\(\mu = E(X_i)\\)存在**，则\\({X_n}\\)服从大数定律
-  - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}X_i - \mu\vert < \epsilon) = 1\\)
+  - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}\sum_{i=1}^{n}X_i - \mu\vert < \epsilon) = 1\\)
   - 对比马尔可夫大数定律，需要独立同分布的假设，不需要对方差进行假设
 
 - 随机变量序列的收敛性
@@ -189,10 +189,10 @@ $$
     - 这是期望意义上的收敛，收敛值和集中不等式中期望的形式类似
   - **依分布收敛\\(Y_n \overset{d}{\rightarrow} Y\\)**：\\(\forall F(x)\text{的连续点}x, F_n(x)\to F(x)\\)
     - 即\\(n\\)无穷大时，\\(X_n\\)和\\(X\\)的分布函数在任意连续点相同
-  - \\(Y_n \overset{P}{\rightarrow} Y \Rightlefyarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(Y_n \overset{P}{\rightarrow} Y \Rightleftarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
   - 反之不成立
     - 考虑对称的分布\\(P(X=+1)=P(X=-1)=\frac{1}{2},Y=-X\\)
-  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightlefyarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
+  - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightleftarrow \\(Y_n \overset{d}{\rightarrow} Y\\)\\)
   
 - **特征函数**\\(\Phi_X(t) = E(e^{itx}) = M_X(it)\\)
   - *不考*
@@ -204,9 +204,56 @@ $$
   - \\(\Phi_{aX+b}(t) = \Phi_X(at)\cdot e^{itb}\\)
   - \\(X,Y\\)相互独立，\\(\Phi_{X+Y}(t) = \Phi_X(t)\cdot \Phi_Y(t)\\)
   - 由特征函数计算可得：
-    - 正态分布的可加性（期望和方差分别相加）
-    - 柯西分布的可加性：\\(\sum_{i=1}^{n}a_i\cdot X_i \sim \vert a\vert_1 \cdot X\\)
+    - 证明一些分布的可加性
+      - 正态分布的可加性（期望和方差分别相加）
+      - 柯西分布的可加性：\\(\sum_{i=1}^{n}a_i\cdot X_i \sim \vert a\vert_1 \cdot X\\)
     - 证明依分布收敛：\\(n\to \infty\\)时特征函数相同
     - 证明辛钦大数定律：计算\\(X_n\\)的特征函数
   
 - **中心极限定理及其应用**（不考，暂略，Lecture6 Page34）
+
+## 三、参数估计
+*开始统计学了，我们要根据已有的数据样本去估计一个分布中的未知参数，并且由一系列的metric去评判估计的好坏*
+*每一个简单随机样本和总体服从相同的分布，即下述\\(X_i\\)和\\(X\\)的分布相同*
+### 1. 点估计
+给定参数\\(\theta\\)的估计量\\(\hat{\thata}(X_1,X_2,...,X_n)\\)
+- **偏差\\(Bias(\hat{\theta})\\)**：\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
+  - **无偏**：\\(Bias(\hat{\theta}) = 0\\)
+  - **渐近无偏**：\\(\lim_{n\to \infty}Bias(\hat{\theta}) = 0\\)
+- **均方误差\\(MSE(\hat{\theta})\\)**：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)
+  - 若\\(\hat{\thata}\\)无偏，则\\(Bias(\hat{\theta}) = Var(\hat{\theta})\\)
+- **一致估计量**：若有\\(\hat{\theta} \overset{P}{\rightarrow} \theta\\)，即\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert\hat{\theta}  - \theta\vert \geq \epsilon)=0\\)，则称\\(\hat{\theta}\\)为一致估计量
+- 若\\(\lim_{n\to \infy} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\thata}\\)为一致估计量
+  - 证明：对\\((\hat{\thata} - \theta)^2\\)使用马尔可夫不等式
+- **总结**
+  - 判断无偏/渐近无偏：计算\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
+  - 计算均方误差：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)，无偏时直接计算方差\\(Var(\hat{\theta})\\)
+  - 判断一致估计量：计算均方误差，均方误差趋于0是一致的充分条件
+
+**例题：Lecture7 Page13-16**（暂略）
+
+**矩法估计**：用样本矩去替换总体矩
+
+- \\(k\\)阶矩\\(A_k = \frac{1}{n}\sum_{i=1}^{n}X_i^k\\)是总体\\(k\\)次期望\\(E(X_k)\\)的无偏估计
+- \\(2\\)阶中心矩\\(B_2 = \frac{1}{n}\sum_{i=1}^{n}(X_i-\bar{X})^2\\)是总体方差\\(Var(X)\\)的渐近无偏估计
+  - \\(E(B_2) = \frac{n-1}{n}\cdot Var(X)\\)
+  - 于是定义样本方差\\(S^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X})^2\\)，是总体方差\\(Var(X)\\)的无偏估计
+  
+- 总体\\(X\sim N(\mu, \sigma^2)\\)，样本均值\\(\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i\\)和样本方差\\(S^2= \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X})^2\\)相互独立，且\\(\bar{X}\sim N(\mu, \frac{\sigma^2}{n}), \frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)\\)
+  - 考虑正交矩阵\\(U,u_1=(\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}}, ... , \frac{1}{\sqrt{n}})\\)，其余行任取
+  - 令\\(X=(X_1,X_2,...,X_n),Y=UX\\)
+    - \\(Y\\)服从\\(n\\)维高斯分布
+    - 由与\\(u_1\\)的正交性：\\(E(Y) = (\sqrt{n}\mu, 0, 0,...,0)\\)
+    - 由随机样本之间的独立性：\\(Cov(Y) = \sigma^2 \cdot I\\)
+    - 由正交矩阵的保距性：\\(\sum_{i=1}^{n}Y_i^2 = \sum_{i=1}^{n}X_i^2\\)
+    - \\(\bar{X} = \frac{Y_1}{\sqrt{n}}\\)
+    - \\((n-1)S^2 = \sum_{i=1}^{n}(X_i - \bar{X})^2 = (\sum_{i=1}^{n}X_i^2) - n\bar{X}^2 = (\sum_{i=1}^{n}Y_i^2) - Y_1^2 = \sum_{i=2}^{n}X_i^2\\)
+    - 由此可知\\(\bar{X}\\)只与\\(Y_1\\)相关，而\\(S^2\\)只与\\(Y_1,Y_3,...,Y_n\\)相关；又因为\\(Y_i\\)两两独立，故\\(\bar{X}\\)与\\(S^2\\)相互独立
+    - 再由正态分布和Gamma分布的可加性和相关性
+      - 若\\(Z_1,Z_2,...,Z_n\\)独立同分布且\\(Z_i\sim N(0,1)\\)，则\\(Z_i^2 \sim \chi^(1) = \Gamma(\frac{1}{2},\frac{1}{2})\Rightarrow \sum_{i=1}^{n}Z_i^2 \sim \chi^2(n) = \Gamma(\frac{n}{2}, \frac{1}{2})\\)
+      - \\(\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)\\)
+      - \\(\bar{X}\sim N(\mu, \frac{\sigma^2}{n})\\)
+
+- 估计过程
+  - (1)将位置参数表示为总体前\\(k\\)阶矩的函数
+  - (2)用样本矩或中心距替换总体矩，也可用样本方差\\(S^2\\)替换\\(Var(X)\\)
