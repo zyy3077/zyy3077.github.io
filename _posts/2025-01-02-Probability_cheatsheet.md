@@ -32,6 +32,14 @@ tags: [academic, blog]
 - **马尔可夫不等式**：若\\(X\\)为非负随机变量，对于\\(a > 0\\)，有\\(P(X\geq a\cdot E(X)) \leq \frac{1}{a}\\)
 - **切比雪夫不等式**：若\\(\sigma(X) > 0 \\)，对于任意\\(c > 0\\)，\\(P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}\\)
 
+**例题：正确结果**
+- 某计算机程序有1/3的概率返回错误的结果，有2/3的概率返回正确的结果。假设只有一种正确的结果，错误的结果有多种。如何通过重复运行来提高得到正确结果的概率？
+  - 返回错误结果的次数\\(X \sim B(T, \frac{1}{3})\\)
+  - \\(E(X) = \frac{T}{3}\\)
+  - Chernoff Bound:\\(P(X-E(X)\geq T\epsilon)\leq e^{-2T\epsilon^2}\\)
+  - \\(\epsilon = \frac{1}{6}\Rightarrow P(X\geq \frac{T}{2})\leq e^{-\frac{T}{18}}\\)
+  - \\(T = O(\ln{\frac{1}{\delta}})\\)时众数为正确的结果的概率至少为\\(1-\delta\\)
+
 ### 大数定律
 - **一般形式**：对于随机变量\\({X_n}\\)，\\(\forall \epsilon > 0\\) 
 $$
@@ -67,13 +75,14 @@ $$
 
 ### 区间估计
 **例题：Chernoff Bound和二项分布**
-
 - 总体\\(X\sim B(1,p)\\)。设计\\(p\\)的置信水平为\\(1-\alpha\\)的置信区间。
   - 自然地想到设计枢轴量\\(\bar{X}-p\\)，由中心极限定理可知\\(\frac{\sum_{i=1}^{n}X_i-np}{\sqrt{np(1-p)}}\\)近似服从\\(N(0,1)\\)，接着按照标准正态分布设计区间
   - 不使用中心极限定理，可以用Chernoff Bound给出枢轴量\\(\bar{X}-p\\)位于给定区间的概率上界
     - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
     - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
     - \\(P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}}) \geq 1- \alpha\\)
+
+  
 
 ### 最小二乘估计
 - 求偏导列出正规方程
