@@ -13,7 +13,6 @@ tags: [academic, blog]
 
 ### 尾不等式
 - **Chernoff Bound**：对\\(e^{tX}\\)使用马尔可夫不等式，\\(M_{X}(t) = E(e^{tX})\\)
-  - 用\\(e\\)指数避免了马尔可夫不等式对非负性的要求
   - \\(\forall t > 0, P(X\geq k) = P(e^{tX}\geq e^{tk}) \leq P(e^{tX}\geq \frac{e^{tk}}{E(e^{tX})}\cdot E(e^{tX}))\leq M_{X}(t)\cdot e^{-tk}\\)
   - 同理：\\(\forall t < 0, P(X\leq k) \leq M_{X}(t)\cdot e^{-tk}\\)
   - 不等式中\\(t\\)可以取任意值，使用时选取使得上界最小的最优\\(t\\)
@@ -21,7 +20,7 @@ tags: [academic, blog]
   - \\(X\sim \pi(\lambda), M_X(t) = e^{\lambda(e^t-1)}\\)
   - \\(X\sim N(\mu, \sigma^2), M_X(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}\\)
   - \\(X\sim B(n,p), M_X(t) = (1-p+pe^t)^n\\)
-  - 
+  
 - **Chernoff-Hoeffding不等式**：若\\(X=\sum_{i=1}^{n}X_i\\)，\\(X_i\\)相互独立且\\(a\leq X_i \leq b\\)
   - \\(P(X\geq E(X)+k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
   - \\(P(X\leq E(X)-k)\leq e^{-\frac{2k^2}{n(b-a)^2}}\\)
@@ -29,8 +28,8 @@ tags: [academic, blog]
     - \\(P(X\geq n(p+\epsilon))\leq e^{-2n\epsilon^2}\\)
     - \\(P(X\leq n(p-\epsilon))\leq e^{-2n\epsilon^2}\\)
     - \\(P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
+  
 - **马尔可夫不等式**：若\\(X\\)为非负随机变量，对于\\(a > 0\\)，有\\(P(X\geq a\cdot E(X)) \leq \frac{1}{a}\\)
-
 - **切比雪夫不等式**：若\\(\sigma(X) > 0 \\)，对于任意\\(c > 0\\)，\\(P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}\\)
 
 ### 大数定律
@@ -51,7 +50,6 @@ $$
   - 即\\(n\\)无穷大时，\\(X_n\\)和\\(X\\)的分布函数在任意连续点相同
 - \\(Y_n \overset{P}{\rightarrow} Y \Rightarrow Y_n \overset{d}{\rightarrow} Y\\)
 - 反之不成立
-  - 考虑对称的分布\\(P(X=+1)=P(X=-1)=\frac{1}{2},Y=-X\\)
 - \\(X\\)服从单点分布，则\\(Y_n \overset{P}{\rightarrow} Y \Leftrightarrow Y_n \overset{d}{\rightarrow} Y\\)
 
 ### 点估计
@@ -72,14 +70,19 @@ $$
 ### 区间估计
 **例题：Chernoff Bound和二项分布**
 
-总体\\(X\sim B(1,p)\\)。设计\\(p\\)的置信水平为\\(1-\alpha\\)的置信区间。
-- 自然地想到设计枢轴量\\(\bar{X}-p\\)，由中心极限定理可知\\(\frac{\sum_{i=1}^{n}X_i-np}{\sqrt{np(1-p)}}\\)近似服从\\(N(0,1)\\)，接着按照标准正态分布设计区间
-- 不使用中心极限定理，可以用Chernoff Bound给出枢轴量\\(\bar{X}-p\\)位于给定区间的概率上界
-  - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
-  - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
-  - \\(P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}}) \geq 1- \alpha\\)
+- 总体\\(X\sim B(1,p)\\)。设计\\(p\\)的置信水平为\\(1-\alpha\\)的置信区间。
+  - 自然地想到设计枢轴量\\(\bar{X}-p\\)，由中心极限定理可知\\(\frac{\sum_{i=1}^{n}X_i-np}{\sqrt{np(1-p)}}\\)近似服从\\(N(0,1)\\)，接着按照标准正态分布设计区间
+  - 不使用中心极限定理，可以用Chernoff Bound给出枢轴量\\(\bar{X}-p\\)位于给定区间的概率上界
+    - recap:\\(X\sim B(n,p), P(\vert X - np\vert \geq n\epsilon)\leq 2e^{-2n\epsilon^2}\\)
+    - \\(2e^{-2n\epsilon^2} = \alpha \Rightarrow \epsilon = \sqrt{\frac{\ln(2/a)}{2n}}\\)
+    - \\(P(\bar{X} - \sqrt{\frac{\ln(2/a)}{2n}}\leq p \leq \bar{X} + \sqrt{\frac{\ln(2/a)}{2n}}) \geq 1- \alpha\\)
 
 ### 最小二乘估计
+- 求偏导列出正规方程
+- \\(\hat{\beta} = \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_xx}\\)
+- \\(\hat{\alpha} = \alpha + \sum \epsilon_i \cdot (\frac{1}{n}-\frac{x_i - \bar{x}}{s_{xx}}\cdot \bar{x})\\)
+- \\(s^2 = \frac{1}{n-2}\sum (\hat{y_i}-y_i)^2\\)是\\(\sigma^2\\)的**无偏估计量**
+
 
 ### 假设检验
 1. 建立假设
@@ -94,12 +97,12 @@ $$
 
 **例题：假设检验框架**
 
-令总体服从\\(Exp(\frac{1}{\theta})\\)。\\(H_0:\theta \leq \theta_0, H_1:\theta > \theta_0\\)，拒绝域为\\(W=\lbrace(x_1,x_2,...,x_n) \vert \bar{x}\geq c\rbrace\\)，\\(c\\)为待定值，\\(x_i\sim \Gamma(1,\frac{1}{\theta})\\)
-- 考虑\\(\bar{x}\\)服从什么分布，由Gamma分布的可加性：\\(n\bar{x}\sim \Gamma(n,\frac{1}{\theta})\\)
-- 再想着去标准化，构造出一个于\\(\theta\\)无关的枢轴量：\\(\frac{2n\bar{x}}{\theta}\sim Gamma(n,\frac{1}{2}=\chi^2(2n))\\)
-- 于是有了置信区间：\\(P(\bar{x}\geq c)= P(\frac{2n\bar{x}}{\theta}\geq \frac{2nc}{\theta}) = 1-\Phi(\frac{2nc}{\theta})\\)
-- \\(\forall \theta \leq \theta_0\\)，上式最大值不超过显著性水平\\(\alpha\\)，解得\\(c = \frac{\Phi^{-1}(1-\alpha)\theta_0}{2n}\\)
-- \\(p = 1 - \Phi(\frac{2n\bar{x}}{\theta_0})\\)
+- 令总体服从\\(Exp(\frac{1}{\theta})\\)。\\(H_0:\theta \leq \theta_0, H_1:\theta > \theta_0\\)，拒绝域为\\(W=\lbrace(x_1,x_2,...,x_n) \vert \bar{x}\geq c\rbrace\\)，\\(c\\)为待定值，\\(x_i\sim \Gamma(1,\frac{1}{\theta})\\)
+  - 考虑\\(\bar{x}\\)服从什么分布，由Gamma分布的可加性：\\(n\bar{x}\sim \Gamma(n,\frac{1}{\theta})\\)
+  - 再想着去标准化，构造出一个于\\(\theta\\)无关的枢轴量：\\(\frac{2n\bar{x}}{\theta}\sim Gamma(n,\frac{1}{2}=\chi^2(2n))\\)
+  - 于是有了置信区间：\\(P(\bar{x}\geq c)= P(\frac{2n\bar{x}}{\theta}\geq \frac{2nc}{\theta}) = 1-\Phi(\frac{2nc}{\theta})\\)
+  - \\(\forall \theta \leq \theta_0\\)，上式最大值不超过显著性水平\\(\alpha\\)，解得\\(c = \frac{\Phi^{-1}(1-\alpha)\theta_0}{2n}\\)
+  - \\(p = 1 - \Phi(\frac{2n\bar{x}}{\theta_0})\\)
 
 ### 常用分布
 - **二项分布\\(B(n,p)\\)**
