@@ -232,7 +232,7 @@ $$
 - **均方误差\\(MSE(\hat{\theta})\\)**：\\(MSE(\hat{\theta}) = E((\hat{\theta} - \theta)^2)\\)
   - 若\\(\hat{\theta}\\)无偏，则\\(Bias(\hat{\theta}) = Var(\hat{\theta})\\)
 - **一致估计量**：若有\\(\hat{\theta} \overset{P}{\rightarrow} \theta\\)，即\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert\hat{\theta}  - \theta\vert \geq \epsilon)=0\\)，则称\\(\hat{\theta}\\)为一致估计量
-- 若\\(\lim_{n\to \infty} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\theta}\\)为一致估计量
+- **若\\(\lim_{n\to \infty} MSE(\hat{\theta}) = 0\\)，则\\(\hat{\theta}\\)为一致估计量**
   - 证明：对\\((\hat{\theta} - \theta)^2\\)使用马尔可夫不等式
 - **总结**
   - 判断无偏/渐近无偏：计算\\(Bias(\hat{\theta})=E(\hat{\theta} - \theta)\\)
@@ -364,7 +364,7 @@ $$
    \text{其中}\bar{x} &= \frac{1}{n} \sum x_i, \bar{y} = \frac{1}{n} \sum y_i\\
     s_{xx} &= \sum(x_i-\bar{x})(x_i-\bar{x}) = \sum x_i^2 - n\cdot (\bar{x})^2\\
     s_{xy} &= \sum(x_i-\bar{x})(y_i-\bar{y}) = \sum x_i y_i - n\cdot \bar{x} \cdot \bar{y}\\
-    \text{由}\sum (x_i-\bar{x})=0, text{和一系列计算可得：}\\
+    \text{由}\sum (x_i-\bar{x})=0, \text{可得：}\\
     \hat{\beta} &= \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_xx}\\ 
     \hat{\alpha} &= \alpha + \sum \epsilon_i \cdot (\frac{1}{n}-\frac{x_i - \bar{x}}{s_{xx}}\cdot \bar{x})
 \end{align*}
@@ -374,7 +374,7 @@ $$
 
 $$
 \begin{align*}
-    E(\hat{\beta}) &= \beta , E(\hat{\alpha}) &= \alpha \\
+    E(\hat{\beta}) &= \beta , E(\hat{\alpha}) = \alpha \\
     MSE(\hat{\beta}) &= Var(\hat{\beta}) = \frac{\sigma^2}{s_{xx}}\\
     MSE(\hat{\alpha}) &= Var(\hat{\alpha}) = \sigma^2(\frac{1}{n} + \frac{\bar{x}^2}{s_{xx}})\\
     Cov(\hat{\beta}, \hat{\alpha}) &= -\sigma^2\cdot \frac{\bar{x}}{s_{xx}}
@@ -389,7 +389,7 @@ $$
     Var(\hat{y_i}) &= Var(\hat{\alpha}) + x_i^2\cdot Var(\hat{\beta}) + 2x_i\cdot Cov(\hat{\alpha}, \hat{\beta})\\
     &= \sigma^2(\frac{1}{n}+\frac{(\bar{x}-x_i)^2}{s_{xx}})\\
     Var(\hat{y_i}-y_i) &= Var(\hat{y_i}) + Var(y_i) -2Cov(\hat{y_i}, y_i)\\
-    &= \frac{n-1}{n}\sigma^2 - \frac{(\bar{x}-x_i)^2}{s_{xx}}\sigma^2
+    &= \frac{n-1}{n}\sigma^2 - \frac{(\bar{x}-x_i)^2}{s_{xx}}\sigma^2\\
     E(\sum (\hat{y_i}-y_i)^2) &= \sum Var(\hat{y_i}-y_i) = (n-2)\sigma^2\\
     E(s^2) &= E(\frac{1}{n-2}\sum (\hat{y_i}-y_i)^2) = \sigma^2
 \end{align*}
@@ -450,6 +450,16 @@ $$
 - **\\(p\\)值**：给定样本取值，能够做出拒绝原假设的最小显著性水平称为检验的\\(p\\)值
   - 如果\\(\alpha \geq p\\)，说明错误拒绝原假设的概率较高，即更容易拒绝原假设，于是拒绝原假设
   - 反之如果\\(\alpha < p\\)，接受原假设
+
+**例题：假设检验框架**
+
+令总体服从\\(Exp(\frac{1}{\theta})\\)。\\(H_0:\theta \leq \theta_0, H_1:\theta > \theta_0\\)，拒绝域为\\(W=\lbrace(x_1,x_2,...,x_n) \vert \bar{x}\geq c\rbrace\\)，\\(c\\)为待定值，\\(x_i\sim \Gamma(1,\frac{1}{\theta})\\)
+- 考虑\\(\bar{x}\\)服从什么分布，由Gamma分布的可加性：\\(n\bar{x}\sim \Gamma(n,\frac{1}{\theta})\\)
+- 再想着去标准化，构造出一个于\\(\theta\\)无关的枢轴量：\\(\frac{2n\bar{x}}{\theta}\sim Gamma(n,\frac{1}{2}=\chi^2(2n))\\)
+- 于是有了置信区间：\\(P(\bar{x}\geq c)= P(\frac{2n\bar{x}}{\theta}\geq \frac{2nc}{\theta}) = 1-\Phi(\frac{2nc}{\theta})\\)
+- \\(\forall \theta \leq \theta_0\\)，上式最大值不超过显著性水平\\(\alpha\\)，解得\\(c = \frac{\Phi^{-1}(1-\alpha)\theta_0}{2n}\\)
+- \\(p = 1 - \Phi(\frac{2n\bar{x}}{\theta_0})\\)
+  
 
 ---
 
