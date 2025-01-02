@@ -69,7 +69,7 @@ $$
   - 由\\(Corr(X,Y)\\)的正负性可得\\(X,Y\\)正相关/负相关/不相关
   - \\(\vert Corr(X,Y)\vert \leq 1\\)
     - 证明考虑\\(g(t) = E((t(X-E(X)) + (Y-E(Y)))^2), \Delta \leq 0\\)
-    - \\(Corr(X,Y) = \pm 1 \Leftrightarrow \exists a \neq 0,b s.t. P(Y = aX+b) = 1\\)**（作业五第一题）**
+    - \\(Corr(X,Y) = \pm 1 \Leftrightarrow \exists a \neq 0,b, s.t. P(Y = aX+b) = 1\\)**（作业五第一题）**
 
 ### 4. 多维连续随机变量函数的分布
 - **卷积公式**：若\\(X,Y\\)相互独立，\\(Z=X+Y\\)，则\\(f_{Z}(z) = \int_{-\infty}^{+\infty} f_{X}(z-y)f_{Y}(y)dy\\)
@@ -373,7 +373,7 @@ $$
     s_{xx} &= \sum(x_i-\bar{x})(x_i-\bar{x}) = \sum x_i^2 - n\cdot (\bar{x})^2\\
     s_{xy} &= \sum(x_i-\bar{x})(y_i-\bar{y}) = \sum x_i y_i - n\cdot \bar{x} \cdot \bar{y}\\
     \text{由}\sum (x_i-\bar{x})=0, \text{可得：}\\
-    \hat{\beta} &= \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_xx}\\ 
+    \hat{\beta} &= \beta + \sum \epsilon_i \cdot \frac{x_i-\bar{x}}{s_{xx}}\\ 
     \hat{\alpha} &= \alpha + \sum \epsilon_i \cdot (\frac{1}{n}-\frac{x_i - \bar{x}}{s_{xx}}\cdot \bar{x})
 \end{align*}
 $$
@@ -463,7 +463,7 @@ $$
 
 令总体服从\\(Exp(\frac{1}{\theta})\\)。\\(H_0:\theta \leq \theta_0, H_1:\theta > \theta_0\\)，拒绝域为\\(W=\lbrace(x_1,x_2,...,x_n) \vert \bar{x}\geq c\rbrace\\)，\\(c\\)为待定值，\\(x_i\sim \Gamma(1,\frac{1}{\theta})\\)
 - 考虑\\(\bar{x}\\)服从什么分布，由Gamma分布的可加性：\\(n\bar{x}\sim \Gamma(n,\frac{1}{\theta})\\)
-- 再想着去标准化，构造出一个于\\(\theta\\)无关的枢轴量：\\(\frac{2n\bar{x}}{\theta}\sim Gamma(n,\frac{1}{2}=\chi^2(2n))\\)
+- 再想着去标准化，构造出一个于\\(\theta\\)无关的枢轴量：\\(\frac{2n\bar{x}}{\theta}\sim \Gamma(n,\frac{1}{2})=\chi^2(2n)\\)
 - 于是有了置信区间：\\(P(\bar{x}\geq c)= P(\frac{2n\bar{x}}{\theta}\geq \frac{2nc}{\theta}) = 1-\Phi(\frac{2nc}{\theta})\\)
 - \\(\forall \theta \leq \theta_0\\)，上式最大值不超过显著性水平\\(\alpha\\)，解得\\(c = \frac{\Phi^{-1}(1-\alpha)\theta_0}{2n}\\)
 - \\(p = 1 - \Phi(\frac{2n\bar{x}}{\theta_0})\\)
