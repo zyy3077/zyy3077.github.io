@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024fall-离散数学基础-期中复习"
+title: "2024fall-离散数学基础-期末复习"
 date: 2025-01-02
 categories: [Discrete_Maths, 2024fall]
 tags: [academic, blog]
