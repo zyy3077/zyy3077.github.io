@@ -161,3 +161,6 @@ $$
     \end{vmatrix}
 \end{align*}
 $$
+
+- \\(E(X) = \sum_{x=0}^{+\infty} P(X>x)\\)
+- \\(E(X) = \int_{0}^{+\infty} P(X>x)dx\\)
