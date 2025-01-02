@@ -42,8 +42,6 @@ $$
 - **辛钦大数定律**：\\({X_n}\\)**独立同分布**，且**数学期望\\(\mu = E(X_i)\\)存在**，则\\({X_n}\\)服从大数定律
   - 即\\(\forall \epsilon > 0, \lim_{n\to \infty}P(\vert \frac{1}{n}\sum_{i=1}^{n}X_i - \mu\vert < \epsilon) = 1\\)
   - 对比马尔可夫大数定律，需要独立同分布的假设，不需要对方差进行假设
-
-### 随机变量序列的收敛性
 - **依概率收敛\\(Y_n \overset{P}{\rightarrow} Y\\)**：令\\({Y_n}\\)为一列随机变量，\\(Y\\)为随机变量。若\\(\forall \epsilon >0, \lim_{n\to \infty}P(\vert Y_n - Y\vert < \epsilon)=1\\)，则称\\({Y_n}\\)依概率收敛于\\(Y\\)
   - 这是期望意义上的收敛，收敛值和集中不等式中期望的形式类似
 - **依分布收敛\\(Y_n \overset{d}{\rightarrow} Y\\)**：\\(\forall F(x)\text{的连续点}x, F_n(x)\to F(x)\\)
@@ -150,7 +148,8 @@ $$
 - **相关系数**\\(Corr(X,Y) = \frac{Cov(X,Y)}{\sigma(X)\sigma(Y)}\\)
   - 由\\(Corr(X,Y)\\)的正负性可得\\(X,Y\\)正相关/负相关/不相关
   - \\(Corr(X,Y) = \pm 1 \Leftrightarrow \exists a \neq 0,b s.t. P(Y = aX+b) = 1\\)
-- **卷积公式**：若\\(X,Y\\)相互独立，\\(Z=X+Y\\)，则\\(f_{Z}(z) = \int_{-\infty}^{+\infty} f_{X}(z-y)f_{Y}(y)dy\\)
+- **卷积公式**
+  - 若\\(X,Y\\)相互独立，\\(Z=X+Y\\)，则\\(f_{Z}(z) = \int_{-\infty}^{+\infty} f_{X}(z-y)f_{Y}(y)dy\\)
 
 $$
 \begin{align*}
