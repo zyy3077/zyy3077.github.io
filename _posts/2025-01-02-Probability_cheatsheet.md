@@ -123,13 +123,13 @@ $$
   - \\(Var(X) = \frac{(b-a)^2}{12}\\) 
 - **正态分布\\(N(\mu , \sigma^2)\\)**
   - \\(f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\)
-  - \\(X_i \sim N(\mu_i, \sigma_i^2), \sum_{i=1}^{n}a_i X_i \sim N(\sum_{i=1}^{n}a_i \mu_i, \sum_{i=1}^{n}a_i^2 \sigma_i^2)\\)，即服从正态分布的变量的和依旧服从正态分布，期望为原期望的和，方差为原标准差的平方和
+  - \\(X_i \sim N(\mu_i, \sigma_i^2), \sum_{i=1}^{n}a_i X_i \sim N(\sum_{i=1}^{n}a_i \mu_i, \sum_{i=1}^{n}a_i^2 \sigma_i^2)\\)
 - **指数分布\\(Exp(\lambda)\\)**
   - \\(x>0, f(x)=\lambda e^{-\lambda x}\\)
   - \\(x \geq 0, F(x) = 1 - e^{-\lambda x}\\)
   - \\(E(X) = \frac{1}{\lambda}\\)
   - \\(Var(X) = \frac{1}{\lambda^2}\\)
-- **伽玛分布\\(\Gamma (\alpha, \lambda)\\)**
+- **伽玛分布\\(\Gamma (\alpha, \lambda)\\)&卡方分布\\(\chi^2(n)\\)**
   - \\(x \geq 0, f(x) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x} \\)
   - \\(n \in \mathbb{N} ,\Gamma (n+1) = n! \\)
   - \\(E(X) = \frac{\alpha}{\lambda}\\)
