@@ -121,7 +121,7 @@ $$
 
 若连续随机变量\\(X,Y\\)相互独立，计算\\(U=XY\\)的概率密度函数。
 - \\(u = xy, v = y \Rightarrow x = \frac{u}{v}, y = v\\)
-- \\(J = vert \frac{\partial (x,y)}{\partial (u,v)}\vert = \frac{1}{v}\\)
+- \\(J = \vert \frac{\partial (x,y)}{\partial (u,v)}\vert = \frac{1}{v}\vert \\)
 - \\(f_{U,V} (u,v) = f_{X,Y}(x(u,v), y(u,v)) \cdot \vert J \vert = f_{X}(\frac{u}{v})\cdot f_{Y}(v) \cdot \frac{1}{\vert v} \\)
 - \\(U\\)的边际密度函数为\\(f_{U}(u) = \int_{-\infty}^{+\infty} f_{U,V}(u,v)dv = \int_{-\infty}^{+\infty} f_{X}(\frac{u}{v})\cdot f_{Y}(v)\cdot dv\\)
 - 可求出\\(U\\)的分布函数后求导验证
@@ -338,13 +338,13 @@ $$
 **例题：正态分布**
 
 总体\\(X\sim N(\mu, \sigma^2)\\)\\(\mu,\sigma^2\\)均未知。设计\\(\mu\\)的置信水平为\\(1-\alpha\\)的置信区间。
-- 当\\(\sigma^2\\)已知时，我们会设计枢轴量\\(G = \frac{\bar{X-\mu}}{\sigma^2} \sim N(0,1)\\)
-- 而当\\(\sigma^2\\)未知时，考虑用\\(S^2\\)替换\\(\sigma^2\\)，从而\\(G = \frac{\bar{X-\mu}}{S^2}\\)服从什么分布？
+- 当\\(\sigma^2\\)已知时，我们会设计枢轴量\\(G = \frac{\bar{X}-\mu}{\sigma^2} \sim N(0,1)\\)
+- 而当\\(\sigma^2\\)未知时，考虑用\\(S^2\\)替换\\(\sigma^2\\)，从而\\(G = \frac{\bar{X}-\mu}{S^2}\\)服从什么分布？
 - recap:\\( \bar{X}\sim N(\mu, \frac{\sigma^2}{n}),\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)\\)
 - **\\(t\\)分布**：\\(T=\frac{X_1}{\sqrt{X_2/n}} \sim t(n)\\)，即自由度为\\(n\\)的\\(t\\)分布，其中\\(X_1,X_2\\)相互独立且\\(X_1\sim N(0,1), X_2\sim \chi^2(n)\\)
   - \\(n=1, f(t)=\frac{1}{1+t^2}\cdot \frac{1}{\pi}\\)
   - 当自由度\\(n\\)较大，近似为标准正态分布
-- \\(G = \frac{\bar{X-\mu}}{S^2} \sim t(n-1)\\)
+- \\(G = \frac{\bar{X}-\mu}{S^2} \sim t(n-1)\\)
 
 **例题：Chernoff Bound和二项分布**
 
