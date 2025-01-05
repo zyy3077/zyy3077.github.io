@@ -1,6 +1,7 @@
 MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: [['\\(', '\\)']],
+      // inlineMath: [['\\(', '\\)']],
+      inlineMath: [['$', '$']],
       displayMath: [['$$', '$$']],
       processEscapes: true
     }
