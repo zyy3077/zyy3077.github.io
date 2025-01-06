@@ -244,9 +244,10 @@ $$
 
 - 证明属于数学分析的范畴，故略
 - 下述公式将用于生成函数的讨论中
+
 $$
 \begin{align*}
-\text{当}\alpha = -m\text{时}\\
+\text{当}\alpha = -m\text{时，}\\
 \binom{\alpha}{n} &= \binom{-m}{n} = \frac{(-m)(-m-1)...(-m-n+1)}{n!} = (-1)^n\binom{m+n-1}{n}\\
 
 \text{令}x=z,y=1\\
@@ -255,7 +256,7 @@ $$
 \text{用}-z\text{替换}z\\
 (1-z)^{-m}&=\frac{1}{(1-z)^m}=\sum_{n=0}^{+\infty}\binom{m+n-1}{n} z^n,\vert z\vert < 1\\
 
-\text{当}m=1\text{或}2\text{时}\\
+\text{当}m=1\text{或}2\text{时，}\\
 \frac{1}{1-x} &= 1+x+x^2+\dots\\
 \frac{1}{(1-x)^2}&=\sum_{n=1}^{+\infty}(n+1)x^n\\
 
@@ -358,8 +359,8 @@ $$
   - 结合律：$(x\circ y)\circ z = x \circ(y\circ z)$
   - 幂等律：$x\circ x = x$
     - 幂等元：$S$中某些满足上式的元素
-  - $*$对$\circ$的分配律：$x*(y\circ z)=(x*y)\circ (x*z),(y\circ z)*x = (y*x)\circ(z*x)$
-  - 吸收律：$x*(x\circ y) = x, x\circ (x*y)=x$
+  - $*$对$\circ$的分配律：$x * (y\circ z)=(x * y)\circ (x * z),(y\circ z) * x = (y * x)\circ(z * x)$
+  - 吸收律：$x * (x\circ y) = x, x\circ (x * y)=x$
     - 幂集上的交并运算满足吸收律
   - **单位元（幺元）**：既是左单位元也是右单位元
     - 左单位元：$\exists e_l\in S,\forall x\in S,e_l\circ x = x$
@@ -405,7 +406,7 @@ $$
     - 本质是因为积代数的零元为$\langle \theta_1,\theta_2\rangle$
     - 而$\forall \lambda_1,\lambda_2,\langle \theta_1, \lambda_1\rangle \cdot \langle \lambda_2, \theta_2\rangle = \langle \theta_1, \theta_2\rangle$
     - 显然左边不能消去
-- **同态**：$V_1=\langle A, \circ\rangle,V_2=\langle B,*\rangle$是**同类型**的代数系统，$f:A\rightarrow B,\forall x,y\in A,f(x\circ y)=f(x)*f(y)$，$f$为**同态映射**
+- **同态**：$V_1=\langle A, \circ\rangle,V_2=\langle B,*\rangle$是**同类型**的代数系统，$f:A\rightarrow B,\forall x,y\in A,f(x\circ y)=f(x) * f(y)$，$f$为**同态映射**
   - $f$为单射/满射/**双射**：单同态/满同态/**同构**
   - 自同态：$f:V\rightarrow V$
   - 同态映射保留除消去律以外的性质，且把单位元/零元/逆元映射到单位元/零元/逆元
@@ -568,10 +569,10 @@ $$
 - 对偶命题：设$p$是含有格中元素的命题，$p^*$将$p$中的$\geq ,\leq$互换；$\land ,\lor$互换
 - 格的对偶原理：$p\Leftrightarrow p^*$
 - 格的运算$\land,\lor$满足**交换律、结合律、幂等律和吸收律**
-- 设$\langle S,*,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则可以适当定义$S$上的偏序$\leq$使得$\langle S,\leq\rangle$构成一个格，且$\forall a,b \in S, a \land b = a*b, a\lor b = a\circ b$
+- 设$\langle S, * ,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则可以适当定义$S$上的偏序$\leq$使得$\langle S,\leq\rangle$构成一个格，且$\forall a,b \in S, a \land b = a*b, a\lor b = a\circ b$
   - 吸收律可以导出幂等律
   - 定义偏序$R:\langle a,b\rangle\in R \Leftrightarrow a\circ b = b$
-- 设$\langle S,*,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则$\langle S,*,\circ\rangle$构成一个格
+- 设$\langle S, * ,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则$\langle S, * ,\circ\rangle$构成一个格
   - 偏序集上定义的格和代数系统定义的格统称为格
 
 - $a\lor (b\land c) \leq (a\lor b)\land (a\lor c)$
@@ -598,8 +599,8 @@ $$
   - 每个元素存在唯一的补元，求补元的运算：$a'$
   - 双重否定律：$(a')'=a$
   - 德摩根律：$(a\land b)'=a' \lor b', (a\lor b)'=a'\land b'$
-  - 设$\langle B,*,\circ\rangle$是代数系统，若$*,\circ$满足**交换律、分配律、同一律、补元律**，则称$\langle B,*,\circ\rangle$是一个布尔代数
-    - 同一律：$\exists 0,1\in B,s.t.\forall a \in B,a*1=a,a\circ 0 = a$
+  - 设$\langle B, * ,\circ\rangle$是代数系统，若$* ,\circ$满足**交换律、分配律、同一律、补元律**，则称$\langle B, * ,\circ\rangle$是一个布尔代数
+    - 同一律：$\exists 0,1\in B,s.t.\forall a \in B,a * 1=a,a\circ 0 = a$
 - **原子**：一个格中，在它到$0$之间不存在其他元素的元素
 - 有限布尔代数同构于其全体原子构成集合的幂集代数
   - 任何有限布尔代数的基数为$2^n$，其中$n$为其原子个数
