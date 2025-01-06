@@ -38,6 +38,7 @@ tags: [academic, blog]
 ### 1. 加法法则和乘法法则
 - 基本的定理略过
 - 考虑自反/对称关系的个数时，可以考虑矩阵的个数
+  
 ### 2. 排列与组合
 - 组合数的性质
   - $C(n,r) = \frac{n}{r}C(n-1,r-1)$
@@ -49,7 +50,8 @@ tags: [academic, blog]
     - $n_i = +\infty$表示$a_i$在集合中有足够多的备选
   - $r$排列：从$S$中选出有序的$r$个元素；$r=n$时为全排列
   - $r$组合：从$S$中选出无序的$r$个元素
-  - 对于$S$的$r$排列和组合数，一般只能利用生成函数或容斥原理求解，见下一章；现给出特殊情况的几个公式
+  - 对于$S$的$r$排列和组合数，一般只能利用生成函数或容斥原理求解，见下一章
+  - 现给出特殊情况的几个公式
 
 **特殊的排列组合数公式**
 - $S$的**全排列数**为$\frac{n!}{n_1!n_2!...n_k!}$
@@ -91,7 +93,6 @@ $$
     - $n$中取$r$，$r$中取$k$，这被取出来的$k$个数构成的集合可能重复出现，$\binom{n-k}{r-k}$就是它重复出现的次数
       - 在$n$个数的集合中包含这$k$个数的基数为$r$的子集有$\binom{n-k}{r-k}$个
   - $\sum_{k=0}^{r} \binom{m}{k} \binom{n}{r-k} = \binom{m+n}{r}$
-  - $\sum_{k=0}^{r} \binom{m}{k} \binom{n}{r-k} = \binom{m+n}{r}$
   - 用$n$换$r$得：$\sum_{k=0}^{n} \binom{m}{k} \binom{n}{k} = \binom{m+n}{m}$
   - 对多项式$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$求导可得
     - $\sum_{k=0}^{n} k\binom{n}{k} = n2^{n-1}$
@@ -100,7 +101,7 @@ $$
 **非降路径问题**
 
 - 从$(0,0)$到$(m,n)$，$m,n$是正整数，不同的非降有多少条？
-  - 显然只要在$m+n$步中选$m$补向右，其余向上即可，故为$\binom{m+n}{m}$
+  - 显然只要在$m+n$步中选$m$步向右，其余向上即可，故为$\binom{m+n}{m}$
 
 - 下面考虑从$(a,b)$到$(m,n)$的非降路径
   - 只需平移即可转化为上一种情况，$\binom{m-a+n-b}{m-a}$
@@ -213,11 +214,11 @@ $$
 $$
 
 - 这说明非齐次递推方程的通解结构式对应的齐次方程的通解加上一个特解，这个特解的形式依赖于$f(n)$，那么具体如何通过$f(n)$求出特解呢？
-1. $f(n)$为$n$的$t$次多项式
+#### 1. $f(n)$为$n$的$t$次多项式
    - 特解一般也为$n$的$t$次多项式
    - 但如果递推方程的特征根是$1$，把这个解代入原方程时会小区最高次项，就必须提高所设定待解的多项式次数
    - 比如$W(n)=W(n-1)+n-1$，试一下就会发现将特解也设为$1$次是行不通的，最高次项会消掉，所以把最高次项设为$2$，设特解为$P_1n+P_2n^2$
-2. $f(n)$为指数函数$A\beta^n$
+#### 2. $f(n)$为指数函数$A\beta^n$
    - 若$\beta$不是特征根，则特解为$P\beta^n$
    - 若$\beta$是$m(\geq 1)$重根，则特解为$Pn^m\beta^n$
    - 小例题：$a_n-4a_{n-1}+4a_{n-2}=2^n$，写出通解和特解
@@ -247,38 +248,37 @@ $$
 
 $$
 \begin{align*}
-\text{当}\alpha = -m\text{时，}\\
-\binom{\alpha}{n} &= \binom{-m}{n} = \frac{(-m)(-m-1)...(-m-n+1)}{n!} = (-1)^n\binom{m+n-1}{n}\\
-
-\text{令}x=z,y=1\\
-(1+z)^{-m}&=\frac{1}{(1+z)^m}=\sum_{n=0}^{+\infty}(-1)^n\binom{m+n-1}{n} z^n,\vert z\vert < 1\\
-
-\text{用}-z\text{替换}z\\
-(1-z)^{-m}&=\frac{1}{(1-z)^m}=\sum_{n=0}^{+\infty}\binom{m+n-1}{n} z^n,\vert z\vert < 1\\
-
-\text{当}m=1\text{或}2\text{时，}\\
-\frac{1}{1-x} &= 1+x+x^2+\dots\\
-\frac{1}{(1-x)^2}&=\sum_{n=1}^{+\infty}(n+1)x^n\\
-
-\text{当}\alpha=\frac{1}{2}\text{时}\\
-(1+x)^{\frac{1}{2}}&=\sum_{n=0}^{+\infty}\binom{\frac{1}{2}}{n}x^n\\
-&= 1+\sum_{n=1}^{+\infty}\frac{\frac{1}{2}(\frac{1}{2}-1)...(\frac{1}{2}-n+1)}{n!}x^n\\
-&=1+\sum_{n=1}^{+\infty}\frac{(-1)^{n-1}}{2^{2n-1}n}\binom{2n-2}{n-1}x^n
+  \text{当}\alpha = -m\text{时，} \\ 
+  \binom{\alpha}{n} &= \binom{-m}{n} = \frac{(-m)(-m-1)...(-m-n+1)}{n!} = (-1)^n\binom{m+n-1}{n} \\  
+  \text{令}x=z,y=1\text{,} \\ 
+  (1+z)^{-m}&=\frac{1}{(1+z)^m}=\sum_{n=0}^{+\infty}(-1)^n\binom{m+n-1}{n} z^n,\vert z\vert < 1 \\ 
+  \text{用}-z\text{替换}z\text{,} \\ 
+  (1-z)^{-m}&=\frac{1}{(1-z)^m}=\sum_{n=0}^{+\infty}\binom{m+n-1}{n} z^n,\vert z\vert < 1 \\ 
+  \text{当}m=1\text{或}2\text{时，} \\ 
+  \frac{1}{1-x} &= 1+x+x^2+\dots \\ 
+  \frac{1}{(1-x)^2}&=\sum_{n=1}^{+\infty}(n+1)x^n \\ 
+  \text{当}\alpha=\frac{1}{2}\text{时，} \\ 
+  (1+x)^{\frac{1}{2}}&=\sum_{n=0}^{+\infty}\binom{\frac{1}{2}}{n}x^n \\ 
+  &= 1+\sum_{n=1}^{+\infty}\frac{\frac{1}{2}(\frac{1}{2}-1)...(\frac{1}{2}-n+1)}{n!}x^n \\ 
+  &=1+\sum_{n=1}^{+\infty}\frac{(-1)^{n-1}}{2^{2n-1}n}\binom{2n-2}{n-1}x^n
 \end{align*}
 $$
 
 - **生成函数**：给定序列$\lbrace a_n \rbrace$，构造形式幂级数
+  
 $$
 G(x) = a_0+a_1x+a_2x^2+...+a_nx^n+...
 $$
+
 - 称$G(x)$为序列$\lbrace a_n \rbrace$的生成函数
   - 生成函数与序列是一一对应的，那么给定序列或其递推方程，如何求生成函数呢？
   - 反之，给定生成函数，如何求序列通项公式呢？
-1. 给定$\lbrace a_n \rbrace$求$G(x)$
+
+#### 1. 给定$\lbrace a_n \rbrace$求$G(x)$
    - 用级数的公式或者先积分再求导等一系列技巧
    - 是上面推出的公式的逆过程
    - 一般来说比较直观的，可以直接用等比公式
-2. 给定$G(x)$求$\lbrace a_n \rbrace$
+#### 2. 给定$G(x)$求$\lbrace a_n \rbrace$
    - 将$G(x)$化成基本的生成函数的表达式之和
      - 如果是乘积，要用待定系数转化为和的形式
      - 比如$A(z)=\frac{1}{(1-z)^2}\cdot \frac{1}{1+z} = \frac{1}{4}\frac{1}{1+z}+(-\frac{1}{4}z+\frac{3}{4})\frac{1}{(1-z)^2}$
@@ -287,7 +287,7 @@ $$
    - 基本的生成函数有哪些，就是上面推导的公式的左式
      - $\frac{1}{1-x},\frac{1}{(1-x)^2},(1+x)^{\frac{1}{2}},...$
      - 生成函数的展开式中$x^n$对应系数即为$a_n$
-3. 利用$G(x)$求解递推方程$H(n)$，对于归纳法和公式法不适用的情况
+#### 3. 利用$G(x)$求解递推方程$H(n)$，对于归纳法和公式法不适用的情况
    - Catalan数递推方程：$h_n = \sum_{k=1}^{n-1}h_k h_{n-k},n\geq 2, h_1 = 1$
    - 设生成函数$H(n)=\sum_{n=1}^{+\infty}h_nx^n$
    - $H^2(x) = \sum_{k=1}^{+\infty}h_kx^k\sum_{l=1}^{+\infty}h_lx^l=\sum_{n=2}^{+\infty}x^n\sum_{k=1}^{n-1}h_kh_{n-k}$
@@ -397,7 +397,7 @@ $$
     - 代数常数属于这个子集
   - 平凡子代数：$V$本身是自己的一个最大的子代数；如果所有代数常数构成的集合是封闭的，那么这是一个最小的子代数
   - 真子代数：$B\subset S$
-- **积代数**：$V_1=\angle A, \circ\rangle,V_2=\langle B,*\rangle$是**同类型**的代数系统，在集合$A\times B$上定义$V=\langle A\times B, \cdot \rangle$
+- **积代数**：$V_1=\langle A, \circ\rangle,V_2=\langle B,*\rangle$是**同类型**的代数系统，在集合$A\times B$上定义$V=\langle A\times B, \cdot \rangle$
 $$
 \forall \langle a_1,b_1\rangle,\langle a_2,b_2\rangle\in A\times B, \langle a_1,b_1\rangle\cdot \langle a_2,b_2\rangle = \langle a_1\circ a_2,b_1 * b_2\rangle
 $$
@@ -529,14 +529,15 @@ $$
     - 先列出可行的操作：旋转、翻折等（注意恒等操作也是一种）
     - 写出对应操作的置换$\sigma_i$
     - 写出置换的轮换表示式
-    - 求出$c(\sigma_i)$代入polya公式
+    - 求出$c(\sigma_i)$代入Polya公式
 
 ### 3. 环与域
 - **环**：代数系统$\langle R,+,\cdot\rangle$是一个环，如果满足以下性质
   - $\langle R,+\rangle$构成交换群，即可结合、可交换、有单位元、有逆元
   - $\langle R,\cdot\rangle$构成半群，即可结合
   - $\cdot$关于$+$满足分配律
-- 方便起见，环中的记号与平时用的记号含义类似，加法单位元记为$0$，乘法单位元记为$1$加法逆元记为$-x$，乘法逆元记为$x^{-1}$
+
+- *方便起见，环中的记号与平时用的记号含义类似，加法单位元记为$0$，乘法单位元记为$1$加法逆元记为$-x$，乘法逆元记为$x^{-1}$*
 
 - 交换环：乘法$\cdot$满足交换律
 - 含幺环：乘法$\cdot$存在单位元
@@ -569,7 +570,7 @@ $$
 - 对偶命题：设$p$是含有格中元素的命题，$p^*$将$p$中的$\geq ,\leq$互换；$\land ,\lor$互换
 - 格的对偶原理：$p\Leftrightarrow p^*$
 - 格的运算$\land,\lor$满足**交换律、结合律、幂等律和吸收律**
-- 设$\langle S, * ,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则可以适当定义$S$上的偏序$\leq$使得$\langle S,\leq\rangle$构成一个格，且$\forall a,b \in S, a \land b = a*b, a\lor b = a\circ b$
+- 设$\langle S, * ,\circ\rangle$中$* ,\circ$满足**交换律、结合律和吸收律**，则可以适当定义$S$上的偏序$\leq$使得$\langle S,\leq\rangle$构成一个格，且$\forall a,b \in S, a \land b = a * b, a\lor b = a\circ b$
   - 吸收律可以导出幂等律
   - 定义偏序$R:\langle a,b\rangle\in R \Leftrightarrow a\circ b = b$
 - 设$\langle S, * ,\circ\rangle$中$*,\circ$满足**交换律、结合律和吸收律**，则$\langle S, * ,\circ\rangle$构成一个格
