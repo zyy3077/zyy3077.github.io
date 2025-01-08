@@ -7,14 +7,15 @@ tags: [academic, blog]
 ---
 
 <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']]
     }
   };
-</script>
+</script> -->
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
 <script type="text/javascript" async 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
