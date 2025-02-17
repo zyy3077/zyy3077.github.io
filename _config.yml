@@ -3,7 +3,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-post-assets
 
-title: My Personal Blog
+title: zyy's Homepage
 description: A place to share my thoughts and experiences.
 url: https://zyy3077.github.io
 
