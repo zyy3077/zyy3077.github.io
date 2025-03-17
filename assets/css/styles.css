@@ -51,3 +51,29 @@ code, pre {
     
     border-radius: 5px; /* Rounded corners for aesthetics */
 }
+code[class*="language-"], pre[class*="language-"] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+}
+
+/* Optional: Customize the appearance of the code blocks */
+pre[class*="language-"] {
+    margin: 1em 0;
+    padding: 1em;
+    overflow: auto;
+    border-radius: 5px;
+}
+
+code[class*="language-"] {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    white-space: pre;
+}
