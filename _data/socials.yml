@@ -1,0 +1,11 @@
+# Social links are displayed in this order by the jekyll-socials plugin.
+email: zhaoyuanyuan@stu.pku.edu.cn
+github_username: zyy3077
+wechat:
+  logo: fa-brands fa-weixin
+  title: WeChat
+  url: "#wechat"
+homepage:
+  logo: fa-solid fa-house
+  title: Homepage
+  url: https://zyy3077.github.io
