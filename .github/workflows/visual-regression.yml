@@ -39,41 +39,41 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout candidate 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Ruby 💎
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
 
-      - name: Setup Node 🧰
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install JS deps 📦
+      - name: Install JS deps
         run: npm ci
 
-      - name: Prepare baseline worktree (v0.16.3) 🧱
+      - name: Prepare baseline worktree (v0.16.3)
         run: |
           git worktree add ../al-folio-baseline v0.16.3
           (cd ../al-folio-baseline && bundle install && npm ci)
 
-      - name: Install Jupyter + ImageMagick runtime deps 🧰
+      - name: Install Jupyter + ImageMagick runtime deps
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick python3-pip
           pip3 install --user jupyter nbconvert
 
-      - name: Install Playwright browser 🧪
+      - name: Install Playwright browser
         run: npx playwright install --with-deps chromium webkit
 
-      - name: Run visual parity checks 👀
+      - name: Run visual parity checks
         env:
           BASELINE_URL: http://127.0.0.1:4100
           NO_WEBSERVER: "1"
@@ -120,7 +120,7 @@ jobs:
 
           npm run test:visual -- --reporter=line
 
-      - name: Upload Playwright report 📄
+      - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -128,7 +128,7 @@ jobs:
           path: playwright-report
           if-no-files-found: ignore
 
-      - name: Upload Jekyll logs 📄
+      - name: Upload Jekyll logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
