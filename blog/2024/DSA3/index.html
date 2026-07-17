@@ -1,0 +1,523 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 2024fall-数据结构与算法A-第三章-栈与队列-题解 | Yuanyuan Zhao </title> <meta name="author" content="Yuanyuan Zhao"> <meta name="description" content="Yuanyuan Zhao's homepage. "> <meta name="keywords" content="machine-learning-systems, distributed-systems, gpu-kernels, ai-compilers, dsl"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%8C&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://zyy3077.github.io/blog/2024/DSA3/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Yuanyuan Zhao </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">2024fall-数据结构与算法A-第三章-栈与队列-题解</h1> <p class="post-meta"> Created on September 30, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/academic"> <i class="fa-solid fa-hashtag fa-sm"></i> academic</a>   <a href="/blog/tag/blog"> <i class="fa-solid fa-hashtag fa-sm"></i> blog</a>   ·   <a href="/blog/category/dsa"> <i class="fa-solid fa-tag fa-sm"></i> DSA</a>   <a href="/blog/category/2024fall"> <i class="fa-solid fa-tag fa-sm"></i> 2024fall</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet"> <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script> <h1 id="第三章-栈与队列">第三章 栈与队列</h1> <p>题目详见：<a href="http://dsa.openjudge.cn/2024dsachapter3/" rel="external nofollow noopener" target="_blank">http://dsa.openjudge.cn/2024dsachapter3/</a></p> <p><em>上学期的ai引论中的搜索算法部分就涉及过栈与队列，主要从先进后出和先进先出的结构特点的角度分析对应算法。数算主要从具体实现和性能的角度讲解，上机题单纯从应用的角度考察。</em></p> <h2 id="滑动窗口">滑动窗口</h2> <p>给定一个长度为n（n&lt;=10^6）的数组。有一个大小为k的滑动窗口从数组的最左端移动到最右端。你可以看到窗口中的k个数字。窗口每次向右滑动一个数字的距离。你的任务是得到滑动窗口在每个位置时的最大值和最小值。</p> <p>输入：</p> <ul> <li>输入包括两行。</li> <li>第一行包括n和k，分别表示数组的长度和窗口的大小。</li> <li>第二行包括n个数字。</li> </ul> <p>输出：</p> <ul> <li>输出包括两行。</li> <li>第一行包括窗口从左至右移动的每个位置的最小值。</li> <li>第二行包括窗口从左至右移动的每个位置的最大值。</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8 3
+1 3 -1 -3 5 3 6 7
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-1 -3 -3 -3 3 3
+3 3 5 5 6 7
+</code></pre></div></div> <h3 id="题解">题解</h3> <p>考虑最大值，窗口每右移一个元素（即每次循环），向min_index（最小值可能值的vector）中放入新增元素的索引，并删去min_index中所有比该元素小的元素，删去与新增元素index之差大于窗口长度的元素（每次只可能是第一个），保证min_index的首个元素总是当前窗口中的最大值，在循环次数i&gt;=窗口长度时（完整出现窗口时）pop_front到min_ans中，最后一起输出。最小值同理。</p> <ul> <li>也可以通过优先队列来替换数组来实现。</li> </ul> <h3 id="代码实现">代码实现</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//滑动窗口</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deque&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">num</span><span class="p">{};</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">min_idx</span><span class="p">{};</span> <span class="c1">//possible idx</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">max_idx</span><span class="p">{};</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">min_ans</span><span class="p">{};</span> <span class="c1">//answer</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">max_ans</span><span class="p">{};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="n">num</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span> <span class="c1">//read data into num</span>
+        <span class="c1">//删掉之前比当前大的索引</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">min_idx</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">num</span><span class="p">[</span><span class="n">min_idx</span><span class="p">.</span><span class="n">back</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span> 
+            <span class="n">min_idx</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">//放入当前索引</span>
+        <span class="n">min_idx</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> 
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">max_idx</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">num</span><span class="p">[</span><span class="n">max_idx</span><span class="p">.</span><span class="n">back</span><span class="p">()]</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">max_idx</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">max_idx</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="c1">//删掉移出窗口的索引</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">min_idx</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">min_idx</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+        <span class="p">}</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">max_idx</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">max_idx</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+        <span class="p">}</span> 
+        <span class="c1">//完整窗口时放入答案向量</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">min_ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">min_idx</span><span class="p">.</span><span class="n">front</span><span class="p">()]);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">max_ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">max_idx</span><span class="p">.</span><span class="n">front</span><span class="p">()]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span> 
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">min_ans</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">min_ans</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">max_ans</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">max_ans</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="n">max_ans</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="堆栈基本操作">堆栈基本操作</h2> <p>依次读入序列元素1,2,…,n进栈，每进一个元素，机器可要求下一个元素进栈或弹栈，如此进行。给定一个输入序列，判断栈空时弹出的元素构成的序列是否可能等于给定的序列，如果是则输出栈的操作过程，否则输出“NO”。</p> <p>输入：</p> <ul> <li>输入分两行</li> <li>第一行为n的值（即序列元素个数）</li> <li>第二行为给定的输入序列（序列元素均为整型）</li> </ul> <p>输出：</p> <ul> <li>如果输入序列能够由题目规定的操作得到，则输出对栈的操作过程</li> <li>否则直接输出“NO”</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>7
+4 5 3 6 2 7 1
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUSH 1
+PUSH 2
+PUSH 3
+PUSH 4
+POP 4
+PUSH 5
+POP 5
+POP 3
+PUSH 6
+POP 6
+POP 2
+PUSH 7
+POP 7
+POP 1
+</code></pre></div></div> <ul> <li>提示：给定序列中有可能有不在1…n之间的数字</li> </ul> <h3 id="题解-1">题解</h3> <p>每遇到一个数，把1…n中&lt;=该数的数都压栈，弹出该数。输入序列不能构成当且仅当压栈后栈顶元素与序列元素不等（包括栈为空的情况），存在1…n之外的元素当且仅当最后栈中有元素剩余。</p> <h3 id="代码实现-1">代码实现</h3> <ul> <li>这是我看题之后写下的代码，在检查和输出部分有冗余，代码风格不好，应该在check中加一个operation向量来记录操作，符合条件时直接输出operation，而不是再次计算。</li> </ul> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//栈堆基本操作</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deque&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="c1">//检查该序列是否能构成</span>
+<span class="kt">bool</span> <span class="nf">check</span><span class="p">(</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">stac</span><span class="p">;</span> <span class="c1">//栈</span>
+    <span class="c1">//输入序列不为空</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">seq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="n">seq</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+        <span class="c1">//比它小的都压栈</span>
+        <span class="k">for</span> <span class="p">(;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">first</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">stac</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//栈顶元素等于序列首部</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">stac</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">==</span> <span class="n">seq</span><span class="p">.</span><span class="n">front</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">//弹栈</span>
+            <span class="n">seq</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span> <span class="c1">//移出序列</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//输出构成方式</span>
+<span class="kt">void</span> <span class="nf">out</span><span class="p">(</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">seq</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">stac</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">seq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="n">seq</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">first</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">stac</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"PUSH "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">stac</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"POP "</span> <span class="o">&lt;&lt;</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            <span class="n">seq</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">seq</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="n">seq</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">out</span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"NO"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p><em>这是GPT-4o-Mini提供的实现，不是通过将小于等于当前元素作为压栈条件，而是栈顶元素不等于当前元素时就压栈，inputIndex是1…n，outputIndex是输入序列索引，看着没什么问题，但openjudge上WA。</em></p> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//栈堆基本操作</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">checkStackSequence</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">outputSequence</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">inputIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">outputIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">operations</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">outputIndex</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 如果栈为空或栈顶元素不符合出栈要求</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">||</span> <span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">!=</span> <span class="n">outputSequence</span><span class="p">[</span><span class="n">outputIndex</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">inputIndex</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span> <span class="c1">// 没有更多元素可进栈</span>
+            <span class="p">}</span>
+            <span class="c1">// 进栈操作</span>
+            <span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">inputIndex</span><span class="p">);</span>
+            <span class="n">operations</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">"Push "</span> <span class="o">+</span> <span class="n">to_string</span><span class="p">(</span><span class="n">inputIndex</span><span class="p">));</span>
+            <span class="n">inputIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// 出栈操作</span>
+            <span class="kt">int</span> <span class="n">poppedElement</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+            <span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="n">operations</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">"Pop "</span> <span class="o">+</span> <span class="n">to_string</span><span class="p">(</span><span class="n">poppedElement</span><span class="p">));</span>
+            <span class="n">outputIndex</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// 检查是否成功完成出栈序列</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">outputIndex</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">operations</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">"NO"</span><span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">outputSequence</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">outputSequence</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">checkStackSequence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">outputSequence</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">operation</span> <span class="o">:</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">operation</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="中缀表达式的值">中缀表达式的值</h2> <p>人们熟悉的四则运算表达式称为中缀表达式，例如(23+34*45/(5+6+7))。在程序设计语言中，可以利用堆栈的方法把中缀表达式转换成保值的后缀表达式（又称逆波兰表示法），并最终变为计算机可以直接执行的指令，得到表达式的值。给定一个中缀表达式，编写程序，利用堆栈的方法，计算表达式的值。</p> <p>输入：</p> <ul> <li>第一行为测试数据的组数N</li> <li>接下来的N行，每行是一个中缀表达式。</li> <li>表达式中只含数字、四则运算符和圆括号，操作数都是正整数，数和运算符、括号之间没有空格。中缀表达式的字符串长度不超过600。</li> </ul> <p>输出：</p> <ul> <li>对每一组测试数据输出一行，为表达式的值</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
+3+5\*8 
+(3+5)\*8 
+(23+34*45/(5+6+7))
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>43
+64
+108
+</code></pre></div></div> <h3 id="题解-2">题解</h3> <p>计算概论中有过将中缀表达式转化成后缀表达式的题，加上数算课本有过类似的例题，很自然想到先将中缀表达式转化为后缀表达式，在对后缀表达式求值。<br> 中缀表达式转化为后缀表达式的步骤如下：</p> <ul> <li>操作数：直接放入后缀表达式</li> <li>开括号：压栈</li> <li>闭括号：弹栈直至开括号</li> <li>操作符：栈非空&amp;&amp;栈顶不是开括号&amp;&amp;栈顶运算符优先级&gt;=该运算符，反复弹出；该运算符入栈</li> <li>遍历中缀表达式后，栈内剩余元素依次弹出</li> </ul> <p>后缀表达式求值步骤如下：</p> <ul> <li>操作数：压栈</li> <li>操作符：将栈顶两个操作数弹出，运算后将结果压栈</li> <li>最后栈内应当只有一个元素，弹出即为结果</li> </ul> <p>实现时遇到的一个问题是：用字符串存储中缀和后缀表达式，将其中的一个操作数的不同数位视作整体，而不同操作数之间加上空格分离。</p> <h3 id="代码实现-2">代码实现</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//中缀表达式的值</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deque&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="nf">isDigit</span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">'9'</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="sc">'0'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">bool</span> <span class="nf">isOperator</span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'+'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'-'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'/'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">precedence</span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'+'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'-'</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">string</span> <span class="nf">mid2rear</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">midExpr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">rearExpr</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">stac</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">midExpr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isDigit</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="n">rearExpr</span> <span class="o">+=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span><span class="p">)</span> <span class="n">stac</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">')'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">stac</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">!=</span> <span class="sc">'('</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                    <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                    <span class="n">rearExpr</span> <span class="o">+=</span> <span class="n">temp</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">// '('</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">isOperator</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">rearExpr</span> <span class="o">+=</span> <span class="sc">' '</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stac</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">!=</span> <span class="sc">'('</span> <span class="o">&amp;&amp;</span> <span class="n">precedence</span><span class="p">(</span><span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="n">precedence</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">rearExpr</span> <span class="o">+=</span> <span class="n">temp</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">stac</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stac</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">stac</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+        <span class="n">stac</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="n">rearExpr</span> <span class="o">+=</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">rearExpr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">calc</span><span class="p">(</span><span class="n">string</span> <span class="n">rearExpr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">lastIsDig</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">rearExpr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isDigit</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">lastIsDig</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'0'</span><span class="p">));</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">temp</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'0'</span><span class="p">);</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">lastIsDig</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">lastIsDig</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">' '</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span> 
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'+'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">temp1</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">temp2</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp1</span> <span class="o">+</span> <span class="n">temp2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'-'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">temp1</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">temp2</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp2</span> <span class="o">-</span> <span class="n">temp1</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">temp1</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">temp2</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp1</span> <span class="o">*</span> <span class="n">temp2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'/'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">temp1</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">temp2</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp2</span> <span class="o">/</span> <span class="n">temp1</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">string</span> <span class="n">midExpr</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">midExpr</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">calc</span><span class="p">(</span><span class="n">mid2rear</span><span class="p">(</span><span class="n">midExpr</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="k">else</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">calc</span><span class="p">(</span><span class="n">mid2rear</span><span class="p">(</span><span class="n">midExpr</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM17/">2025spring-代数结构与组合数学-第十七章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw5/">2025spring-数字图像处理-hw5-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw3/">2025spring-数字图像处理-hw3-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM15/">2025spring-代数结构与组合数学-第十五章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Discrete_Maths_final/">2024fall-离散数学基础-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DSA_final/">2024fall-数据结构与算法A-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Probability_cheatsheet/">2024fall-信息学中的概率统计-期末cheatsheet</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_final/">2024fall-信息学中的概率统计-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_midterm/">2024fall-信息学中的概率统计-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Discrete_Maths_midterm/">2024fall-离散数学基础-期中复习</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yuanyuan Zhao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-2025spring-代数结构与组合数学-第十七章",
+        
+          title: "2025spring-代数结构与组合数学-第十七章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM17/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw5-report",
+        
+          title: "2025spring-数字图像处理-hw5-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw5/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw3-report",
+        
+          title: "2025spring-数字图像处理-hw3-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw3/";
+          
+        },
+      },{id: "post-2025spring-代数结构与组合数学-第十五章",
+        
+          title: "2025spring-代数结构与组合数学-第十五章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM15/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期末复习",
+        
+          title: "2024fall-离散数学基础-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Discrete_Maths_final/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-期末复习",
+        
+          title: "2024fall-数据结构与算法A-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DSA_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末cheatsheet",
+        
+          title: "2024fall-信息学中的概率统计-期末cheatsheet",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Probability_cheatsheet/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末复习",
+        
+          title: "2024fall-信息学中的概率统计-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期中复习",
+        
+          title: "2024fall-信息学中的概率统计-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_midterm/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期中复习",
+        
+          title: "2024fall-离散数学基础-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Discrete_Maths_midterm/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第五章-二叉树-题解",
+        
+          title: "2024fall-数据结构与算法A-第五章-二叉树-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA5/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第三章-栈与队列-题解",
+        
+          title: "2024fall-数据结构与算法A-第三章-栈与队列-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA3/";
+          
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%7A%68%61%6F%79%75%61%6E%79%75%61%6E@%73%74%75.%70%6B%75.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/zyy3077", "_blank");
+        },
+      },{
+        id: 'social-wechat',
+        title: 'Wechat',
+        section: 'Socials',
+        handler: () => {
+          window.open("#wechat", "_blank");
+        },
+      },{
+        id: 'social-homepage',
+        title: 'Homepage',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://zyy3077.github.io", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 2024fall-数据结构与算法A-第五章-二叉树-题解 | Yuanyuan Zhao </title> <meta name="author" content="Yuanyuan Zhao"> <meta name="description" content="Yuanyuan Zhao's homepage. "> <meta name="keywords" content="machine-learning-systems, distributed-systems, gpu-kernels, ai-compilers, dsl"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%8C&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://zyy3077.github.io/blog/2024/DSA5/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Yuanyuan Zhao </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">2024fall-数据结构与算法A-第五章-二叉树-题解</h1> <p class="post-meta"> Created on October 17, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/academic"> <i class="fa-solid fa-hashtag fa-sm"></i> academic</a>   <a href="/blog/tag/blog"> <i class="fa-solid fa-hashtag fa-sm"></i> blog</a>   ·   <a href="/blog/category/dsa"> <i class="fa-solid fa-tag fa-sm"></i> DSA</a>   <a href="/blog/category/2024fall"> <i class="fa-solid fa-tag fa-sm"></i> 2024fall</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <script type="text/javascript" src="/assets/js/scripts.js"></script> <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script> <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet"> <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script> <h1 id="第五章-二叉树">第五章 二叉树</h1> <p>题目详见：<a href="http://dsa.openjudge.cn/2024dsachapter5/" rel="external nofollow noopener" target="_blank">http://dsa.openjudge.cn/2024dsachapter5/</a></p> <p>基本概念</p> <ul> <li>满二叉树：所有节点的度数为2或0的二叉树，即左右子树均非空或均为空</li> <li>完全二叉树：所有节点尽量由左至右、由上至下排列，即最多只有最下面两层的节点度数可以小于2，并且最下面一层的节点都集中在该层最左边的连续位置上</li> <li>二叉搜索树：对于任意的节点，左子节点的值比它小，右子节点的值比它大</li> <li>堆：完全二叉树，且对于任意的节点，子节点的值均比它小（最大堆）或均比它大（最小堆），优先队列的一种实现方式</li> <li>Huffman树：满二叉树，Huffman编码为前缀编码，\(k\)叉Huffman书构造时要根据数学性质补充值为0的节点</li> </ul> <p>\(k\)叉树基本性质</p> <ul> <li>总边数\(e = \sum_{i} d_i = k \cdot n_k + … + 1 \cdot n_1 + 0 \cdot n_0 \)</li> <li>总边数\(e = n - 1 = n_0 + n_1 + … + n_k - 1\)</li> </ul> <h2 id="huffman编码树">Huffman编码树</h2> <p>构造一个具有n个外部节点的扩充二叉树，每个外部节点Ki有一个Wi对应，作为该外部节点的权。使得这个扩充二叉树的叶节点带权外部路径长度总和最小：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Min( W1 * L1 + W2 * L2 + W3 * L3 + … + Wn * Ln)
+</code></pre></div></div> <ul> <li>Wi:每个节点的权值。<br> </li> <li>Li:根节点到第i个外部叶子节点的距离。<br> </li> <li>编程计算最小外部路径长度总和。</li> </ul> <p>输入：<br></p> <ul> <li>第一行输入一个整数t，代表测试数据的组数。<br> </li> <li>对于每组测试数据，第一行输入一个整数n，外部节点的个数。第二行输入n个整数，代表各个外部节点的权值。<br> </li> <li>2&lt;=n&lt;=100</li> </ul> <p>输出：<br></p> <ul> <li>输出最小外部路径长度总和。</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2
+3
+1 2 3
+4
+1 1 3 5
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9
+17
+</code></pre></div></div> <h3 id="题解">题解</h3> <p>构造Huffman二叉树的过程：每次选两个值最小的节点合并，合并后节点的值为二者之和，叶子节点到根节点距离*叶子节点值之和为带权外部路径长度总和。<br> 用stl中的优先队列模拟最小堆，每次合并pop前两个元素并push二者之和，累加pop出的元素值即可，因为在第n层的叶子节点自身被累加或者它与另一个值的和作为节点被累加，一共n次，即累加了它的带权路径长度。<br> priority_queue的基本用法如下:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>std::priority_queue&lt;int&gt; max_pq; // 默认是最大优先队列
+std::priority_queue&lt;int, 
+            std::vector&lt;int&gt;, 
+                    std::greater&lt;int&gt;&gt; min_pq; // 最小优先队列
+</code></pre></div></div> <h3 id="代码实现">代码实现</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Huffman编码树</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;queue&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="n">q</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">;</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">top</span><span class="p">();</span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="n">t2</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">top</span><span class="p">();</span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span> <span class="c1">//以和的形式被累加n次，即乘以它的深度n（除叶子节点外所有节点值的和）</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">);</span>
+        <span class="p">}</span>	
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="pre-post-erous">Pre-Post-erous!</h2> <p>We are all familiar with pre-order, in-order and post-order traversals of binary trees. A common problem in data structure classes is to find the pre-order traversal of a binary tree when given the in-order and post-order traversals. Alternatively, you can find the post-order traversal when given the in-order and pre-order. However, in general you cannot determine the in-order traversal of a tree when given its pre-order and post-order traversals. Consider the four binary trees below:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	a   a   a   a
+	/   /     \   \
+       b   b       b   b
+      /     \     /     \
+     c       c   c       c
+</code></pre></div></div> <p>All of these trees have the same pre-order and post-order traversals. This phenomenon is not restricted to binary trees, but holds for general m-ary trees as well.</p> <p>输入：<br></p> <ul> <li>Input will consist of multiple problem instances. Each instance will consist of a line of the form</li> <li>m s1 s2</li> <li>indicating that the trees are m-ary trees, s1 is the pre-order traversal and s2 is the post-order traversal.All traversal strings will consist of lowercase alphabetic characters. For all input instances, 1 &lt;= m &lt;= 20 and the length of s1 and s2 will be between 1 and 26 inclusive. If the length of s1 is k (which is the same as the length of s2, of course), the first k letters of the alphabet will be used in the strings. An input line of 0 will terminate the input.</li> </ul> <p>输出：<br></p> <ul> <li>For each problem instance, you should output one line containing the number of possible trees which would result in the pre-order and post-order traversals for the instance. All output values will be within the range of a 32-bit signed integer. For each problem instance, you are guaranteed that there is at least one tree with the given pre-order and post-order traversals.</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 abc cba
+2 abc bca
+10 abc bca
+13 abejkcfghid jkebfghicda
+0
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+1
+45
+207352860
+</code></pre></div></div> <h3 id="题解-1">题解</h3> <p>题目的大致意思是给定先序和后序遍历，要求输出可能的m叉树的数目。<br> 先看先序序列，得出二叉树的根节点（第一个元素），再看第二个元素，是第一个子树（最多有m个子树，这里我最开始直接当作二叉树的左子树处理了，得到了错误的结果）的根节点；<br> 而后序序列中左子树的根节点的位置即为左子树结束的位置，即先序序列的第二个元素在后序序列中的位置及其之前的部分为第一个子树；在这之后的序列里重复上述找子树根节点的过程，即可找到所有子树，记数目为k。 每棵子树内部，可用递归求解可能的情况树，而根节点与子树之间，有C_m k中排列的可能（m个分叉中选k个分叉作为子树不为空的分叉）。故实现思路为递归与组合计数结合。<br> 要另外注意的是，如果用阶乘求解组合数，会涉及整型溢出的问题，很难发现，所以最好使用递推数组的方法，借助组合数的数学性质：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C_m k = C_m-1 k-1 + C_m-1 k
+</code></pre></div></div> <p>此外，因为用多了string类型导致忘了char*如何初始化和输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char s1[N];  scanf("%s", s1);
+</code></pre></div></div> <p>strlen,strcat等函数接受的是char*类型的参数。</p> <h3 id="代码实现-1">代码实现</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Pre-Post-erous!</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">Comb</span><span class="p">[</span><span class="mi">21</span><span class="p">][</span><span class="mi">21</span><span class="p">];</span>
+<span class="kt">void</span> <span class="nf">calComb</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Comb</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Comb</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">Comb</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Comb</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Comb</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Comb</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">count</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">s1</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">branch</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">j</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">branch</span> <span class="o">++</span><span class="p">;</span>
+                <span class="n">answer</span> <span class="o">*=</span> <span class="n">count</span><span class="p">(</span><span class="n">s1</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">s2</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">answer</span> <span class="o">*=</span> <span class="n">Comb</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">branch</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">answer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+    <span class="n">calComb</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">m</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">s2</span><span class="p">[</span><span class="mi">27</span><span class="p">];</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">count</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="n">m</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <h1 id="由中根序列和后根序列重建二叉树">由中根序列和后根序列重建二叉树</h1> <p>我们知道如何按照三种深度优先次序来周游一棵二叉树，来得到中根序列、前根序列和后根序列。反过来，如果给定二叉树的中根序列和后根序列，或者给定中根序列和前根序列，可以重建一二叉树。本题输入一棵二叉树的中根序列和后根序列，要求在内存中重建二叉树，最后输出这棵二叉树的前根序列。</p> <p>输入:</p> <ul> <li>两行。第一行是二叉树的中根序列，第二行是后根序列。</li> <li>每个数字表示的结点之间用空格隔开。结点数字范围0～65535。暂不必考虑不合理的输入数据。</li> </ul> <p>输出:</p> <ul> <li>一行。由输入中的中根序列和后根序列重建的二叉树的前根序列。</li> <li>每个数字表示的结点之间用空格隔开。</li> </ul> <p>样例输入：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9 5 32 67
+9 32 67 5
+</code></pre></div></div> <p>样例输出：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5 9 67 32
+</code></pre></div></div> <h2 id="题解-2">题解</h2> <p>题目要求重建二叉树，但我觉得直接用递归很方便，所以没有在内存里建二叉树，下面讲一下递归的做法。<br> 先由后根序列找出根节点（最后一个元素）；再在中根序列中找出根节点的位置，其左边为左子树，右边为右子树；接着对左右分别递归即可。<br> 递归的结束条件是序列长度为0，要注意本题的输入为两行数据，且不知道元素个数，需要用getline和istringstream输入，vector储存：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;sstream&gt;
+getline(cin, line); //将第一行作为字符串读入line
+istringstream medStream(line); //从line中读入数字元素
+int num;
+while (medStream &gt;&gt; num) {
+    med.push_back(num); //存入vector
+}
+</code></pre></div></div> <p>这在递归时要求用iterator的形式递归：</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getPre(vector&lt;int&gt;(med.begin() + i + 1, med.end()),
+		vector&lt;int&gt;(post.begin() + i, post.end() - 1),
+   			len - i - 1);
+</code></pre></div></div> <h2 id="代码实现-2">代码实现</h2> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//由中根序列和后根序列重建二叉树</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define MAX 100 
+</span><span class="kt">void</span> <span class="nf">getPre</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">med</span><span class="p">,</span> <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">post</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">root</span> <span class="o">=</span> <span class="n">post</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">root</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">&amp;&amp;</span> <span class="n">med</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">root</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="n">getPre</span><span class="p">(</span><span class="n">med</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">getPre</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">med</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">med</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">post</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">post</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">len</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">med</span><span class="p">,</span> <span class="n">post</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="c1">// 读取中序遍历数组</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="n">istringstream</span> <span class="n">medStream</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">medStream</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">med</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 读取后序遍历数组</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="n">istringstream</span> <span class="nf">postStream</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">postStream</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">post</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">med</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">getPre</span><span class="p">(</span><span class="n">med</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM17/">2025spring-代数结构与组合数学-第十七章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw5/">2025spring-数字图像处理-hw5-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw3/">2025spring-数字图像处理-hw3-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM15/">2025spring-代数结构与组合数学-第十五章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Discrete_Maths_final/">2024fall-离散数学基础-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DSA_final/">2024fall-数据结构与算法A-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Probability_cheatsheet/">2024fall-信息学中的概率统计-期末cheatsheet</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_final/">2024fall-信息学中的概率统计-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_midterm/">2024fall-信息学中的概率统计-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Discrete_Maths_midterm/">2024fall-离散数学基础-期中复习</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yuanyuan Zhao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-2025spring-代数结构与组合数学-第十七章",
+        
+          title: "2025spring-代数结构与组合数学-第十七章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM17/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw5-report",
+        
+          title: "2025spring-数字图像处理-hw5-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw5/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw3-report",
+        
+          title: "2025spring-数字图像处理-hw3-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw3/";
+          
+        },
+      },{id: "post-2025spring-代数结构与组合数学-第十五章",
+        
+          title: "2025spring-代数结构与组合数学-第十五章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM15/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期末复习",
+        
+          title: "2024fall-离散数学基础-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Discrete_Maths_final/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-期末复习",
+        
+          title: "2024fall-数据结构与算法A-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DSA_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末cheatsheet",
+        
+          title: "2024fall-信息学中的概率统计-期末cheatsheet",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Probability_cheatsheet/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末复习",
+        
+          title: "2024fall-信息学中的概率统计-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期中复习",
+        
+          title: "2024fall-信息学中的概率统计-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_midterm/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期中复习",
+        
+          title: "2024fall-离散数学基础-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Discrete_Maths_midterm/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第五章-二叉树-题解",
+        
+          title: "2024fall-数据结构与算法A-第五章-二叉树-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA5/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第三章-栈与队列-题解",
+        
+          title: "2024fall-数据结构与算法A-第三章-栈与队列-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA3/";
+          
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%7A%68%61%6F%79%75%61%6E%79%75%61%6E@%73%74%75.%70%6B%75.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/zyy3077", "_blank");
+        },
+      },{
+        id: 'social-wechat',
+        title: 'Wechat',
+        section: 'Socials',
+        handler: () => {
+          window.open("#wechat", "_blank");
+        },
+      },{
+        id: 'social-homepage',
+        title: 'Homepage',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://zyy3077.github.io", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

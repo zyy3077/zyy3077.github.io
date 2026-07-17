@@ -1,0 +1,220 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 2024fall-信息学中的概率统计-期中复习 | Yuanyuan Zhao </title> <meta name="author" content="Yuanyuan Zhao"> <meta name="description" content="Yuanyuan Zhao's homepage. "> <meta name="keywords" content="machine-learning-systems, distributed-systems, gpu-kernels, ai-compilers, dsl"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%8C&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://zyy3077.github.io/blog/2024/Probability_midterm/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Yuanyuan Zhao </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">2024fall-信息学中的概率统计-期中复习</h1> <p class="post-meta"> Created on November 08, 2024 </p> <p class="post-tags"> <a href="/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/academic"> <i class="fa-solid fa-hashtag fa-sm"></i> academic</a>   <a href="/blog/tag/blog"> <i class="fa-solid fa-hashtag fa-sm"></i> blog</a>   ·   <a href="/blog/category/probability-for-computing"> <i class="fa-solid fa-tag fa-sm"></i> Probability_for_Computing</a>   <a href="/blog/category/2024fall"> <i class="fa-solid fa-tag fa-sm"></i> 2024fall</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <script type="text/javascript" src="/assets/js/scripts.js"></script> <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script> <h1 id="期中复习">期中复习</h1> <p><em>前八周内容（到多维离散随机变量）</em></p> <p><em>这次期中偏重基础，题目风格与作业题类似，题量较大，如果很顺地做下来是来得及的。但显然我没有。</em></p> <h2 id="contents">Contents</h2> <ul> <li>课堂内容总结</li> <li>作业题题解</li> </ul> <hr> <h2 id="一概率论的基本概念与模型">一、概率论的基本概念与模型</h2> <h3 id="1-古典概率模型">1. 古典概率模型</h3> <p><strong>球与桶模型</strong></p> <p>有 $n$ 个球，每个球都等可能被放到 $m$ 个桶中的任一个。求每个桶中至多有一个球的概率。</p> <ul> <li>样本点数量： $m^n$</li> <li>放法： $m(m-1)⋯(m-n+1)$</li> </ul> \[P_{n,m} = (1- \frac{1}{m})(1-\frac{2}{m})...(1-\frac{n-1}{m})\] \[\ln(P_{n,m}) = \ln(1-\frac{1}{m}) + \ln(1-\frac{2}{m})+...+\ln(1-\frac{n-1}{m})\] <ul> <li>由 $\ln(1+x) \leq x$ 得：</li> </ul> \[P_{n,m} \leq e^{-\frac{(n-1)n}{2m}}\] <p><strong>作业一第三题</strong></p> <p>证明： \(P_{n,m} \geq e^{-\frac{(n-1)n}{2m}}(1-\frac{8n^3}{m^2})\)</p> <ul> <li>提示： $x &lt; \frac{1}{2}$ 时，有 $\ln(1-x) \geq -x-x^2$</li> </ul> <p>证明思路：因为提示中出现$\frac{1}{2}$，且待证式子中出现常数$8$，想到分 $m \leq 2n$ 和 $m &gt; 2n$两种情况。</p> <ul> <li>第一种， $LHS \geq 0 \geq RHS$</li> <li>第二种，带入提示中不等式和平方求和公式 $\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$进行方所即可。</li> </ul> <h3 id="2-几何概率模型">2. 几何概率模型</h3> <p>$P(A) = \frac{m(A)}{m(S)}$ ，其中 $S$ 为样本空间， $m$ 为度量</p> <h3 id="3-概率的性质">3. 概率的性质</h3> <ul> <li>非负性： $P(A) \in [0, 1]$</li> <li>规范性： $P(S) = 1$</li> <li>有限可加性：对互不相容事件$A_i$有 $P(\bigcup_{i} A_i) = \sum_{i} P(A_i)$</li> </ul> <h3 id="4-概率的公理化">4. 概率的公理化</h3> <ul> <li>非负性：$\forall A \in F, P(A) \geq 0$</li> <li>规范性：$P(S) = 1$</li> <li>可列可加性：对互不相容事件 $A_1, A_2, A_3, …$ 有 $P(\bigcup_{i}^{+\infty}A_i) = \sum_{i=1}^{+\infty}P(A_i)$</li> </ul> <p><strong>有限可加性&amp;可列可加性</strong></p> <p>可列可加性 $\Rightarrow$ 有限可加性</p> <p>有限可加性 $\nRightarrow$ 可列可加性</p> <ul> <li>反例： $S=[0, \infty), P(A) = \lim_{k \to \infty}\frac{1}{k} \lambda(A \cap (0,k)), A_i = [i-1, i)$ ，其中 $\lambda(A)$ 为 $A$ 的长度。满足有限可加性，不满足可列可加性。</li> </ul> <p><strong>一般加法公式</strong></p> \[P(\bigcup_{i=1}^{n}A_i) = \sum_{i=1}^{n}P(A_i) - \sum_{1 \leq i &lt; j \leq n}P(A_i A_j)+\sum_{1 \leq i &lt; j &lt; k \leq n}P(A_i A_j A_k) + ... +(-1)^{n-1}P(A_1 A_2...A_n)\] <p><strong>例题1：错排问题</strong></p> <p>有 $n$ 个有编号的球，将他们随机打乱，使得每种排列均等概率出现。求随机打乱后，至少有一个球位置没有改变的概率。</p> <ul> <li>先求1个球位置没有改变的概率</li> <li>再求2个球位置没有改变的概率</li> <li>…</li> <li>求 $n$ 个球位置没有改变的概率</li> <li>最后使用一般加法公式即可</li> </ul> <p><strong>例题2：所有点数</strong></p> <p>掷骰子$n$次，求所有点数均出现过的概率。</p> <ul> <li>计算1个点数$i$没有出现过的概率$P(A_i)$</li> <li>计算2个点数$i, j$没有出现过的概率$P(A_i A_j)$</li> <li>…</li> <li>用一般加法公式计算存在点数没有出现过的概率$P(\bigcup_{i=1}^{6} P(A_i))$</li> <li>$\bar{P} = 1 - P$</li> </ul> <p><strong>Union Bound</strong></p> \[P(\bigcup_{i=1}^{n}A_i) \leq \sum_{i=1}^{n}P(A_i)\] <p><strong>例题：球与桶模型</strong></p> <p>有 $n$ 个球，每个球都等可能被放到 $m$ 个桶中的任一个。求每个桶中至多有一个球的概率。</p> <ul> <li>指定两个球被放入一个桶中的概率 $P = \frac{1}{m}$</li> <li>由Union Bound：存在两个球被放入一个桶中的概率 $P \leq \binom{n}{2} \cdot \frac{1}{m}$</li> <li>故 $P_{n,m} = 1 - P \geq 1 - \frac{(n-1)n}{2m}$.</li> </ul> <h3 id="5-条件概率">5. 条件概率</h3> \[P(A\mid B) = \frac{P(AB)}{P(B)}\] <p><strong>乘法公式</strong></p> \[P(A_1 A_2...A_n) = P(A_1)P(A_2 \mid A_1)...P(A_n \mid A_1 A_2...A_{n-1})\] <p><strong>全概率公式</strong></p> <ul> <li>划分：互不相容且并集为全集</li> <li>事件$B_1, B_2, …, B_n$为$S$的划分</li> </ul> \[P(A) = \sum_{i=1}^{n}P(B_i)\cdot P(A\mid B_i)\] <p><strong>贝叶斯公式</strong></p> \[P(A\mid B) = P(B\mid A) \cdot \frac{P(A)}{P(B)}\] <h3 id="6-事件的独立性">6. 事件的独立性</h3> <ul> <li>事件$A$与$B \text{相互独立} \Leftrightarrow P(AB) = P(A)P(B)$，即当$P(B) &gt; 0 $时，$ P(A\mid B) = P(A)$</li> <li>对于$n$个事件$A_1, A_2, …, A_n$，如果对于${1, 2, …, n}$的任意子集$I$，都有$P(\bigcap_{i \in I} A_i) = \prod_{i \in I} P(A_i)$，则称$A_1, A_2, …, A_n$相互独立</li> <li>$n$重伯努利试验：独立进行$n$次某个只有两个可能结果的随机试验</li> <li>两两独立/相互独立</li> </ul> <p><strong>例题：两两认识</strong></p> <p>在随机图模型中，事件$E_{ijk}$表示$i, j, k$三人两两认识。何时有$E_{abc}$与$E_{def}$独立？</p> <ul> <li>$P(E_{abc}) = P(E_{def}) = (\frac{1}{2})^3$</li> <li>由独立性：$P(E_{abc} E_{def}) = (\frac{1}{2})^6$</li> <li>即图中$a, b, c$和$d, e, f$生成子图（均为完全图$K_3$）中边数和为$6$</li> <li>即这六个点有至少五个不重复的点，即至多两个点相同</li> </ul> <hr> <h2 id="二离散随机变量">二、离散随机变量</h2> <ul> <li>随机变量$X: S \rightarrow \mathbb{R}$为定义在样本空间$S$上的实值函数，提供了样本空间$S$的一个划分</li> <li>概率分布列$P(X = k)$</li> </ul> <h3 id="1-离散随机变量的数学期望">1. 离散随机变量的数学期望</h3> <ul> <li>对于离散随机变量$X$，若$ \sum_{i} \vert x_i p_i\vert &lt; \infty $，即绝对收敛，则$X$的数学期望$E(X) = \sum_{i}x_i p_i$ <ul> <li>如果不满足绝对收敛，那么将“由于更改求和次序从而收敛到任何实数”，数学期望不存在</li> </ul> </li> <li>$E(g(X)) = \sum_{i}p_i g(x_i)$</li> <li>$P(X \geq E(X)) &gt; 0$</li> <li>$P(X \leq E(X)) &gt; 0$</li> </ul> <p><strong>例题</strong></p> <p>有$n$个人，其中有$m$对人认识，证明：总可以将$n$个人分为两组，且有至少$\frac{m}{2}$对属于不同组的人认识。</p> <ul> <li>将每个人等概率地加入第一组和第二组， 用随机变量$X$表示属于不同组且认识的人的对数。</li> <li>$E(X) = \sum_{e \in S} \frac{X(e)}{2^n}$</li> <li>对于每一对认识的人，有多少个样本点（分组方式）满足两个人属于不同组：$2^{n-1}$</li> <li>$\sum_{e \in S} X(e) = m \cdot 2^{n-1}$</li> <li>$E(X) = \frac{m}{2}$</li> <li>$P(X \geq \frac{m}{2}) &gt; 0 $，即存在分组方式满足题意</li> </ul> <p><strong>马尔可夫不等式</strong></p> <p>若$X$为非负随机变量，对于$a &gt; 0$，有</p> \[P(X\geq a\cdot E(X)) \leq \frac{1}{a}\] <ul> <li>证明：</li> </ul> \[\begin{align*} E(X) &amp;= \sum_{i} x_i \cdot p_i \\ &amp;\geq \sum_{x_i \geq a \cdot E(X)} x_i \cdot p_i \\ &amp;\geq \sum_{x_i \geq a \cdot E(X)} a\cdot E(X)\cdot p_i \\ &amp;= a\cdot E(X) \cdot P(X \geq a \cdot E(X)) \end{align*}\] <ul> <li>不等式成立条件：$E(X) &gt; 0 $</li> </ul> <p><strong>作业二第一题</strong></p> <ul> <li>构造出取等条件，说明不存在更强的不等式</li> </ul> <p><strong>作业二第五题</strong></p> <p><strong>作业二第六题</strong></p> <h3 id="2-离散随机变量的方差">2. 离散随机变量的方差</h3> <ul> <li>给定随机变量$X$，若$E[(X-E(X))^2]$存在，定义$Var(X) = E[(X-E(X))^2]$为$X$的方差</li> <li>定义$\sigma (X) = \sqrt{Var(X)}$</li> </ul> \[Var(X) = E(X^2) - (E(X))^2\] <p><strong>切比雪夫不等式</strong></p> <p>若$\sigma(X) &gt; 0 $，对于任意$c &gt; 0$，</p> \[P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}\] <ul> <li>证明：对于随机变量$Y=(X-E(X))^2$使用马尔可夫不等式即可得证</li> </ul> <p><strong>例题：优秀率</strong></p> <p>随机变量$X$表示一名随机的学生的成绩，$E(X) = 70, \sigma(X) = 5$，$90$分及以上为优秀，利用马尔可夫不等式和切比雪夫不等式给出优秀率的上界。</p> <ul> <li>马尔可夫不等式：$P(X \geq 90) = P(X \geq \frac{9}{7} \cdot E(X)) \leq \frac{7}{9}$</li> <li>切比雪夫不等式：$P(X \geq 90) \leq P(\vert X - E(X) \vert \geq 4 \cdot \sigma(X)) \leq \frac{1}{16}$</li> <li>上式中第一个等号是因为绝对值导致不仅有$90$分及以上，还有$50$分及以下，后者的概率非负</li> </ul> <p><strong>作业二第五题</strong></p> <p>给定离散随机变量$X$，假设其期望$E(X)$和标准差$\sigma (X)$均存在。对于任意实数$m$，若满足$P(X\geq m)\geq \frac{1}{2}$ 且$P(X \leq m)\geq \frac{1}{2}$，证明$\vert E(X)- m \vert \leq \sqrt{2} \sigma$。</p> <ul> <li>结合切比雪夫不等式反证</li> <li>特殊考虑$\sigma (X) = 0$的情况</li> </ul> <h3 id="3-常用离散分布">3. 常用离散分布</h3> <p><strong>二项分布$B(n,p)$</strong></p> <ul> <li>$n$重伯努利试验中$A$发生的次数，取非负整数</li> <li>$P(X=k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{1-k}$</li> </ul> \[\begin{align*} E(X) &amp;= \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k \\ \text{由组合数性质：}\binom{n}{k} k &amp;= \binom{n-1}{k-1} n \\ E(X) &amp;= np \\ E(X^2) &amp;= \sum_{k=0}^{n} \binom{n}{k} \cdot p^k \cdot (1-p)^k \cdot k^2 \\ \text{拆项：}k^2 &amp;= k(k-1) + k \\ \text{由组合数性质：}\binom{n}{k} k(k-1) &amp;= \binom{n-2}{k-2} n(n-1) \\ E(X^2) &amp;= n(n-1)p^2 + np \\ Var(X) &amp;= E(X^2) - (E(X))^2 = np(1-p) \\ \sigma (X) &amp;= \sqrt{np(1-p)} \end{align*}\] <ul> <li>球与桶模型中特定桶中球的数量，即球被放入这个桶这一事件发生的次数$X_i \sim B(n, \frac{1}{m})$</li> <li>考虑$n=\lambda m$，$\lambda$为常数，即期望为定值，且$m \to \infty$的情况</li> </ul> \[\begin{align*} P(X_i = k) &amp;= \binom{n}{k} \cdot (\frac{1}{m})^k \cdot (1-\frac{1}{m})^{n-k}\\ &amp;= \frac{n(n-1)...(n-k+1)}{k!}\cdot (\frac{1}{m})^k\cdot (1-\frac{1}{m})^{n-k}\\ &amp;= \frac{1}{k!} \cdot \frac{n}{m} \cdot \frac{n-1}{m} \cdot ... \cdot \frac{n-k+1}{m} \cdot (1-\frac{1}{m})^{n-k}\\ \text{最后一项化为}e^{-\lambda}\text{可得：} &amp;\approx \frac{1}{k!} \cdot \lambda ^k \cdot e^{-\lambda} \end{align*}\] <p><strong>泊松分布$\pi(\lambda)$</strong></p> <ul> <li>二项分布的极限</li> <li>随机变量$X$取非负整数</li> <li>$P(X=k) = \frac{1}{k!} \cdot \lambda ^k \cdot e^{-\lambda}$，其中$\lambda &gt; 0$</li> <li>即当$n \to \infty$时$E(X) = np_n = \frac{n}{m}$为常数$\lambda$的二项分布</li> <li>泊松分布的现实意义见：<a href="https://www.zhihu.com/question/26441147/answer/429569625" rel="external nofollow noopener" target="_blank">zhihu-泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a> </li> <li> <strong>二项分布与泊松分布</strong> <ul> <li><em>二项分布是说，已知某件事情发生的概率是$p$，那么做$n$次试验，事情发生的次数就服从于二项分布。</em></li> <li><em>泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。</em></li> <li><em>例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个$p$很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此$n$(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。</em></li> </ul> </li> </ul> \[\begin{align*} E(X) &amp;= \sum_{k\geq 0} \frac{1}{k!}\cdot e^{-\lambda}\cdot k\\ &amp;= e^{-\lambda} \cdot \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k}\\ &amp;= e^{-\lambda} \cdot \lambda \sum_{k\geq 1} \frac{1}{(k-1)!}\cdot \lambda^{k-1}\\ &amp;= \lambda \ \ \text{与泊松分布的条件一致}\\ E(X^2) &amp;= \sum_{k \geq 0} \frac{1}{k!}\cdot \lambda^k \cdot e^{-\lambda}\cdot k^2 \\ \text{拆项：}k^2 &amp;= k(k-1) + k \\ E(X^2) - E(X) &amp;= \lambda^2\\ E(X^2) &amp;= \lambda^2 + \lambda \\ Var(X) &amp;= E(X^2) - (E(X))^2 \\ &amp;= \lambda^2 + \lambda - \lambda^2 \\ &amp;= \lambda \ \ \text{即趋于无穷时的二项分布方差} \end{align*}\] <p><strong>几何分布$G(p)$</strong></p> <ul> <li>伯努利试验中首次发生结果$A$时的重复次数</li> <li>$k\geq 1, P(X=k) = p(1-p)^{k-1}$</li> <li>无记忆性：$P(X &gt; m+n \mid X &gt; m) = P(X &gt; n)$</li> <li>构造函数$f$，通过求导求期望，求二阶导求方差 <ul> <li>作业二第二题</li> </ul> </li> </ul> \[\begin{align*} E(X) &amp;= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k\\ \text{令}f(p) = \sum_{k\geq 1}(1-p)^k \text{，则}E(X) &amp;= -p\cdot f'(p) \\ \text{而}f(p) = \frac{1}{p}\text{，故}E(X) &amp;= \frac{1}{p}\\ E(X^2) &amp;= \sum_{k\geq 1} p(1-p)^{k-1}\cdot k^2 \\ \text{拆项：}k^2 &amp;= k(k-1) + k \\ E(X^2) - E(X) &amp;= p(p-1)\cdot \sum_{k\geq 1} k(k-1)(1-p)^{k-2} \\ \text{则}E(X^2) &amp;= p(1-p)f''(p) + \frac{1}{p} = \frac{2(1-p)}{p^2} + \frac{1}{p}\\ Var(X) &amp;= E(X^2) - (E(X))^2 = \frac{1-p}{p^2} \end{align*}\] <p><strong>负二项分布$NB(r,p)$</strong></p> <ul> <li>伯努利试验中结果$A$发生$r$次时的重复次数</li> <li>$k\geq r, P(X=k) = \binom{k-1}{r-1}p^r (1-p)^{k-r}$</li> <li>$r=1$时为几何分布</li> <li>验证分布列和为$1$时，将$p^{-r}$二项式展开为$1-(1-p)$的形式</li> <li>若$X \sim NB(r,p)$，则$X$可表示成$r$个服从$G(p)$的随机变量之和，即第一次出现时的重复次数、第二次出现时的重复次数（从第一次出现之后算起）…</li> </ul> <hr> <h2 id="三连续随机变量">三、连续随机变量</h2> <h3 id="1-分布函数">1. 分布函数</h3> <ul> <li>给定随机变量$X$和实数$x$，随机变量$X$的分布函数定义为$F(x) = P(X \leq x)$</li> <li>有界性：$0 \leq F(x) \leq 1, \lim_{x \to -\infty}F(x) = 0, lim_{x\to +\infty}F(x) = 1$</li> <li>单调性：单调不减</li> <li>右连续：$\forall x_0, F(x_0 + 0) = F(x_0)$，即从右侧接近任何点均不间断 <ul> <li>考虑单点分布$P(X=0) = 1$的分布函数，右连续却不左连续</li> <li>$P(X=a) = F(a)-F(a-0)$</li> <li>$P(a &lt; X \leq b) = F(b) - F(a)$</li> <li>$P(a \leq X \leq b) = F(b) - F(a-0)$</li> <li>$P(X\geq a) = 1-F(a-0)$</li> </ul> </li> </ul> <h3 id="2-概率密度函数">2. 概率密度函数</h3> <ul> <li>对于随机变量$X$，若存在$f(x)$使得$F(x) = \int_{-\infty}^{x} f(t)dt $，则$X$为连续随机变量，$f(x)$为概率密度函数</li> <li>非负性：$f(x)\geq 0$，由分布函数的单调性得出</li> <li>正则性：$\int_{-\infty}^{+\infty}f(t)dt = 1$，由分布函数右极限得出</li> <li>在$F(x)$导数存在的点，有$F’(x)=f(x)$</li> <li>连续随机变量的分布函数$F(X)$一定是连续函数，$X$取任一点的概率均为$0$ <ul> <li>$P(a &lt; X \leq b) = P(a \leq X \leq b) = P(a &lt; X &lt; b) = P(a \leq X &lt; b) = \int_{a}^{b}f(t)dt$</li> </ul> </li> <li>$f(x)$和$F(x)$不一一对应，改变$f(x)$中有限个点不影响积分结果$F(x)$</li> </ul> <h3 id="3-连续随机变量的数学期望">3. 连续随机变量的数学期望</h3> <ul> <li>对于连续随机变量$X$，若$\int_{-\infty}^{+\infty}f(x)\vert x \vert dx &lt; +\infty$，则数学期望为$\int_{-\infty}^{+\infty}f(x)\cdot x\cdot dx$ <ul> <li>如果不满足绝对可积，则以不同速率逼近正负无穷，得到的数学期望不同</li> <li>例题：$f(x) = \frac{1}{\pi}\cdot \frac{1}{1+x^2}$，求数学期望</li> </ul> </li> <li>$E(g(x)) = \int_{-\infty}^{+\infty}f(x)\cdot g(x)\cdot dx$</li> <li>与离散随机变量对比，对于连续随机变量$X$，$P(X\leq E(X))&gt;0$是否依旧成立？ <ul> <li>成立，尽管$P(X&lt; E(X)) = P(X \leq E(X))$，但连续随机变量不能取单点分布$P(X=E(X)) = 1$</li> </ul> </li> </ul> <p><strong>马尔可夫不等式</strong></p> <p>若$X$为非负随机变量，对于$a &gt; 0$，有</p> \[P(X\geq a\cdot E(X)) \leq \frac{1}{a}\] <ul> <li>连续随机变量的证明与离散的情形类似，只需把求和号换成积分号即可，略</li> <li>条件依旧是$X \geq 0,E(X) &gt; 0$</li> </ul> <h3 id="4-连续随机变量的方差">4. 连续随机变量的方差</h3> <ul> <li>方差和标准差的定义与离散的情形相同</li> </ul> <p><strong>切比雪夫不等式</strong></p> <p>若$\sigma(X) &gt; 0 $，对于任意$c &gt; 0$，</p> \[P(\vert X - E(X) \vert \geq c \cdot \sigma(X)) \leq \frac{1}{c^2}\] <ul> <li>与离散的情形相同</li> </ul> <h3 id="5-常用连续分布">5. 常用连续分布</h3> <p><strong>均匀分布$U(a,b)$</strong></p> <ul> <li>令随机变量$X$的取值范围为$(a,b)$，且当$x \in (a, b),f(x) = \frac{1}{b-a}$</li> </ul> \[\begin{align*} E(X) &amp;= \int_{a}^{b}t\cdot \frac{1}{b-a}dt = \frac{b-a}{2}\\ E(X^2) &amp;= \int_{b}^{a}t^2\cdot \frac{1}{b-a}dt = \frac{b^3-a^3}{2(b-a)}\\ Var(X) &amp;= E(X^2) - (E(X))^2 = \frac{(b-a)^2}{12} \end{align*}\] <p><strong>正态分布$N(\mu , \sigma^2)$</strong></p> <ul> <li>$\mu &gt; 0, \sigma &gt; 0$</li> <li>$f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ <ul> <li>对称性：关于$x=\mu$对称</li> <li>最大值：$f(\mu)$</li> <li>正则性：$y = \frac{x-\mu}{\sigma}, \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{-\frac{y^2}{2}}\cdot dy = 1$</li> </ul> </li> <li>一般正态分布与标准正态（高斯）分布的联系 <ul> <li>若$X \sim N(\mu, \sigma^2)$，则$X$的标准化随机变量$U = \frac{X-\mu}{\sigma} \sim N(0,1)$</li> <li>数学期望和方差可由此导出：$E(X) = \mu, Var(X) = \sigma^2$</li> </ul> </li> <li>标准化随机变量：对于任意分布，随机变量$X$的标准化随机变量为$Y=\frac{X-\mu}{\sigma}$ <ul> <li>例题：$X$服从参数为$\frac{1}{2}$的伯努利分布，求标准化随机变量</li> </ul> </li> </ul> \[\begin{align*} \text{对于标准正态分布：}\\ E(X) &amp;= \int_{-\infty}^{+\infty}f(t)\cdot t\cdot dt = 0\\ Var(X) &amp;= E(X^2) \\ &amp;= \int_{-\infty}^{+\infty}f(t)\cdot t^2\cdot dt \\ \text{分部积分：}&amp;= 1 \end{align*}\] <p><strong>指数分布$Exp(\lambda)$</strong></p> <ul> <li>对于$\lambda &gt; 0$</li> <li>$x&gt;0, f(x)=\lambda e^{-\lambda x}$</li> <li>$x\leq 0, f(x)=0$</li> <li>$x \geq 0, F(x) = 1 - e^{-\lambda x}$</li> <li>$x &lt; 0, F(x) = 0$</li> <li>类似几何分布，无记忆性：$P(X &gt; s+t \mid X &gt; s) = P(X &gt; t)$</li> <li>用$N(t)$表示$t$时间内设备故障次数，假设$N(t)$服从参数为$\lambda t$的泊松分布，即$P(N(t)=k)=\frac{(\lambda t)^k}{k!}e^{-\lambda t}$，则第一次发生故障的时间$X$有： <ul> <li>$P(X\leq t) = 1 - P(X &gt; t) = 1 - P(N(t) = 0) = 1 - e^{-\lambda t}$</li> <li>即为指数分布</li> </ul> </li> </ul> \[\begin{align*} E(X) &amp;= \int_{0}^{\infty}f(t)\cdot t\cdot dt = \frac{1}{\lambda}\\ E(X^2) &amp;= \int_{0}^{\infty}f(t)\cdot t^2\cdot dt = \frac{2}{\lambda^2}\\ Var(X) &amp;= E(X^2) - (E(X))^2 = \frac{1}{\lambda^2} \end{align*}\] <ul> <li>用$N(t)$表示$t$时间内设备故障次数，假设$N(t)$服从参数为$\lambda t$的泊松分布，即$P(N(t)=k)=\frac{(\lambda t)^k}{k!}e^{-\lambda t}$，则第$n$次发生故障的时间$X$服从何种分布？</li> <li>$P(X \leq t) = 1 - P(X &gt; t) = 1 - P(N(t) &lt; n) = 1 - \sum_{k=0}^{n-1}\frac{e^{-\lambda t}(\lambda t)^k}{k!}$</li> <li>$F(X) = 1 - \sum_{k=0}^{n-1}\frac{e^{-\lambda t}(\lambda t)^k}{k!}$</li> <li>$f(x) = \frac{x^{n-1}\lambda^n e^{-\lambda x}}{(n-1)!}$</li> </ul> <p><strong>伽玛分布$\Gamma (\alpha, \lambda)$</strong></p> <ul> <li>对于$\alpha &gt; 0$，伽玛函数$\Gamma(\alpha) = \int_{0}^{+\infty} x^{\alpha - 1}e^{-x}dx$ <ul> <li>$\Gamma(1)=1, \Gamma(\frac{1}{2}) = \sqrt{\pi}, \Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)$</li> <li>$n \in \mathbb{N} ,\Gamma (n+1) = n! $</li> <li>$\Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n \cdot n!}\cdot \sqrt{\pi}$</li> </ul> </li> <li>对于$\alpha, \lambda &gt;0$，由上述第$n$次发生故障的时间$X$的概率密度函数定义伽玛分布$\Gamma(\alpha, \lambda)$</li> </ul> \[f(x) = \begin{cases} \frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x} &amp; x \geq 0 \\ 0 &amp; x &lt; 0 \end{cases}\] <ul> <li>验证正则性略</li> </ul> \[\begin{align*} E(X) &amp;= \int_{-\infty}^{+\infty} x \cdot f(x)dx\\ &amp;= \int_{0}{+\infty} \frac{\lambda ^\alpha}{\Gamma (\alpha)}x^\alpha e^{-\lambda x} dx\\ \text{令}y = \lambda x \text{可得：} &amp;= \frac{1}{\lambda}\int_{0}^{+\infty} \frac{y^\alpha e^{-y}}{\Gamma(\alpha)}dy\\ &amp;= \frac{\Gamma (\alpha + 1)}{\Gamma(\alpha) \cdot \lambda} \\ &amp;= \frac{\alpha}{\lambda}\\ \text{同理换元可得：}E(X^2) &amp;= \frac{\alpha (\alpha + 1)}{\lambda^2}\\ Var(X) &amp;= \frac{\alpha (\alpha + 1)}{\lambda^2} - (\frac{\alpha}{\lambda})^2\\ &amp;= \frac{\alpha}{\lambda^2} \end{align*}\] <ul> <li>常用特例： <ul> <li>$\alpha = 1$ <ul> <li>$f(x) = \lambda e^{-\lambda x},x \geq 0$</li> <li>指数分布，期望为$\frac{1}{\lambda}$，方差为$\frac{1}{\lambda^2}$</li> </ul> </li> <li> <p>$\alpha = \frac{n}{2}, \lambda = \frac{1}{2}$</p> <ul> <li>自由度为$n$的$\chi ^2$分布，$\chi ^2 (n)$</li> <li>期望为$n$，方差为$2n$</li> <li>$n = 1, f(x) = \sqrt{\frac{1}{2 \pi x}}\cdot e^{-\frac{x}{2}}$</li> </ul> </li> </ul> </li> </ul> <h3 id="6-连续随机变量函数的分布">6. 连续随机变量函数的分布</h3> <p>给定连续随机变量$X$和函数$g$，求$Y=g(X)$的概率分布函数和概率密度函数</p> <ul> <li>概率可以相加，密度不能直接相加</li> <li>即$f_Y (y) = \sum_{g(x) = y} f_X(x)$不成立 <ul> <li>反例均匀分布变成两倍长度</li> <li>想象拉伸的间隙？</li> <li>故转化为分布函数来计算概率密度函数</li> </ul> </li> <li>设$X$为连续随机变量，若函数$y=g(x)$严格单调，其反函数$h(y)$有连续导数，则$Y=g(X)$的概率密度函数的推导过程如下 <ul> <li>假设$g(x)$严格单调增，则$h(y)$也严格单调增</li> <li>$Y = g(X)$值域为$(\alpha, \beta)$，也是$h(y)$的值域</li> <li>$F_Y (y) = P(Y \leq y) = P(g(X) \leq y) = P(X \leq h(y)) = F_x (h(y))$</li> <li>$f_Y (y) = f_X(h(y)) \cdot h’(y)$</li> <li>$g(x)$严格单调减时同理，综上有：</li> </ul> </li> </ul> \[f_Y(x) = \begin{cases} f_X(h(y)) \cdot \vert h'(y)\vert &amp; y \in (a,b) \\ 0 &amp; otherwise \end{cases}\] <ul> <li>我觉得不用记公式，直接转化为分布函数后求导即可推出</li> </ul> <p><strong>例题：正弦函数</strong></p> <ul> <li>$X$为连续随机变量，且其概率密度函数满足$f_X(x) = \frac{2x}{\pi ^2}, x \in (0,\pi)$，求$Y = sin(X)$的概率密度函数</li> </ul> <h2 id="四多维离散随机变量">四、多维离散随机变量</h2> <h3 id="1-基本概念">1. 基本概念</h3> <ul> <li>联合分布列 <ul> <li>$p_{ij} = P(X = x_i, Y = y_i)$</li> </ul> </li> <li>边际分布列 <ul> <li>$P(X = x_i) = \sum_j P(X = x_i, Y = y_j)$</li> <li>$P(Y = y_j) = \sum_i P(X = x_i, Y = y_j)$</li> </ul> </li> <li>在给定$Y = y_j$条件下$X$的条件分布列 <ul> <li>$p_{i \vert j} = P(X = x_i \vert Y = y_j) = \frac{P(X = x_i, Y = y_j)}{P(Y = y_j)}$</li> </ul> </li> </ul> <h3 id="2-多维随机变量的独立性">2. 多维随机变量的独立性</h3> <p><strong>相互独立的判定与性质</strong></p> <ul> <li>$X,Y$相互独立对于任意的$x,y$均有$P(X = x, Y = y) = P(X = x) \cdot P(Y = y)$ <ul> <li>例题1：随机变量$X$等概率取$\lbrace 1, 2, 3, 4 \rbrace$中的一个，随机变量$Y$等概率取$\lbrace 1, …,X\rbrace $中的一个，判断$X,Y$是否相互独立 <ul> <li>举反例，取到$x,y$使得$P(X=x,Y=y) = P(X+x)\cdot P(Y=y)$不成立即可说明不独立</li> </ul> </li> </ul> </li> <li>$X_1, X_2, …, X_n$相互独立 <ul> <li>对于任意的$x_1, x_2, …, x_n$均有$P(X_1 = x_1, X_2 = x_2, …, X_n = x_n) = P(X_1 = x_1)\cdot P(X_2 = x_2) \cdot … \cdot P(X_n = x_n)$</li> <li>$X_1, X_2, …, X_n$相互独立是否蕴含两两独立？</li> <li>$X_1, X_2, …, X_n$两两独立是否蕴含相互独立？ <ul> <li>相互独立一定两两独立，反正不然</li> <li>考虑事件$A$：两枚骰子点数之和为$9$；$B$：第一枚为偶数；$C$：第二枚为奇数；则$A,B,C$两两独立却不相互独立</li> </ul> </li> </ul> </li> </ul> <p><strong>独立同分布</strong></p> <ul> <li>若$X_1, X_2, …, X_n$相互独立且服从相同的分布，则称为独立同分布</li> <li>经常将服从一个分布的随机变量拆分成多个服从独立同分布的随机变量的和的形式 <ul> <li>$B(n,p),B(1,p)$</li> <li>$NB(r,p),G(p)$</li> </ul> </li> </ul> <p><strong>例题：相互独立</strong></p> <ul> <li>随机变量$X \sim \pi (\lambda)$表示一段时间内进入商店顾客数量。每个顾客购买某商品的概率为$p$，且不同顾客是否购买均独立。</li> <li>随机变量$Y$表示进入商店且购买商品的顾客数量，随机变量$Z$表示进入商店且没有购买商品的顾客数量。</li> <li>判断$Y$与$Z$是否相互独立</li> </ul> <h3 id="3-多维随机变量的特征数">3. 多维随机变量的特征数</h3> <ul> <li> <strong>数学期望的线性性</strong> <ul> <li>$E(X_1 + X_2 + …+ X_n) = E(X_1) + E(X_2) + … +E(X_n)$</li> <li><em>多附了几道题便于理解运用</em></li> <li>例题1：$Y \sim B(n, p)$，求$E(Y), E(Y^2)$ <ul> <li><strong>拆分为独立同分布</strong></li> <li>$Y = X_1 + X_2 + … + X_n, X_i \sim B(1, p)$</li> <li>$E(X_i) = p \Rightarrow E(Y) = np$</li> <li>$E(Y^2) = E((X_1 + X_2 + … + X_n)^2) = \sum_i \sum_j E(X_i X_j)$</li> <li>$E(X_i ^2) = p$</li> <li>$i \neq j, E(X_i X_j) = E(X_i)E(X_j) = p^2$</li> <li>$E(Y^2) = nE(X_i) + n(n-1)E(X_i X_j) = np + n(n-1)p^2$</li> </ul> </li> <li>例题2：$Y \sim NB(r,p)$，求$E(Y)$ <ul> <li>recap负二项分布$NB(r,p)$：伯努利试验中$A$发生$r$次时的重复次数，之前略过了负二项分布的期望与方差计算</li> <li>$Y = X_1 + X_2 + … + X_r, X_i \sim G(p)$</li> <li>$X_1$表示发生第一次时的重复次数</li> <li>$X_2$表示发生第一次后开始算，发生第二次时的重复次数</li> <li>…</li> <li>$E(X_i) = \frac{1}{p} \Rightarrow E(Y) = \frac{r}{p}$</li> </ul> </li> <li>例题3：有$n$个人，其中有$m$对人认识。将每个人等概率地加入第一组或第二组，用随机变量$X$表示属于不同组且认识的人的对数，求$E(X)$ <ul> <li><em>在二、1中做过这道题，当时是用考虑样本点数量的方式</em></li> <li>$X = \sum_{i=1}^m 1_{A_i}$，事件$A_i$表示第$i$对认识的人被分在不同组</li> <li>recap随机变量$1_A$：$A$发生时取$1$，否则取$0$</li> <li>$P(A_i) = \frac{1}{2} \Rightarrow E(1_{A_i}) = \frac{1}{2} \Rightarrow E(X) = \frac{m}{2}$</li> <li><strong>用示性函数将一个随机变量拆成多个事件的概率，分解事件</strong></li> </ul> </li> <li>例题4：有$n$个有编号的球，将它们随机打乱，使得每种排列均等概率出现。令随机变量$X$表示位置没有改变的球的数量，球$E(X)$ <ul> <li>如果直接算期望，要用错排公式</li> <li>$X = \sum_{i=1}^{n} 1_{A_i}$，事件$A_i$表示第$i$个球的位置没有改变</li> <li>$P(A_i) = \frac{1}{n} \Rightarrow E(X) = n \cdot P(A_i) = 1$</li> </ul> </li> <li>例题5：有$n$个有编号的球，有放回地取$m$次。令随机变量$X$表示取到的球中不同编号的数量，求$E(X)$ <ul> <li>$X = \sum_{i=1}^{n} 1_{A_i}$，事件$A_i$表示编号为$i$的球被取到</li> <li>$P(A_i) = 1 - (\frac{n-1}{n})^m \Rightarrow E(X) = n(1 - (1 - \frac{1}{n})^m)$</li> </ul> </li> <li>例题6：有$n$个有编号的球，每次等概率随机取一个，直到所有的球至少被取到过一次。令随机变量$X$表示取球的总次数，求$E(X)$ <ul> <li>随机变量$X_i$表示取到了$i-1$个不同球后开始计，第一次取到第$i$个球的次数，服从几何分布，参数$p_i = \frac{n - (i - 1)}{n}$</li> <li>$X = X_1 + X_2 + … + X_n$</li> <li>$E(X_i) = \frac{1}{p_i} = \frac{n}{n - i + 1}$</li> <li>$E(X) = n(\frac{1}{n} + \frac{1}{n-1} + … + 1) = \Theta (n \log{n})$</li> </ul> </li> </ul> </li> </ul> <p><strong>独立变量的期望与方差性质</strong></p> <ul> <li>既然有$E(X+Y) = E(X) + E(Y)$，是否有$E(XY) = E(X) \cdot E(Y)$？</li> <li> <strong>若离散随机变量$X,Y$相互独立，则有$E(XY) = E(X) \cdot E(Y)$</strong> <ul> <li>根据独立性$P(X=x_i,Y=y_j) = P(X=x_i)P(Y=y_j)$可证</li> <li>逆命题是否成立？不成立</li> <li>推广：若离散随机变量$X_1,X_2,…,X_n$相互独立，则有$E(X_1 X_2 … X_n) = E(X_1)\cdot E(X_2)… E(X_n)$</li> <li>例题：$Y \sim NB(r,p)$，求$E(Y^2),Var(Y)$</li> </ul> </li> </ul> \[\begin{align*} Y &amp;= X_1 + X_2 +... + X_r, X_i \sim G(p)\\ E(Y^2) &amp;= E((X_1 + X_2 + ... + X_r)^2) = \sum_i \sum_j E(X_i X_j)\\ i=j, E((X_i)^2) &amp;= \frac{2-p}{p^2}\text{见之前几何分布中的推导（构造求导）}\\ i \neq j, E(X_i X_j) &amp;= E(X_i)E(X_j) = \frac{1}{p^2}\\ E(Y^2) &amp;= r \cdot \frac{2-p}{p^2} + r(r-1) \cdot \frac{1}{p^2} \\ &amp;= \frac{r^2 + r - pr}{p^2}\\ Var(Y) &amp;= \frac{r(1-p)}{p^2} \end{align*}\] <ul> <li>推论：<strong>若离散随机变量$X,Y$相互独立，则有$Var(X \pm Y) = Var(X)+Var(Y)$</strong> <ul> <li>推广：若离散随机变量$X_1,X_2,…,X_n$相互独立，则有$Var(X_1 \pm X_2 \pm … \pm X_n) = Var(X_1)+Var(X_2) + …+Var(X_n)$</li> <li>例题1：$Y \sim B(n,p)$，求$Var(Y)$ <ul> <li>$Y = X_1 + X_2 + … + X_n, X_i \sim B(1,p)$</li> <li>$Var(x) = p(1-p) \Rightarrow Var(Y) = np(1-p)$</li> </ul> </li> <li>例题2：$Y \sim NB(r,p)$，求$Var(Y)$ <ul> <li>$Y = X_1 + X_2 + … + X_r, X_i \sim G(p)$</li> <li>$Var(X_i) = \frac{1-p}{p^2} \Rightarrow Var(Y) = \frac{r(1-p)}{p^2}$</li> </ul> </li> </ul> </li> </ul> \[\begin{align*} Var(X_1 + X_2 +...+X_n) &amp;= E((X_1 + X_2 + ... + X_n)^2) - (E(X_1 + X_2 + ... + X_n))^2\\ &amp;= E(\sum_i \sum_j X_i X_j) - \sum_i \sum_j E(X_i)E(X_j)\\ &amp;= \sum_i E(X_i^2) + \sum_i \sum_{j\neq i}E(X_i X_j) - \sum_i (E(X_i))^2 - \sum_i \sum_{j\neq i}E(X_i)E(X_j)\\ &amp;= \sum_i Var(X_i) + \sum_i \sum_{j\neq i}(E(X_i X_j) - E(X_i)E(X_j)) \end{align*}\] <ul> <li>显然相互独立时，第二项为$0$</li> <li>考虑不相互独立时，定义<strong>协方差</strong> </li> </ul> \[Cov(X_i, X_j) = E((X_i - E(X_i))(X_j - E(X_j))) = E(X_i X_j) - E(X_i)E(X_j)\] <p><em>协方差基本就用上式计算</em></p> <p><strong>协方差的性质</strong></p> <ul> <li>$X_i = X_j$时，$Cov(X_i , X_i) = Var(X_i)$</li> <li>$X_i,X_j$相互独立时，协方差为$0$</li> <li>$Cov(X, Y) = Cov(Y,X)$</li> <li>$Cov(aX, bY) = ab \cdot Cov(X, Y)$</li> <li>$Cov(X_1 + X_2, Y) = Cov(X_1,Y) + Cov(X_2, Y)$ <ul> <li>$X=Y+Z$，$Y,Z$相互独立时，$Cov(X,Y) = Var(Y) + Cov(Y,Z) = Var(Y)$</li> </ul> </li> </ul> <p><strong>例题：随机图中的协方差</strong></p> <p>随机图模型中，随机变量$X_i$表示第$i$个人认识的人数，求$Cov(X_i,X_j)$</p> <ul> <li>转化成求$E(X_i X_j)$和$E(X_i)$</li> <li>将$X_i$拆成事件$A_{ik}$的示性函数，表示$i,k$是否认识</li> </ul> <p><strong>条件数学期望</strong></p> <ul> <li>$E(X\vert Y=y_j) = \sum_i x_i \cdot P(X=x_i \vert Y=y_j)$</li> <li>$E(X\vert Y = y)$是关于$y$的函数 <ul> <li>将$E(X\vert Y = y)$记为$g(y)$，则$E(X \vert Y) = g(Y)$是一个随机变量，含义为根据$Y$的概率分布，把$E(X\vert Y = y)$作为值</li> </ul> </li> <li>重期望公式：$E(E(X\vert Y)) = E(X)$</li> </ul> \[\begin{align*} E(E(X\vert Y)) &amp;= \sum_j P(Y = y_j)\cdot E(X\vert Y = y_j)\\ E(X\vert Y = y_j) &amp;= \sum_i x_i \cdot P(X = x_i \vert Y = y_j) \\ E(E(X \vert Y)) &amp;= \sum_j \sum_i x_i \cdot P(X = x_i \vert Y = y_j) \cdot P(Y = y_j)\\ &amp; = \sum_j \sum_i x_i \cdot P(X = x_i, Y = y_j)\\ &amp;= \sum_i x_i \cdot P(X = x_i)\\ &amp;= E(X) \end{align*}\] <p><strong>例题：商店</strong></p> <p>随机变量$X \sim \pi (\lambda)$表示一段时间内进入商店的顾客数量。每个顾客购买某商品的概率为$p$，且不同顾客是否购买均独立。随机变量$Y$表示进入商店且购买商品的顾客数量，求$E(Y)$</p> <ul> <li>$E(Y) = E(E(Y \vert X))$</li> <li>$E(Y\vert X = x) = px$</li> <li>$E(Y) = E(pX) = p E(X) = \lambda p$</li> </ul> <p><strong>例题：几何分布</strong></p> <p>随机变量$X \sim G(p)$，证明：$E(X) = p + (1-p)(E(X) + 1)$</p> <ul> <li>待证结论很好理解，分为第一次发生了$A$和第一次没有发生$A$</li> <li>利用几何分布的无记忆性来证明</li> <li>令随机变量$Y = 1_{X=1}$，即第一次发生$A$</li> <li>$E(X \vert Y = 1) = 1$</li> <li>$E(X \vert Y = 0) = E(X \vert X &gt; 1)$</li> <li>无记忆性：$P(X &gt; x+1 \vert X &gt; 1) = P(X &gt; x)$</li> <li>$E(X\vert X &gt; 1) = \sum_{k \geq 0} P(X &gt; k \vert X &gt; 1)= \sum_{k \geq 0} P(X &gt; k-1) = \sum_{k \geq 0} P(X + 1 &gt; k) = E(X+1) = E(X)+1$</li> <li>重期望公式：$E(X) = E(E(X\vert Y)) = P(Y = 1) \cdot 1 + P(Y = 1) \cdot ((E(X) + 1)) = p + (1-p)(E(X) + 1)$</li> </ul> <p>这里用到了<strong>作业三第一题</strong>的结论：</p> <ul> <li>对于离散非负整数随机变量$X$</li> </ul> \[E(X) = \sum_{x=0}^{+\infty} P(X &gt; x)\] <ul> <li>对于连续非负实数随机变量$X$</li> </ul> \[E(X) = \int_{0}^{+\infty} P(X &gt; x)dx\] <ul> <li>也是容易理解的：对于$P(X = k)$，它其实被累加了$k$次，分别在$x = 0,1,…,k-1$时被加，故与数学期望的定义相同</li> </ul> <p><strong>例题：分布数量</strong></p> <p>$X_1, X_2,…$为一列独立同分布的随机变量，随机变量$N$取正整数且与$\lbrace X_n \rbrace$独立，证明：$E(\sum_{i\leq N}X_i) = E(X_1)E(N)$</p> <ul> <li>因为$X_i$累加的数目由$N$决定，很自然想到用$N$作条件</li> </ul> <p><strong>二项分布与泊松分布的加法性质</strong></p> <p>结论：</p> <ul> <li>$X \sim B(n,p), Y \sim B(m,p),X,Y$独立，则$X + Y \sim B(n+m, p)$</li> <li>$X \sim \pi(\lambda_1), Y \sim \pi(\lambda_2),X,Y$独立，则$X+Y \sim \pi(\lambda_1 + \lambda_2)$ <ul> <li>证明暂略</li> <li>可推广至$n$个随机变量</li> </ul> </li> </ul> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM17/">2025spring-代数结构与组合数学-第十七章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw5/">2025spring-数字图像处理-hw5-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw3/">2025spring-数字图像处理-hw3-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM15/">2025spring-代数结构与组合数学-第十五章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Discrete_Maths_final/">2024fall-离散数学基础-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DSA_final/">2024fall-数据结构与算法A-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Probability_cheatsheet/">2024fall-信息学中的概率统计-期末cheatsheet</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_final/">2024fall-信息学中的概率统计-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Discrete_Maths_midterm/">2024fall-离散数学基础-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/DSA5/">2024fall-数据结构与算法A-第五章-二叉树-题解</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yuanyuan Zhao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-2025spring-代数结构与组合数学-第十七章",
+        
+          title: "2025spring-代数结构与组合数学-第十七章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM17/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw5-report",
+        
+          title: "2025spring-数字图像处理-hw5-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw5/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw3-report",
+        
+          title: "2025spring-数字图像处理-hw3-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw3/";
+          
+        },
+      },{id: "post-2025spring-代数结构与组合数学-第十五章",
+        
+          title: "2025spring-代数结构与组合数学-第十五章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM15/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期末复习",
+        
+          title: "2024fall-离散数学基础-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Discrete_Maths_final/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-期末复习",
+        
+          title: "2024fall-数据结构与算法A-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DSA_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末cheatsheet",
+        
+          title: "2024fall-信息学中的概率统计-期末cheatsheet",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Probability_cheatsheet/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末复习",
+        
+          title: "2024fall-信息学中的概率统计-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期中复习",
+        
+          title: "2024fall-信息学中的概率统计-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_midterm/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期中复习",
+        
+          title: "2024fall-离散数学基础-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Discrete_Maths_midterm/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第五章-二叉树-题解",
+        
+          title: "2024fall-数据结构与算法A-第五章-二叉树-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA5/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第三章-栈与队列-题解",
+        
+          title: "2024fall-数据结构与算法A-第三章-栈与队列-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA3/";
+          
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%7A%68%61%6F%79%75%61%6E%79%75%61%6E@%73%74%75.%70%6B%75.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/zyy3077", "_blank");
+        },
+      },{
+        id: 'social-wechat',
+        title: 'Wechat',
+        section: 'Socials',
+        handler: () => {
+          window.open("#wechat", "_blank");
+        },
+      },{
+        id: 'social-homepage',
+        title: 'Homepage',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://zyy3077.github.io", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 2024fall-数据结构与算法A-期末复习 | Yuanyuan Zhao </title> <meta name="author" content="Yuanyuan Zhao"> <meta name="description" content="Yuanyuan Zhao's homepage. "> <meta name="keywords" content="machine-learning-systems, distributed-systems, gpu-kernels, ai-compilers, dsl"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%8C&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://zyy3077.github.io/blog/2025/DSA_final/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Yuanyuan Zhao </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">2024fall-数据结构与算法A-期末复习</h1> <p class="post-meta"> Created on January 03, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/academic"> <i class="fa-solid fa-hashtag fa-sm"></i> academic</a>   <a href="/blog/tag/blog"> <i class="fa-solid fa-hashtag fa-sm"></i> blog</a>   ·   <a href="/blog/category/dsa"> <i class="fa-solid fa-tag fa-sm"></i> DSA</a>   <a href="/blog/category/2024fall"> <i class="fa-solid fa-tag fa-sm"></i> 2024fall</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <script type="text/javascript" src="/assets/js/scripts.js"></script> <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script> <h1 id="期末复习">期末复习</h1> <p><em>范围：第7-12章，具体见考纲。</em></p> <p><em>01-06update:考得好像挺简单的，没有红黑树AVL删除之类的，甚至没有散列计算。</em></p> <hr> <h2 id="第七章-图">第七章 图</h2> <h3 id="1-图的存储方法">1. 图的存储方法</h3> <ul> <li>相邻矩阵</li> <li>邻接表 <ul> <li>顶点结点为$[data \vert firstarc]$，$firstarc$指向第一条以该顶点作为始点的边</li> <li>边结点为$[adjvex \vert nextarc \vert info]$，$adjvex$为这条边的终点，$nextarc$指向下一条以该顶点作为始点的边，$info$一般为边权值</li> <li>适用于稀疏图，一般能把时间复杂度里的$O(n^2)$换成$O(e)$</li> <li>也有逆邻接表，即存储以该顶点为终点的链表</li> </ul> </li> <li>十字链表 <ul> <li>顶点结点为$[data \vert firstoutarc \vert firstinarc]$，后两者分别指向第一条以该顶点作为始点/终点的边</li> <li>边结点为$[tailvex \vert tailnextarc \vert headvex \vert headnextarc \vert info]$</li> </ul> </li> </ul> <h3 id="2-图的算法">2. 图的算法</h3> <ul> <li>周游算法 <ul> <li>深度优先 <ul> <li>一般采用递归实现，对$n$个顶点中的每个顶点至多调用一次DSF()；访问的时间代价为$O(n)$</li> <li>对于相邻矩阵，检查$n^2$个矩阵元素，时间代价为$O(n^2)$；总时间代价为$O(n^2 + n) = O(n^2)$</li> <li>对于邻接表，检查$e$条边，时间代价为$O(e)$；总时间代价为$O(e + n)$</li> </ul> </li> <li>宽度优先 <ul> <li>一般采用优先队列实现</li> <li>时间复杂度与深度优先相同，只是顺序不同</li> </ul> </li> </ul> </li> <li>拓扑排序 <ul> <li>强连通图要注意只有一个结点的平凡情况</li> <li> <em>如果是有向图, 则其任何一个极大强连通子图都无法进行拓扑排序</em>是<strong>假命题</strong> </li> <li>时间复杂度同深搜广搜</li> </ul> </li> <li>最短路径 <ul> <li>Dijkstra算法 <ol> <li>$dis[s]=0 \land \forall u \in V \backslash S , dis[u]=+\infty$</li> <li>从未确定最短路的点集$T$中找到一个结点满足其最短路长度最小</li> <li>将已确定最短路的点集$S$的所有出边进行松弛操作</li> <li>如果 $T\ne \varnothing$，重复2,3操作 <ul> <li>即每次添加已确定集合和未确定集合中距离最小的边，将其终点加入已确定集合，更新未确定集合以它为中间结点更短的路径权值</li> <li>适用于非负边权，否则选出的最小权值的边可能就不是最短路径了，考虑一正一负形成的另一条路径 <ul> <li>不能单纯用$+k$来解决负边权问题，因为这对路径长度大的路径不公平，例如长为$3$的路径就被加上了$3k$</li> </ul> </li> <li>时间复杂度 <ul> <li>稠密图适用朴素算法，即遍历相邻矩阵进行步骤1</li> </ul> </li> </ul> <ul> <li>对于$n$个结点，每次步骤2复杂度为$O(n)$</li> <li>对于$n$个结点，每次步骤3复杂度为$O(adjedge),\sum_{i=1}^{n} adjedge = e$</li> <li>总时间复杂度为$O(n^2 + e) = O(n^2)$ - 稀疏图适用最小堆算法，即取最小堆顶进行步骤1</li> <li>对于$n$个结点，每次步骤2前popMin()，步骤2后insert()与加入点相关的边，复杂度为$O(\log{e} + adjedge\log{e}),\sum_{i=1}^{n} adjedge = e$</li> <li>对于$n$个结点，每次步骤3复杂度为$O(adjedge),\sum_{i=1}^{n} adjedge = e$</li> <li>总时间复杂度为$O(n\log{e} + e\log{e} + e) = O((n+e)\log{e})$ - 切分定理：对于任意分割, 跨分割的最小边一定在最小生成树中 (这导致Dijkstra算法的生成树一定与一个最小生成树有公共边)</li> </ul> </li> </ol> </li> <li>Floyd算法 <ul> <li>三层循环，最外层为中间结点</li> <li>时间复杂度$O(n^3)$</li> </ul> </li> </ul> </li> <li>最小生成树 <ul> <li>Prim算法 <ul> <li>类似Dijkstra算法，但步骤3中的松弛操作改为单纯的加入新加点的相邻边</li> <li>时间复杂度与Dijkstra一样</li> <li>适用于稠密图</li> </ul> </li> <li>Kruskal算法 <ul> <li>每次添加不构成环的最小边权的边</li> <li>用最小堆存储边权值</li> <li>时间复杂度为$O(e\log{e})$，每次添加边对堆的pop操作复杂度为$\log{e}$，尝试添加边的次数为$O(e)$</li> <li>适用于稀疏图</li> </ul> </li> </ul> </li> </ul> <hr> <h2 id="第八章-内排序">第八章 内排序</h2> <h3 id="1-直接插入排序">1. 直接插入排序</h3> <ul> <li>主要思想：对每一个新加入的元素，在已排序序列中找到第一个不大于这个元素的元素，插入到这个位置之后（后面那些大于的，后移一个索引）</li> <li>空间复杂度：只需要用一个临时变量存储当前插入的元素即可，$O(1)$</li> <li>时间复杂度：对第$i(i=0,1,…,n-1)$个插入的元素（也就是$a[i]$，因为$a[0]$不用插入） <ul> <li>最差情况下（逆序）需要比较$i(i=0,1,…,n-1)$次；数组内元素也要移动i次，加上当前元素保存在临时变量中的2次移动，移动次数共i+2次 <ul> <li>总比较次数$T = \sum_{i=1}^{n-1} i = \frac{n(n-1)}{2} = O(n^2)$</li> <li>总移动次数$T = \sum_{i=1}^{n-1} (i+2) = \frac{(n+4)(n-1)}{2} = O(n^2)$</li> <li>总时间复杂度为$O(n^2)$</li> </ul> </li> <li>最好情况下（正序），比较$1$次，移动$2$次 <ul> <li>总时间复杂度为$O(n)$</li> </ul> </li> <li>平均情况下为$O(n^2)$</li> </ul> </li> <li>稳定性：因为比较的时候带等号，故保持原有顺序，<strong>具有稳定性</strong> </li> </ul> <h3 id="2-shell排序">2. Shell排序</h3> <ul> <li>主要思想：先按较大间隔分为多个子序列，在子序列内部进行直接插入排序，逐渐减小间距直到1。这样能减小逆置对个数，从而减小时间复杂度</li> <li>时间复杂度 <ul> <li>较好的增量序列可以使时间复杂度减小到$O(n^{3/2})$</li> <li>但达不到$O(n\log{n})$</li> </ul> </li> <li>稳定性：因为子序列中的移动跨越其他元素，故<strong>不具有稳定性</strong> </li> </ul> <h3 id="3-直接选择排序">3. 直接选择排序</h3> <ul> <li>主要思想：在未排序的序列中找到最小的元素，与已排序序列之后的元素交换</li> <li>时间复杂度：第$i(i=0,1,…,n-1)$次选择，即选择最小元素与$a[i-1]$交换，从$a[i]~a[n-1]$共$n-i$次比较，$1$次交换 <ul> <li>总比较次数为$T = \sum_{i=1}^{n-1} (n-i) = \frac{n(n-1)}{2} = O(n^2)$</li> <li>总交换次数为$T = n-1 = O(n)$</li> <li>直接选择排序不依赖于原始数组的输入顺序，故最差/最好/平均时间复杂度均为$O(n^2)$</li> </ul> </li> <li>稳定性：由于交换时可能把原先的先后次序颠倒，故<strong>不具有稳定性</strong> </li> </ul> <h3 id="4-堆排序">4. 堆排序</h3> <ul> <li>主要思想：利用堆来utilize上一次选择留下的大小信息，下面基于最大堆 <ul> <li>建立最大堆</li> <li>取出堆顶元素与数组末端元素交换，进行下滤操作，直到堆为空</li> </ul> </li> <li>时间复杂度 <ul> <li>建堆时间代价为$O(n)$</li> <li>下滤操作时间代价为$O(\log{n})$</li> <li>总时间代价为$O(n+n\log{n}) = O(n\log{n})$</li> <li>理论上最好/最差/平均时间复杂度均为$O(n\log{n})$</li> </ul> </li> <li>空间复杂度：一个临时变量，$O(1)$</li> <li>稳定性：交换末端元素可能改变原有先后次序，故<strong>不具有稳定性</strong> </li> </ul> <h3 id="5-冒泡排序">5. 冒泡排序</h3> <ul> <li>主要思想：不停地比较相邻元素，后者比前者小则向前冒泡，总能把最小的元素换到最前面；一次完整的冒泡中若没有交换，则提前终止</li> <li>时间复杂度 <ul> <li>最差情况下（逆序），第$i(i=0,1,…,n-1)$次冒泡（最后与$a[i-1]$比较）的比较次数为$n-i$次，交换次数为比较次数 <ul> <li>总交换次数/总比较次数为$T = \sum_{i=1}^{n-1} (n-i) = \frac{n(n-1)}{2} = O(n^2)$</li> </ul> </li> <li>最好情况下（正序），一次完整冒泡后发现没有交换，提前终止 <ul> <li>总比较次数为$n-1=O(n)$，交换次数为$O(1)$</li> </ul> </li> </ul> </li> <li>空间复杂度：使用了一个临时变量，$O(1)$</li> <li>稳定性：由于只交换相邻元素，而且交换是不带等号的，故不会改变原有的次序，<strong>具有稳定性</strong> </li> </ul> <h3 id="6-快速排序">6. 快速排序</h3> <ul> <li>主要思想 <ul> <li>选择一个轴值 <ul> <li>如何选择轴值？最差的情况是选择了最大或最小的元素，可以选取中间点</li> </ul> </li> <li>将剩余序列分割成做子序列和右子序列，左子序列都不大于轴值，右子序列都大于轴值 <ul> <li>分割方法一：左右分别一个指针，左指针越过小于等于轴值的元素，右指针越过大于等于轴值的元素，分别停在两个元素上，交换；直到左右指针交叉</li> <li>改进的分割方法：从序列两端交替检查空闲位置 <ul> <li>分割前，先将轴值与最后一个元素交换，因为轴值保存在临时变量里，故最后一个位置是空闲位置，即右指针指向空闲位置</li> <li>左指针向右走，遇到元素值比右指针指向值大的，将左指针的元素值赋给右指针，此时左指针变为空闲位置</li> <li>右指针往左走，遇到元素值比左指针指向值小的，将右指针的元素值赋给左指针，此时右指针变为空闲位置</li> <li>重复直到左右指针交叉，最后停在的空闲位置放置轴值</li> </ul> </li> </ul> </li> <li>对左子序列和右子序列快排，直到剩0或1个元素</li> </ul> </li> <li>时间复杂度：由于比较次数比移动次数多得多，所以考虑比较次数，分割时的比较次数显然为$O(n)$ <ul> <li>$T(n)=T(n-1)+c\cdot n,T(0)=T(1)=O(1)$</li> <li>最差情况下，分割的两部分分别长为$n-1,1$ <ul> <li>$T(n) = T(1)+c\sum_{i=2}^{n}i = O(n^2)$</li> </ul> </li> <li>最好情况下，两个子序列等长 <ul> <li>$T(n) = 2T(n/2) + c\cdot n$</li> <li>$T(n) = cn\log{n} + n = O(n\log{n})$</li> </ul> </li> <li>平均情况下，总次数/总情况数，$T(n) = O(n\log{n})$</li> </ul> </li> <li>空间复杂度：递归算法，每次分割需要用到栈中的一个空间，最差为$O(n)$ ，最好为$O(\log{n})$，平均为$O(\log{n})$</li> <li>稳定性：因为分割存在的指针交换跨越多个元素，可能改变原有次序，故<strong>不具有稳定性</strong> </li> </ul> <h3 id="7-归并排序">7. 归并排序</h3> <ul> <li>主要思想：将序列划分为两个子序列，分别递归进行归并排序，将这两个排好序的子序列归并为一个有序序列 <ul> <li>归并：每次比较子序列头，取较小的进入结果序列，其后的元素顶上来成为新的子序列头；直到其中一个子序列为空，另一个子序列的元素直接进入结果序列</li> </ul> </li> <li>时间复杂度 <ul> <li>划分子序列的时间$O(1)$</li> <li>子序列排序的时间$T(n/2)$</li> <li>归并时间$O(n)$</li> <li>$T(n) = T(n/2) + c\cdot n \Rightarrow T(n) = O(n\log{n})$</li> </ul> </li> <li>空间复杂度：归并时需要一个临时数组来从排好序的子序列中取出头部，$O(n)$</li> <li>稳定性：因为在归并时若元素值相同，按原有次序进入结果队列，故<strong>具有稳定性</strong> </li> </ul> <h3 id="8-桶式排序">8. 桶式排序</h3> <ul> <li>主要思想：当事先已经知道长为$n$的数组中元素值都在$[0,m-1]$中时 <ul> <li>count数组记录每个元素出现的次数</li> <li>count[i] = count[i-1] + count[i]，记录不超过i的元素个数</li> <li>将TempArray[i]放到Array[count[TempArray[i] - 1]]，并将count[TempArray[i]]–</li> </ul> </li> <li>时间复杂度 <ul> <li>上述每一步为$O(n)$或$O(m)$</li> <li>总时间复杂度为$O(n+m)$</li> </ul> </li> <li>空间复杂度 <ul> <li>TempArray为$O(n)$</li> <li>count为$O(m)$</li> <li>总空间复杂度为$O(n+m)$</li> </ul> </li> <li>稳定性：从后向前放置元素，保持原有先后次序，故<strong>具有稳定性</strong> </li> </ul> <h3 id="9-基数排序">9. 基数排序</h3> <ul> <li>主要思想：桶式排序的$m$较大时，分为多个部分进行比较 <ul> <li>高位优先 <ul> <li>先按十位分到10个桶，再将每个桶按个位分为10个小桶</li> <li>将100个桶里的元素按顺序收集起来</li> </ul> </li> <li>低位优先 <ul> <li>先按个位分到10个桶，按顺序收集起来</li> <li>再按十位分到10个桶，按顺序收集起来</li> </ul> </li> <li>这里的分配和收集指的是： <ul> <li>按count分配桶</li> <li>按桶的顺序和桶内元素的顺序收集</li> </ul> </li> </ul> </li> <li>时间复杂度 <ul> <li>顺序存储 <ul> <li>$d$次调用桶式排序，时间代价为$O(d(n+r))$</li> </ul> </li> <li>静态链：只修改指针，最后做一次索引排序$O(n)$ <ul> <li>分配和收集只需要求改记录的next指针</li> <li>处理一位时，分配时间$O(n)$，收集时间$O(n+r)$</li> <li>总时间代价$O(d(n+r)) = O(d\cdot n), d\geq \log_{r}{n} \Rightarrow T(n) = O(n\log{n})$</li> </ul> </li> </ul> </li> <li>空间复杂度 <ul> <li>顺序存储 <ul> <li>每次分配和收集各移动$n$次</li> <li>每个队列也要按$n$分配空间</li> </ul> </li> <li>静态链 <ul> <li>$n$个待排记录和$r$个桶的头尾指针，$O(n+r)$</li> </ul> </li> </ul> </li> <li>稳定性：类似桶式排序，<strong>具有稳定性</strong> </li> </ul> <hr> <h2 id="第九章-外排序">第九章 外排序</h2> <p>好像写不完了，那就算了，可能寒假补上也可能会忘。真是拖拖又延延啊。</p> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM17/">2025spring-代数结构与组合数学-第十七章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw5/">2025spring-数字图像处理-hw5-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw3/">2025spring-数字图像处理-hw3-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM15/">2025spring-代数结构与组合数学-第十五章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Discrete_Maths_final/">2024fall-离散数学基础-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Probability_cheatsheet/">2024fall-信息学中的概率统计-期末cheatsheet</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_final/">2024fall-信息学中的概率统计-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_midterm/">2024fall-信息学中的概率统计-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Discrete_Maths_midterm/">2024fall-离散数学基础-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/DSA5/">2024fall-数据结构与算法A-第五章-二叉树-题解</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yuanyuan Zhao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-2025spring-代数结构与组合数学-第十七章",
+        
+          title: "2025spring-代数结构与组合数学-第十七章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM17/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw5-report",
+        
+          title: "2025spring-数字图像处理-hw5-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw5/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw3-report",
+        
+          title: "2025spring-数字图像处理-hw3-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw3/";
+          
+        },
+      },{id: "post-2025spring-代数结构与组合数学-第十五章",
+        
+          title: "2025spring-代数结构与组合数学-第十五章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM15/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期末复习",
+        
+          title: "2024fall-离散数学基础-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Discrete_Maths_final/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-期末复习",
+        
+          title: "2024fall-数据结构与算法A-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DSA_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末cheatsheet",
+        
+          title: "2024fall-信息学中的概率统计-期末cheatsheet",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Probability_cheatsheet/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末复习",
+        
+          title: "2024fall-信息学中的概率统计-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期中复习",
+        
+          title: "2024fall-信息学中的概率统计-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_midterm/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期中复习",
+        
+          title: "2024fall-离散数学基础-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Discrete_Maths_midterm/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第五章-二叉树-题解",
+        
+          title: "2024fall-数据结构与算法A-第五章-二叉树-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA5/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第三章-栈与队列-题解",
+        
+          title: "2024fall-数据结构与算法A-第三章-栈与队列-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA3/";
+          
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%7A%68%61%6F%79%75%61%6E%79%75%61%6E@%73%74%75.%70%6B%75.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/zyy3077", "_blank");
+        },
+      },{
+        id: 'social-wechat',
+        title: 'Wechat',
+        section: 'Socials',
+        handler: () => {
+          window.open("#wechat", "_blank");
+        },
+      },{
+        id: 'social-homepage',
+        title: 'Homepage',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://zyy3077.github.io", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

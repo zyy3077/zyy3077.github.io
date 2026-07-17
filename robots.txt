@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://zyy3077.github.io/sitemap.xml

@@ -1,0 +1,220 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 2025spring-代数结构与组合数学-第十五章 | Yuanyuan Zhao </title> <meta name="author" content="Yuanyuan Zhao"> <meta name="description" content="Yuanyuan Zhao's homepage. "> <meta name="keywords" content="machine-learning-systems, distributed-systems, gpu-kernels, ai-compilers, dsl"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%99%8C&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://zyy3077.github.io/blog/2025/ASCM15/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Yuanyuan Zhao </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">2025spring-代数结构与组合数学-第十五章</h1> <p class="post-meta"> Created on February 28, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/academic"> <i class="fa-solid fa-hashtag fa-sm"></i> academic</a>   <a href="/blog/tag/blog"> <i class="fa-solid fa-hashtag fa-sm"></i> blog</a>   ·   <a href="/blog/category/ascm"> <i class="fa-solid fa-tag fa-sm"></i> ASCM</a>   <a href="/blog/category/2025spring"> <i class="fa-solid fa-tag fa-sm"></i> 2025spring</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <script type="text/javascript" src="/assets/js/scripts.js"></script> <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script> <h2 id="代数系统子系统和积代数">代数系统、子系统和积代数</h2> <ul> <li> <strong>代数系统</strong>$V=\langle A, \Omega, K\rangle$ <ul> <li>$A$：非空对象集合（载体），$\Omega$：非空运算集合，$K$：代数常数集合</li> <li>代数常数可以看作一种0元运算</li> <li>$\langle \mathbb{N}, +, 0\rangle,\langle \mathbb{N}, +\rangle, \langle \mathbb{N}\rangle$</li> </ul> </li> <li> <strong>字代数</strong>$\langle \Sigma^{ * },\circ, ‘, \land\rangle$ <ul> <li>$\Sigma^{*}$：有穷字母表$\Sigma$上所有串的集合</li> <li>$\circ$：二元连接运算，$’$：一元求逆运算，$\land$：空串</li> </ul> </li> <li> <strong>语言代数</strong>$\langle P(\Sigma^{*}), \cup, \cap, \cdot, \vartriangle\rangle$ <ul> <li>$P(\Sigma^{ * })$：所有语言的集合（语言：所有串集合$\Sigma^{ * }$的子集）</li> <li>$\cdot$：两个语言的连接，没有交换律，$L_1 \cdot L_2 = \lbrace w_1 \circ w_2 \vert w_1 \in L_1, w_2 \in L_2\rbrace$</li> <li>$\vartriangle$：语言的逆运算，$\vartriangle L=\lbrace w’ \vert w \in L\rbrace$</li> </ul> </li> <li> <strong>同类型</strong>的代数系统：运算数量相同，且对应运算具有相同的<strong>元数</strong> </li> <li> <strong>同种</strong>的代数系统：对应运算具有共同的<strong>运算性质</strong> </li> <li> <strong>子代数</strong>：对象集合为原代数系统的子集，对原代数系统中的所有运算<strong>封闭</strong> <ul> <li>真子代数：真子集</li> <li>平凡子代数：对象集合所有代数常数的集合，和原代数系统自身</li> <li>把代数常数看作一种0元运算，对该运算封闭等价于<strong>包含代数常数</strong> </li> </ul> </li> <li> <strong>积代数</strong>$V_1 \times V_2=\langle A\times B, o_1, o_2,…,o_r\rangle$ <ul> <li>对于<strong>同类型</strong>代数系统$V_1, V_2$，对象集合为二者对象集合的笛卡尔积</li> <li>运算为原本二者的对应运算分别作用，得到的结果的笛卡尔积</li> <li>与因子代数系统<strong>同类型</strong> </li> <li>保留<strong>交换律、结合律、分配律、吸收律</strong> </li> <li>因子代数系统中的<strong>单位元/零元/幂等元/可逆元素及其逆元</strong>的笛卡尔积是积代数的单位元/零元/幂等元/可逆元素及其逆元</li> <li> <strong>不保留消去律</strong> <ul> <li>若因子代数系统不含有消去律，则积代数与其<strong>同种</strong>，否则不保证</li> <li>本质是因为积代数的零元为$\langle \theta_1,\theta_2\rangle$</li> <li>而$\forall \lambda_1,\lambda_2,\langle \theta_1, \lambda_1\rangle \cdot \langle \lambda_2, \theta_2\rangle = \langle \theta_1, \theta_2\rangle$</li> <li>显然左边不能消去</li> </ul> </li> <li>推广到有限$n$元积代数上述性质依旧成立</li> <li><strong>直积分解是研究代数结构的有效手段</strong></li> <li><strong>笛卡儿积是构造同种离散结构的有效手段</strong></li> </ul> </li> <li> <strong>同态（同态映射）</strong> <ul> <li>以二元运算为例：$V_1=\langle A, \circ\rangle,V_2=\langle B,*\rangle$是<strong>同类型</strong>的代数系统，$\phi:A\rightarrow B,\forall x,y\in A,\phi(x\circ y)=\phi(x) * \phi(y)$，$\phi$为<strong>同态映射</strong> </li> <li>对于<strong>所有运算</strong>（包括0元运算），对一个代数系统的运算结果的同态映射结果等于对另一个代数系统的运算对象的同态映射结果的运算结果（<strong>先运算再映射=先映射再运算</strong>）</li> <li>$\langle \mathbb{Z}, +\rangle, \langle \mathbb{Z}_n, \oplus\rangle,\phi(x)=x\mod n$</li> <li>按映射分类：满同态$\sim$、单同态、同构（双射）$\cong$、零同态（$\phi=0$）</li> <li>按载体分类：自同态</li> <li>例如：$\langle \Sigma^{ * },\circ, \land\rangle, \langle \mathbb{Z}, +, 0\rangle, \phi(w)=\vert w\vert, \forall w \in \Sigma^{ * }$为满同态，字母表只有一个字母时为同构</li> <li>$\langle \mathbb{Z}_n, \oplus\rangle$恰好存在$n$个自同态$\phi(x)=px \mod n, p = 0,1,…,n-1$（$p$取$n$和$0$时$\phi$相同）</li> <li> <strong>同态像</strong>：在$V_1,V_2$同态的基础上，$\phi(A)$关于$B$中的所有运算构成代数系统（封闭），是$V_2$的子代数，称为$V_1$在$\phi$下的同态像 <img src="https://s21.ax1x.com/2025/03/02/pEGS48e.jpg" alt="pEGS48e.jpg" border="0" width="100%" display="block"> </li> </ul> </li> <li> <strong>置换性质</strong>：一个<strong>等价关系</strong>，在运算前后保持等价性，则该等价关系对于该运算具有置换性质</li> </ul> \[a_j \sim b_j \Rightarrow o_i(a_1,...,a_{k_i})\sim o_i(b_1,...,b_{k_i})\] <ul> <li> <strong>同余关系</strong>：对于一个代数系统中的所有运算都具有<strong>置换性质</strong>的<strong>等价关系</strong> <ul> <li>判断同余关系一定要先判断是否为等价关系，再验证是否对运算保持等价性</li> </ul> </li> <li> <p><strong>商代数</strong>$V/\sim = \langle A/\sim , \bar{o_1},\bar{o_2},…,\bar{o_r}\rangle$</p> \[\bar{o_i}([a_1],[a_2],...,[a_{k_i}])=[o_i(a_1,a_2,...,a_{k_i})]\] <ul> <li>等价类的运算结果等于运算结果的等价类</li> <li>与原代数系统是同类型的</li> <li>保留<strong>交换律、结合律、分配律、吸收律</strong> </li> <li>保留<strong>单位元/零元/幂等元/可逆元素及其逆元</strong>，逆元的等价类=等价类的逆元</li> <li> <strong>不保留消去律</strong>，因为等价关系不是一一对应的 <ul> <li>$[0]\otimes_4 [2] = [2]\otimes_4 [2]$，等价关系使得$[0]=[4]$</li> </ul> </li> </ul> </li> <li> <strong>同态映射导出同余关系</strong> <ul> <li>$\phi:A\rightarrow B$是$V_1$到$V_2$的同态映射，由此导出的$A$上的等价关系$\sim$是$V_1$上的同余关系</li> <li>即$\phi(a_i)=\phi(b_i)\Leftrightarrow a_i \sim b_i$且$\phi(o_i(a_1,…,a_{k_i}))=o_i(\phi(a_1),…,\phi(a_{k_i}))$，则$o_i(a_1,…,a_{k_i})\sim o_i(b_1,…,b_{k_i})$</li> <li>同态：先运算再映射=先映射再运算</li> <li>同余关系（置换性质）：先等价再运算=先运算再等价</li> <li>同态导出的等价关系：先映射再运算的结果相等$\Rightarrow$先运算再映射的结果相等$\Rightarrow$先运算再等价</li> <li>每个同态都可以导出一个同余关系，但不是所有同余关系都可以由同态导出</li> </ul> </li> <li> <strong>商代数是原代数的同态像</strong> <ul> <li>由同余关系$\sim$决定的<strong>自然映射</strong>$g:A\rightarrow A/\sim,g(a)=[a],\forall a \in A$是从$V$到$V/\sim$的同态映射</li> <li>基于一个同余关系的自然映射把原代数系统映射到商代数</li> </ul> </li> <li> <strong>同态基本定理</strong>：代数系统在给定同态映射下的<strong>同态像</strong>，<strong>同构</strong>于该同态导出的同余关系下的<strong>商代数</strong> <ul> <li>$\phi:A\rightarrow B$是$V_1$到$V_2$的同态</li> <li>$\sim$是$\phi$导出的$V_1$上的同余关系</li> <li>则$V_1/\sim \cong \langle \phi(A), o’_1,…,o’_r\rangle$</li> <li>证明：构造同态双射$h:A/\sim \rightarrow \phi(A), h([a])=\phi(a),\forall [a]\in A/\sim$</li> <li>在自然映射下商代数就是原代数的同态像</li> <li>任何代数系统的<strong>商代数</strong>与<strong>同态像</strong>在同构意义下相等</li> </ul> </li> </ul> <h2 id="appendix">Appendix</h2> <ul> <li> <a href="https://www.doc88.com/p-1498083213133.html?r=1" rel="external nofollow noopener" target="_blank">习题解析</a>Page107</li> </ul> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/ASCM17/">2025spring-代数结构与组合数学-第十七章</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw5/">2025spring-数字图像处理-hw5-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DIP_hw3/">2025spring-数字图像处理-hw3-Report</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Discrete_Maths_final/">2024fall-离散数学基础-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/DSA_final/">2024fall-数据结构与算法A-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2025/Probability_cheatsheet/">2024fall-信息学中的概率统计-期末cheatsheet</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_final/">2024fall-信息学中的概率统计-期末复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Probability_midterm/">2024fall-信息学中的概率统计-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/Discrete_Maths_midterm/">2024fall-离散数学基础-期中复习</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2024/DSA5/">2024fall-数据结构与算法A-第五章-二叉树-题解</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yuanyuan Zhao. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-2025spring-代数结构与组合数学-第十七章",
+        
+          title: "2025spring-代数结构与组合数学-第十七章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM17/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw5-report",
+        
+          title: "2025spring-数字图像处理-hw5-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw5/";
+          
+        },
+      },{id: "post-2025spring-数字图像处理-hw3-report",
+        
+          title: "2025spring-数字图像处理-hw3-Report",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DIP_hw3/";
+          
+        },
+      },{id: "post-2025spring-代数结构与组合数学-第十五章",
+        
+          title: "2025spring-代数结构与组合数学-第十五章",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/ASCM15/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期末复习",
+        
+          title: "2024fall-离散数学基础-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Discrete_Maths_final/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-期末复习",
+        
+          title: "2024fall-数据结构与算法A-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/DSA_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末cheatsheet",
+        
+          title: "2024fall-信息学中的概率统计-期末cheatsheet",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Probability_cheatsheet/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期末复习",
+        
+          title: "2024fall-信息学中的概率统计-期末复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_final/";
+          
+        },
+      },{id: "post-2024fall-信息学中的概率统计-期中复习",
+        
+          title: "2024fall-信息学中的概率统计-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Probability_midterm/";
+          
+        },
+      },{id: "post-2024fall-离散数学基础-期中复习",
+        
+          title: "2024fall-离散数学基础-期中复习",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/Discrete_Maths_midterm/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第五章-二叉树-题解",
+        
+          title: "2024fall-数据结构与算法A-第五章-二叉树-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA5/";
+          
+        },
+      },{id: "post-2024fall-数据结构与算法a-第三章-栈与队列-题解",
+        
+          title: "2024fall-数据结构与算法A-第三章-栈与队列-题解",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/DSA3/";
+          
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%7A%68%61%6F%79%75%61%6E%79%75%61%6E@%73%74%75.%70%6B%75.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/zyy3077", "_blank");
+        },
+      },{
+        id: 'social-wechat',
+        title: 'Wechat',
+        section: 'Socials',
+        handler: () => {
+          window.open("#wechat", "_blank");
+        },
+      },{
+        id: 'social-homepage',
+        title: 'Homepage',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://zyy3077.github.io", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
